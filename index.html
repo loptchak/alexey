@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Репетитор иностранных языков | Английский, Французский, Финский</title>
+    <style>
+        :root {
+            --color-primary: #2d8a8e;
+            --color-primary-hover: #1d6e72;
+            --color-accent: #e67e22;
+            --color-text: #2c3e50;
+            --color-text-light: #7f8c8d;
+            --color-bg: #ecf0f1;
+            --color-white: #ffffff;
+            --color-success: #27ae60;
+            --color-shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--color-text);
+            line-height: 1.6;
+            background-color: var(--color-bg);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #1d6e72 100%);
+            color: var(--color-white);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px var(--color-shadow);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--color-white);
+            text-decoration: none;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--color-white);
+            border: 2px solid transparent;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .lang-btn.active {
+            background: var(--color-accent);
+            border-color: var(--color-white);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #1d6e72 100%);
+            color: var(--color-white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--color-accent);
+            color: var(--color-white);
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #d35400;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 20px;
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--color-primary);
+        }
+
+        .languages {
+            background: var(--color-white);
+        }
+
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .lang-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, var(--color-white) 100%);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px var(--color-shadow);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--color-primary);
+        }
+
+        .lang-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px var(--color-shadow);
+        }
+
+        .lang-icon {
+            font-size: 56px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .lang-flag {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .lang-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--color-primary);
+        }
+
+        .lang-card p {
+            color: var(--color-text-light);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .about {
+            background: linear-gradient(135deg, #f8f9fa 0%, var(--color-white) 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--color-primary);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--color-text-light);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .experience-badge {
+            background: var(--color-primary);
+            color: var(--color-white);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .experience-badge .number {
+            font-size: 48px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .pricing {
+            background: var(--color-white);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, var(--color-white) 100%);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--color-shadow);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card.popular {
+            border-color: var(--color-accent);
+            transform: scale(1.05);
+        }
+
+        .pricing-card h3 {
+            font-size: 22px;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--color-accent);
+            margin-bottom: 10px;
+        }
+
+        .price-description {
+            color: var(--color-text-light);
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            color: var(--color-text-light);
+            border-bottom: 1px solid #ecf0f1;
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+        }
+
+        .pricing-features li:before {
+            content: "✓";
+            color: var(--color-success);
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .crypto-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--color-white);
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .crypto-section h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .crypto-methods {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .crypto-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 6px;
+            backdrop-filter: blur(10px);
+        }
+
+        .why-me {
+            background: linear-gradient(135deg, #f8f9fa 0%, var(--color-white) 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+            background: var(--color-white);
+            border-radius: 12px;
+            box-shadow: 0 2px 10px var(--color-shadow);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature-item h3 {
+            font-size: 20px;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+
+        .feature-item p {
+            color: var(--color-text-light);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .contacts {
+            background: var(--color-white);
+        }
+
+        .contacts-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-item h3 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .contact-item p {
+            color: var(--color-text-light);
+            margin-bottom: 10px;
+        }
+
+        .contact-item a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--color-accent);
+        }
+
+        footer {
+            background: var(--color-primary);
+            color: var(--color-white);
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        .testimonials {
+            background: var(--color-white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial {
+            background: linear-gradient(135deg, #f8f9fa 0%, var(--color-white) 100%);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px var(--color-shadow);
+            border-left: 4px solid var(--color-accent);
+        }
+
+        .testimonial-rating {
+            color: #f39c12;
+            font-size: 16px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial p {
+            color: var(--color-text-light);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        @media (max-width: 430px) {
+            html {
+                font-size: 13px;
+            }
+
+            body {
+                overflow-x: hidden;
+            }
+
+            header {
+                padding: 12px 0;
+            }
+
+            nav {
+                padding: 0 12px;
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            nav ul {
+                gap: 8px;
+                font-size: 12px;
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .lang-switcher {
+                gap: 6px;
+            }
+
+            .lang-btn {
+                padding: 4px 8px;
+                font-size: 11px;
+            }
+
+            .hero {
+                padding: 50px 16px;
+            }
+
+            h1 {
+                font-size: 24px;
+                margin-bottom: 12px;
+            }
+
+            .hero p {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+
+            .cta-button {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+
+            section {
+                padding: 40px 16px;
+            }
+
+            h2 {
+                font-size: 22px;
+                margin-bottom: 24px;
+            }
+
+            .lang-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .lang-card {
+                padding: 24px 16px;
+            }
+
+            .lang-flag {
+                height: 80px;
+            }
+
+            .lang-icon {
+                font-size: 40px;
+            }
+
+            .lang-card h3 {
+                font-size: 18px;
+            }
+
+            .lang-card p {
+                font-size: 14px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .about-text h3 {
+                font-size: 20px;
+            }
+
+            .about-text p {
+                font-size: 14px;
+            }
+
+            .experience-badge {
+                padding: 20px;
+                font-size: 14px;
+            }
+
+            .experience-badge .number {
+                font-size: 36px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .pricing-card {
+                padding: 28px 16px;
+            }
+
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+
+            .pricing-card h3 {
+                font-size: 18px;
+            }
+
+            .price {
+                font-size: 28px;
+            }
+
+            .pricing-features li {
+                font-size: 13px;
+            }
+
+            .crypto-section {
+                padding: 20px;
+                margin-top: 16px;
+            }
+
+            .crypto-section h4 {
+                font-size: 16px;
+            }
+
+            .crypto-methods {
+                gap: 10px;
+            }
+
+            .crypto-badge {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .feature-item {
+                padding: 20px 16px;
+            }
+
+            .feature-icon {
+                font-size: 36px;
+            }
+
+            .feature-item h3 {
+                font-size: 16px;
+            }
+
+            .feature-item p {
+                font-size: 13px;
+            }
+
+            .contacts-content {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .contact-item h3 {
+                font-size: 16px;
+            }
+
+            .contact-item p {
+                font-size: 13px;
+            }
+
+            footer {
+                padding: 20px 16px;
+            }
+
+            footer p {
+                font-size: 12px;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav ul {
+                gap: 12px;
+            }
+
+            section {
+                padding: 45px 18px;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+        }
+
+        @media (min-width: 431px) and (max-width: 820px) {
+            html {
+                font-size: 14px;
+            }
+
+            body {
+                overflow-x: hidden;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            nav ul {
+                gap: 20px;
+                font-size: 13px;
+            }
+
+            .lang-switcher {
+                gap: 8px;
+            }
+
+            .lang-btn {
+                padding: 6px 10px;
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 70px 24px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .cta-button {
+                padding: 14px 32px;
+                font-size: 16px;
+            }
+
+            section {
+                padding: 50px 24px;
+            }
+
+            h2 {
+                font-size: 30px;
+                margin-bottom: 32px;
+            }
+
+            .lang-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .lang-card {
+                padding: 32px 24px;
+            }
+
+            .lang-flag {
+                height: 100px;
+            }
+
+            .lang-icon {
+                font-size: 48px;
+            }
+
+            .lang-card h3 {
+                font-size: 20px;
+            }
+
+            .lang-card p {
+                font-size: 15px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .about-text h3 {
+                font-size: 24px;
+            }
+
+            .about-text p {
+                font-size: 15px;
+            }
+
+            .experience-badge {
+                padding: 24px;
+                font-size: 16px;
+            }
+
+            .experience-badge .number {
+                font-size: 40px;
+            }
+
+            .pricing-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .pricing-card {
+                padding: 32px 24px;
+            }
+
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+
+            .pricing-card h3 {
+                font-size: 20px;
+            }
+
+            .price {
+                font-size: 32px;
+            }
+
+            .pricing-features li {
+                font-size: 14px;
+            }
+
+            .crypto-section {
+                padding: 24px;
+                margin-top: 20px;
+            }
+
+            .crypto-section h4 {
+                font-size: 17px;
+            }
+
+            .crypto-methods {
+                gap: 15px;
+            }
+
+            .crypto-badge {
+                padding: 7px 14px;
+                font-size: 13px;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .feature-item {
+                padding: 24px 18px;
+            }
+
+            .feature-icon {
+                font-size: 42px;
+            }
+
+            .feature-item h3 {
+                font-size: 18px;
+            }
+
+            .feature-item p {
+                font-size: 14px;
+            }
+
+            .contacts-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+            }
+
+            .contact-item h3 {
+                font-size: 18px;
+            }
+
+            .contact-item p {
+                font-size: 14px;
+            }
+
+            footer {
+                padding: 24px 18px;
+            }
+
+            footer p {
+                font-size: 13px;
+            }
+
+            .container {
+                padding: 0 24px;
+            }
+        }
+
+        @media (min-width: 821px) {
+            .lang-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            section {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Alexey Kazyro</div>
+            <ul>
+                <li><a href="#languages" data-en="Languages" data-ru="Языки">Языки</a></li>
+                <li><a href="#about" data-en="About" data-ru="Обо мне">Обо мне</a></li>
+                <li><a href="#pricing" data-en="Pricing" data-ru="Тарифы">Тарифы</a></li>
+                <li><a href="#contacts" data-en="Contact" data-ru="Контакты">Контакты</a></li>
+                <li>
+                    <div class="lang-switcher">
+                        <button class="lang-btn active" data-lang="ru">RU</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1 data-en="Learn English, French or Finnish" data-ru="Изучите английский, французский или финский">Изучите английский, французский или финский</h1>
+            <p data-en="Professional training with over 5 years of experience" data-ru="Профессиональное обучение с опытом более 5 лет">Профессиональное обучение с опытом более 5 лет</p>
+            <button class="cta-button" onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})" data-en="Book a lesson" data-ru="Записаться на урок">
+                Записаться на урок
+            </button>
+        </div>
+    </section>
+
+    <section id="languages" class="languages">
+        <div class="container">
+            <h2 data-en="Languages" data-ru="Языки обучения">Языки обучения</h2>
+            <div class="lang-grid">
+                <div class="lang-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/250px-Flag_of_the_United_Kingdom_%283-5%29.svg.png" alt="Flag of Great Britain" class="lang-flag">
+                    <div class="lang-icon">English</div>
+                    <h3 data-en="English Language" data-ru="Английский язык">Английский язык</h3>
+                    <p data-en="Exam preparation, conversation practice, business English. Individual approach to each student." data-ru="Подготовка к экзаменам, разговорная речь, деловой английский. Индивидуальный подход к каждому студенту.">Подготовка к экзаменам, разговорная речь, деловой английский. Индивидуальный подход к каждому студенту.</p>
+                </div>
+                <div class="lang-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/1599px-Flag_of_France.svg.png" alt="Flag of France" class="lang-flag">
+                    <div class="lang-icon">Français</div>
+                    <h3 data-en="French Language" data-ru="Французский язык">Французский язык</h3>
+                    <p data-en="From basic fundamentals to advanced levels. Cultural context and interesting materials throughout the learning process." data-ru="От базовых основ до продвинутых уровней. Культурный контекст и интересные материалы в процессе обучения.">От базовых основ до продвинутых уровней. Культурный контекст и интересные материалы в процессе обучения.</p>
+                </div>
+                <div class="lang-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Flag_of_Finland_with_border.svg/2560px-Flag_of_Finland_with_border.svg.png" alt="Flag of Finland" class="lang-flag">
+                    <div class="lang-icon">Suomi</div>
+                    <h3 data-en="Finnish Language" data-ru="Финский язык">Финский язык</h3>
+                    <p data-en="Rare specialization with deep knowledge of grammar and features of the Finnish language." data-ru="Редкая специализация с глубоким знанием грамматики и особенностей финского языка.">Редкая специализация с глубоким знанием грамматики и особенностей финского языка.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 data-en="About Me" data-ru="Обо мне">Обо мне</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3 data-en="Experience and Qualifications" data-ru="Опыт и квалификация">Опыт и квалификация</h3>
+                    <p data-en="I am a tutor with over 5 years of experience teaching foreign languages. I help students of all levels achieve their language learning goals." data-ru="Я репетитор с более чем 5-летним опытом преподавания иностранных языков. Помогаю студентам всех уровней достигать своих целей в изучении языков.">Я репетитор с более чем 5-летним опытом преподавания иностранных языков. Помогаю студентам всех уровней достигать своих целей в изучении языков.</p>
+                    <p data-en="My approach focuses on practical application of knowledge, development of speaking skills and deep understanding of grammar." data-ru="Мой подход ориентирован на практическое применение знаний, развитие разговорных навыков и глубокое понимание грамматики.">Мой подход ориентирован на практическое применение знаний, развитие разговорных навыков и глубокое понимание грамматики.</p>
+                    <p data-en="Each student receives a personalized learning program tailored to their goals and level of preparation." data-ru="Каждый студент получает персональную программу обучения, адаптированную к его целям и уровню подготовки.">Каждый студент получает персональную программу обучения, адаптированную к его целям и уровню подготовки.</p>
+                    <div class="experience-badge">
+                        <span class="number">5+</span>
+                        <span data-en="years of teaching" data-ru="лет преподавания">лет преподавания</span>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3 data-en="Teaching Methods" data-ru="Методика обучения">Методика обучения</h3>
+                    <p><strong data-en="Communicative approach" data-ru="Коммуникативный подход">Коммуникативный подход</strong> <span data-en="- focus on oral communication and practical application." data-ru="- акцент на устное общение и практическое применение.">- акцент на устное общение и практическое применение.</span></p>
+                    <p><strong data-en="Individualization" data-ru="Индивидуализация">Индивидуализация</strong> <span data-en="- lessons adapt to your pace and learning style." data-ru="- уроки подстраиваются под ваш темп и стиль обучения.">- уроки подстраиваются под ваш темп и стиль обучения.</span></p>
+                    <p><strong data-en="Modern Materials" data-ru="Современные материалы">Современные материалы</strong> <span data-en="- use of current and interesting educational resources." data-ru="- использование актуальных и интересных учебных ресурсов.">- использование актуальных и интересных учебных ресурсов.</span></p>
+                    <p><strong data-en="Flexible Schedule" data-ru="Гибкое расписание">Гибкое расписание</strong> <span data-en="- classes at a time convenient for you." data-ru="- занятия в удобное для вас время.">- занятия в удобное для вас время.</span></p>
+                    <p><strong data-en="Support Between Lessons" data-ru="Поддержка между уроками">Поддержка между уроками</strong> <span data-en="- answers to questions and help with homework." data-ru="- ответы на вопросы и помощь в выполнении домашних заданий.">- ответы на вопросы и помощь в выполнении домашних заданий.</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 data-en="Pricing" data-ru="Тарифы">Тарифы</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 data-en="One Lesson" data-ru="Один урок">Один урок</h3>
+                    <div class="price">1 500 ₽</div>
+                    <div class="price-description" data-en="or 20 $" data-ru="или 20 $">или 20 $</div>
+                    <ul class="pricing-features">
+                        <li data-en="60 minutes of training" data-ru="60 минут обучения">60 минут обучения</li>
+                        <li data-en="Individual lesson" data-ru="Индивидуальный урок">Индивидуальный урок</li>
+                        <li data-en="Educational materials" data-ru="Учебные материалы">Учебные материалы</li>
+                        <li data-en="Homework" data-ru="Домашнее задание">Домашнее задание</li>
+                    </ul>
+                </div>
+                <div class="pricing-card popular">
+                    <h3 data-en="3 Lessons (Package)" data-ru="3 урока (Пакет)">3 урока (Пакет)</h3>
+                    <div class="price">4 000 ₽</div>
+                    <div class="price-description" data-en="or 55 $" data-ru="или 55 $">или 55 $</div>
+                    <ul class="pricing-features">
+                        <li data-en="3 × 60 minutes" data-ru="3 × 60 минут">3 × 60 минут</li>
+                        <li data-en="Save 25%" data-ru="Экономия 25%">Экономия 25%</li>
+                        <li data-en="Custom program" data-ru="Индивидуальная программа">Индивидуальная программа</li>
+                        <li data-en="Progress tracking" data-ru="Отслеживание прогресса">Отслеживание прогресса</li>
+                        <li data-en="Priority schedule" data-ru="Приоритетное расписание">Приоритетное расписание</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="crypto-section">
+                <h4 data-en="Payment Methods" data-ru="Способы оплаты">💳 Способы оплаты</h4>
+                <p style="margin-bottom: 20px; font-size: 16px;" data-en="Payments accepted by card, SBP and cryptocurrency" data-ru="Принимаются платежи картой, СБП и криптовалютой">Принимаются платежи картой, СБП и криптовалютой</p>
+                <div class="crypto-methods">
+                    <div class="crypto-badge" data-en="💳 Card" data-ru="💳 Карта">💳 Карта</div>
+                    <div class="crypto-badge" data-en="📲 SBP" data-ru="📲 СБП">📲 СБП</div>
+                    <div class="crypto-badge" data-en="Cryptocurrency" data-ru="Криптовалюта">Криптовалюта</div>
+                    <div class="crypto-badge">USDT-TON / USDT-TRC20</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-me" class="why-me">
+        <div class="container">
+            <h2 data-en="Why Choose Me" data-ru="Почему выбирают меня">Почему выбирают меня</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <h3 data-en="Results" data-ru="Результаты">Результаты</h3>
+                    <p data-en="My students successfully pass exams and achieve fluent language skills." data-ru="Мои студенты успешно сдают экзамены и достигают свободного владения языками.">Мои студенты успешно сдают экзамены и достигают свободного владения языками.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⏰</div>
+                    <h3 data-en="Flexible Schedule" data-ru="Гибкое расписание">Гибкое расписание</h3>
+                    <p data-en="Lessons are held at a convenient time for you, including weekends." data-ru="Уроки проводятся в удобное для вас время, включая выходные дни.">Уроки проводятся в удобное для вас время, включая выходные дни.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">👤</div>
+                    <h3 data-en="Personal Approach" data-ru="Личный подход">Личный подход</h3>
+                    <p data-en="Each training program is developed individually for a specific student." data-ru="Каждая программа обучения разрабатывается индивидуально для конкретного студента.">Каждая программа обучения разрабатывается индивидуально для конкретного студента.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📚</div>
+                    <h3 data-en="Modern Methods" data-ru="Современные методы">Современные методы</h3>
+                    <p data-en="I use the latest teaching methods and high-quality educational materials." data-ru="Использую новейшие методики преподавания и качественные учебные материалы.">Использую новейшие методики преподавания и качественные учебные материалы.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💬</div>
+                    <h3 data-en="Support" data-ru="Поддержка">Поддержка</h3>
+                    <p data-en="Help between lessons, answers to questions and analysis of difficult moments." data-ru="Помощь между уроками, ответы на вопросы и разбор сложных моментов.">Помощь между уроками, ответы на вопросы и разбор сложных моментов.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <h3 data-en="Clear Goals" data-ru="Четкие цели">Четкие цели</h3>
+                    <p data-en="Together we set goals and track progress in each lesson." data-ru="Вместе определяем цели и отслеживаем прогресс на каждом уроке.">Вместе определяем цели и отслеживаем прогресс на каждом уроке.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="contacts">
+        <div class="container">
+            <h2 data-en="Contact Me" data-ru="Свяжитесь со мной">Свяжитесь со мной</h2>
+            <div class="contacts-content">
+                <div class="contact-item">
+                    <h3 data-en="📧 Email" data-ru="📧 Email">📧 Email</h3>
+                    <p data-en="Send me a message with information about yourself and your learning goals" data-ru="Напишите мне письмо с информацией о себе и целях обучения">Напишите мне письмо с информацией о себе и целях обучения</p>
+                    
+					<!-- Добавь свою почту, я не знаю какая у тебя, 
+					не забудь добавь в  href="..." оно будет автоматически открывать пользователю почту-->
+					<a href="mailto:your-email@example.com">your-email@example.com</a>
+                </div>
+                <div class="contact-item">
+                    <h3 data-en="📞 Telegram" data-ru="📞 Telegram">📞 Telegram</h3>
+                    <p data-en="Quick communication and schedule coordination" data-ru="Быстрое общение и согласование расписания">Быстрое общение и согласование расписания</p>
+                    <a href="https://t.me/Dobryieh">@Dobryieh</a>
+                </div>
+                <div class="contact-item">
+                    <h3 data-en="📱 Phone" data-ru="📱 Телефон">📱 Телефон</h3>
+                    <p data-en="Call or message on WhatsApp for quick communication" data-ru="Позвоните или напишите в WhatsApp для быстрого общения">Позвоните или напишите в WhatsApp для быстрого общения</p>
+                    <a href="tel:+79632415756">+7 (963) 241-57-56</a>
+                </div>
+                <div class="contact-item">
+                    <h3 data-en="🌐 Platforms" data-ru="🌐 Платформы">🌐 Платформы</h3>
+                    <p data-en="Lessons are conducted online via Zoom or another convenient messenger" data-ru="Уроки проводятся онлайн через Zoom или другой удобный мессенджер">Уроки проводятся онлайн через Zoom или другой удобный мессенджер</p>
+                    <p style="color: var(--color-text-light);" data-en="Available for classes at any convenient time" data-ru="Доступны для занятий в любое удобное время">Доступны для занятий в любое удобное время</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p data-en="© 2026 Alexey Kazyro. All rights reserved." data-ru="© 2026 Alexey Kazyro. Все права защищены.">&copy; 2025 Alexey Kazyro. Все права защищены.</p>
+        <p style="margin-top: 10px; opacity: 0.8;" data-en="Online lessons in English, French and Finnish" data-ru="Онлайн обучение английскому, французскому и финскому языкам">Онлайн обучение английскому, французскому и финскому языкам</p>
+    </footer>
+
+    <script>
+        const currentLang = localStorage.getItem('language') || 'ru';
+        
+        function setLanguage(lang) {
+            localStorage.setItem('language', lang);
+            document.querySelectorAll('[data-en][data-ru]').forEach(el => {
+                el.textContent = el.getAttribute(`data-${lang}`);
+            });
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
+        }
+        
+        setLanguage(currentLang);
+        
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                setLanguage(this.getAttribute('data-lang'));
+            });
+        });
+		
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.lang-card, .pricing-card, .feature-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
