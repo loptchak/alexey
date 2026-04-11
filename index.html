@@ -916,6 +916,76 @@
             }
         }
     </style>
+
+<style>
+/* Reviews Section */
+.reviews { padding: 4rem 2rem; background-color: var(--color-bg); }
+.reviews h2 { text-align: center; margin-bottom: 2rem; color: var(--color-text); font-size: 2rem; }
+.reviews-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 1.5rem; 
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.review-card { 
+    background-color: var(--color-white); 
+    padding: 1.5rem; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+    cursor: pointer; 
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+.review-card:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
+.review-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+.review-user-info { display: flex; align-items: center; gap: 0.5rem; }
+.review-name { font-weight: bold; font-size: 1.1rem; color: var(--color-text); }
+.review-flag { font-size: 1.2rem; }
+.review-stars { color: #fbbf24; font-size: 1.2rem; letter-spacing: 2px; }
+.review-text { color: var(--color-text); font-size: 0.95rem; line-height: 1.6; }
+/* Truncated view */
+.review-text-short {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Modal Window */
+.modal-overlay { 
+    display: none; 
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0; 
+    background-color: rgba(0,0,0,0.6); 
+    z-index: 9999; 
+    align-items: center; justify-content: center; 
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+}
+.modal-content { 
+    background-color: var(--color-white); 
+    padding: 2.5rem 2rem 2rem; 
+    border-radius: 12px; 
+    max-width: 600px; 
+    width: 100%; 
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+.modal-close { 
+    position: absolute; top: 1rem; right: 1.5rem; 
+    background: none; border: none; font-size: 2rem; 
+    cursor: pointer; color: var(--color-text); 
+    line-height: 1;
+}
+.modal-close:hover { opacity: 0.7; }
+
+/* Dark mode overrides (assuming the site uses data-theme) */
+[data-theme="dark"] .review-card { background-color: #1f2937; border-color: #374151; }
+[data-theme="dark"] .modal-content { background-color: #1f2937; }
+</style>
+
 </head>
 <body>
     <header>
@@ -947,23 +1017,23 @@
     </section>
 
     <section id="languages" class="languages">
-        <div class="container">
+	<div class="container">
             <h2 data-en="Languages" data-ru="Языки обучения">Языки обучения</h2>
             <div class="lang-grid">
-                <div class="lang-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/250px-Flag_of_the_United_Kingdom_%283-5%29.svg.png" alt="Flag of Great Britain" class="lang-flag">
+                <div class="lang-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.5s, transform 0.5s;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg" alt="Flag of Great Britain" class="lang-flag">
                     <div class="lang-icon">English</div>
                     <h3 data-en="English Language" data-ru="Английский язык">Английский язык</h3>
                     <p data-en="Exam preparation, conversation practice, business English. Individual approach to each student." data-ru="Подготовка к экзаменам, разговорная речь, деловой английский. Индивидуальный подход к каждому студенту.">Подготовка к экзаменам, разговорная речь, деловой английский. Индивидуальный подход к каждому студенту.</p>
                 </div>
-                <div class="lang-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/1599px-Flag_of_France.svg.png" alt="Flag of France" class="lang-flag">
+                <div class="lang-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.5s, transform 0.5s;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Flag of France" class="lang-flag">
                     <div class="lang-icon">Français</div>
                     <h3 data-en="French Language" data-ru="Французский язык">Французский язык</h3>
                     <p data-en="From basic fundamentals to advanced levels. Cultural context and interesting materials throughout the learning process." data-ru="От базовых основ до продвинутых уровней. Культурный контекст и интересные материалы в процессе обучения.">От базовых основ до продвинутых уровней. Культурный контекст и интересные материалы в процессе обучения.</p>
                 </div>
-                <div class="lang-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Flag_of_Finland_with_border.svg/2560px-Flag_of_Finland_with_border.svg.png" alt="Flag of Finland" class="lang-flag">
+                <div class="lang-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.5s, transform 0.5s;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Finland.svg" alt="Flag of Finland" class="lang-flag">
                     <div class="lang-icon">Suomi</div>
                     <h3 data-en="Finnish Language" data-ru="Финский язык">Финский язык</h3>
                     <p data-en="Rare specialization with deep knowledge of grammar and features of the Finnish language." data-ru="Редкая специализация с глубоким знанием грамматики и особенностей финского языка.">Редкая специализация с глубоким знанием грамматики и особенностей финского языка.</p>
@@ -1055,7 +1125,143 @@
         </div>
     </section>
 
-    <section id="contacts" class="contacts">
+    
+	<section id="reviews" class="reviews">
+	<h2 data-en="Reviews" data-ru="Отзывы">Отзывы</h2>
+		<div class="reviews-grid">
+	
+			<div class="review-card" onclick="openReviewModal(0)">
+				<div class="review-header">
+					<div class="review-user-info">
+						<span class="review-name">Яна</span>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg" style="height:1em;width:auto;vertical-align:middle;">
+					</div>
+					<div class="review-stars">⭐⭐⭐⭐⭐</div>
+				</div>
+				<div class="review-text">Занятия по французскому были хорошо структурированы и проходили в спокойной, рабочей атмосфере. Преподаватель понятно объясняет материал, обращает ...</div>
+				<div id="review-full-text-0" style="display:none;">Занятия по французскому были хорошо структурированы и проходили в спокойной, рабочей атмосфере. Преподаватель понятно объясняет материал, обращает внимание на произношение, грамматику и помогает преодолеть языковой барьер.
+
+	Уроки были практичными и адаптированы под мой уровень. Алексей терпеливо отвечал на вопросы и поддерживал меня в процессе обучения. Теперь я говорю гораздо лучше.
+
+	Рекомендую этого преподавателя всем.</div>
+				<div id="review-name-0" style="display:none;">Яна</div>
+				<div id="review-flag-0" style="display:none;">https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg</div>
+			</div>
+
+			<div class="review-card" onclick="openReviewModal(1)">
+				<div class="review-header">
+					<div class="review-user-info">
+						<span class="review-name">Наталья</span>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg" style="height:1em;width:auto;vertical-align:middle;">
+					</div>
+					<div class="review-stars">⭐⭐⭐⭐⭐</div>
+				</div>
+				<div class="review-text">Занимаюсь с Алексеем длительное время.
+	Результатами очень довольна💯
+	Нравится, что преподаватель всегда прислушивается к моему запросу по сложности ...</div>
+				<div id="review-full-text-1" style="display:none;">Занимаюсь с Алексеем длительное время.
+	Результатами очень довольна💯
+	Нравится, что преподаватель всегда прислушивается к моему запросу по сложности и скорости подачи материала, а также обладает терпением.
+	На уроках с Алексеем всегда сохраняется позитивный настрой и хорошее настроение 👍</div>
+				<div id="review-name-1" style="display:none;">Наталья</div>
+				<div id="review-flag-1" style="display:none;">https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg</div>
+			</div>
+
+			<div class="review-card" onclick="openReviewModal(2)">
+				<div class="review-header">
+					<div class="review-user-info">
+						<span class="review-name">Аноним</span>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Finland.svg" style="height:1em;width:auto;vertical-align:middle;">
+					</div>
+					<div class="review-stars">⭐⭐⭐⭐⭐</div>
+				</div>
+				<div class="review-text">Loistavaa opetusta pojalleni, voin suositella suomen kielen kielioppiin ja kielen oppimiseen alusta alkaen! Janne Haahkola</div>
+				<div id="review-full-text-2" style="display:none;">Loistavaa opetusta pojalleni, voin suositella suomen kielen kielioppiin ja kielen oppimiseen alusta alkaen! Janne Haahkola</div>
+				<div id="review-name-2" style="display:none;">Аноним</div>
+				<div id="review-flag-2" style="display:none;">https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Finland.svg</div>
+			</div>
+
+			<div class="review-card" onclick="openReviewModal(3)">
+				<div class="review-header">
+					<div class="review-user-info">
+						<span class="review-name">Виктория</span>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg" style="height:1em;width:auto;vertical-align:middle;">
+					</div>
+					<div class="review-stars">⭐⭐⭐⭐⭐</div>
+				</div>
+				<div class="review-text">Работа с данным преподавателем проходит на высшем уровне. Объяснения понятны, если вдруг что-то не понял с первого раза, объяснят столько, сколько ...</div>
+				<div id="review-full-text-3" style="display:none;">Работа с данным преподавателем проходит на высшем уровне. Объяснения понятны, если вдруг что-то не понял с первого раза, объяснят столько, сколько нужно для понимания. Задания хорошие, делать домашнюю работу в одно удовольствие. Дополнительные материалы понятны, интересны и легко усваиваются. Уроки проходят на позитиве и даже забываешь о времени, лишь бы только продолжить занятие дальше. После окончания занятий остаешься на позитиве, а не как выжитый лимон. 😉
+	Со своим знанием Английского за пару занятий все начинает становится на свои места. Поддержание связи и вне урочное время подтверждает заинтересованность, педагогический подход и желание заниматься любимым делом. Очень вдохновляет и направляет на нужный путь. С таким преподавателем хочется окунаться в учебу, нелюбимые темы становятся интереснее и дает стремление идти дальше. 🫶🏼</div>
+				<div id="review-name-3" style="display:none;">Виктория</div>
+				<div id="review-flag-3" style="display:none;">https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg</div>
+			</div>
+
+			<div class="review-card" onclick="openReviewModal(4)">
+				<div class="review-header">
+					<div class="review-user-info">
+						<span class="review-name">Ирина</span>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg" style="height:1em;width:auto;vertical-align:middle;">
+					</div>
+					<div class="review-stars">⭐⭐⭐⭐⭐</div>
+				</div>
+				<div class="review-text">Дочка 12 лет занимается с Алексеем Леонидовичем почти год по скайпу французским языком. Это удобно и сильно экономит время. Алексей Леонидович вним...</div>
+				<div id="review-full-text-4" style="display:none;">Дочка 12 лет занимается с Алексеем Леонидовичем почти год по скайпу французским языком. Это удобно и сильно экономит время. Алексей Леонидович внимательный, чуткий, очень позитивно настроенный преподаватель. Он крайне ответственно подходит к своему делу. Занятие всегда проходит вовремя, все материалы для повторения мы получаем от преподавателя. Общение с Алексеем Леонидовичем всегда радостное и спокойное.</div>
+				<div id="review-name-4" style="display:none;">Ирина</div>
+				<div id="review-flag-4" style="display:none;">https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg</div>
+			</div>
+
+			<div class="review-card" onclick="openReviewModal(5)">
+				<div class="review-header">
+					<div class="review-user-info">
+						<span class="review-name">Александр</span>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg" style="height:1em;width:auto;vertical-align:middle;">
+					</div>
+					<div class="review-stars">⭐⭐⭐⭐⭐</div>
+				</div>
+				<div class="review-text">Отличный преподаватель английского! Обучал двух моих девочек с увлечением, дал массу интересных знаний. Дети в восторге, прогресс огромный! Рекомен...</div>
+				<div id="review-full-text-5" style="display:none;">Отличный преподаватель английского! Обучал двух моих девочек с увлечением, дал массу интересных знаний. Дети в восторге, прогресс огромный! Рекомендую всем.</div>
+				<div id="review-name-5" style="display:none;">Александр</div>
+				<div id="review-flag-5" style="display:none;">https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg</div>
+			</div>
+
+		</div>
+	</section>
+
+	<div id="reviewModal" class="modal-overlay" onclick="if(event.target === this) closeReviewModal()">
+		<div class="modal-content">
+			<button class="modal-close" onclick="closeReviewModal()">&times;</button>
+			<div class="review-header" style="margin-bottom: 1.5rem;">
+				<div class="review-user-info">
+					<span id="modalName" class="review-name"></span>
+					<img id="modalFlag" class="review-flag" style="height:1em;width:auto;vertical-align:middle;">
+				</div>
+				<div class="review-stars">⭐⭐⭐⭐⭐</div>
+			</div>
+			<div id="modalText" class="review-text" style="font-size: 1.05rem;"></div>
+		</div>
+	</div>
+
+	<script>
+	function openReviewModal(index) {
+		document.getElementById('modalName').innerText = document.getElementById('review-name-' + index).innerText;
+		document.getElementById('modalFlag').src = document.getElementById('review-flag-' + index).innerText.trim();
+
+		let text = document.getElementById('review-full-text-' + index).innerText;
+		text = text.replace(/\n/g, '<br>');
+		document.getElementById('modalText').innerHTML = text;
+
+		const modal = document.getElementById('reviewModal');
+		modal.style.display = 'flex';
+		document.body.style.overflow = 'hidden';
+	}
+
+	function closeReviewModal() {
+		document.getElementById('reviewModal').style.display = 'none';
+		document.body.style.overflow = 'auto';
+	}
+	</script>
+
+<section id="contacts" class="contacts">
         <div class="container">
             <h2 data-en="Contact Me" data-ru="Свяжитесь со мной">Свяжитесь со мной</h2>
             <div class="contacts-content">
@@ -1063,9 +1269,7 @@
                     <h3 data-en="📧 Email" data-ru="📧 Email">📧 Email</h3>
                     <p data-en="Send me a message with information about yourself and your learning goals" data-ru="Напишите мне письмо с информацией о себе и целях обучения">Напишите мне письмо с информацией о себе и целях обучения</p>
                     
-					<!-- Добавь свою почту, я не знаю какая у тебя, 
-					не забудь добавь в  href="..." оно будет автоматически открывать пользователю почту-->
-					<a href="mailto:your-email@example.com">your-email@example.com</a>
+					<a href="mailto:alexeiusa@mail.ru">alexeiusa@mail.ru</a>
                 </div>
                 <div class="contact-item">
                     <h3 data-en="📞 Telegram" data-ru="📞 Telegram">📞 Telegram</h3>
