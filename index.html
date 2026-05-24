@@ -1,1356 +1,979 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Репетитор иностранных языков | Английский, Французский, Финский</title>
-    <style>
-        :root {
-            --color-primary: #2d8a8e;
-            --color-primary-hover: #1d6e72;
-            --color-accent: #e67e22;
-            --color-text: #2c3e50;
-            --color-text-light: #7f8c8d;
-            --color-bg: #ecf0f1;
-            --color-white: #ffffff;
-            --color-success: #27ae60;
-            --color-shadow: rgba(0, 0, 0, 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            color: var(--color-text);
-            line-height: 1.6;
-            background-color: var(--color-bg);
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--color-primary) 0%, #1d6e72 100%);
-            color: var(--color-white);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px var(--color-shadow);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--color-white);
-            text-decoration: none;
-            transition: opacity 0.3s;
-            font-weight: 500;
-        }
-
-        nav a:hover {
-            opacity: 0.8;
-        }
-
-        .lang-switcher {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .lang-btn {
-            background: rgba(255, 255, 255, 0.2);
-            color: var(--color-white);
-            border: 2px solid transparent;
-            padding: 6px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-            font-size: 14px;
-        }
-
-        .lang-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .lang-btn.active {
-            background: var(--color-accent);
-            border-color: var(--color-white);
-        }
-
-        .hero {
-            background: linear-gradient(135deg, var(--color-primary) 0%, #1d6e72 100%);
-            color: var(--color-white);
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
-            opacity: 0.95;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--color-accent);
-            color: var(--color-white);
-            padding: 16px 40px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
-        }
-
-        .cta-button:hover {
-            background: #d35400;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 60px 20px;
-        }
-
-        h2 {
-            font-size: 36px;
-            margin-bottom: 40px;
-            text-align: center;
-            color: var(--color-primary);
-        }
-
-        .languages {
-            background: var(--color-white);
-        }
-
-        .lang-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .lang-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, var(--color-white) 100%);
-            padding: 40px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 15px var(--color-shadow);
-            transition: all 0.3s ease;
-            border-top: 4px solid var(--color-primary);
-        }
-
-        .lang-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 25px var(--color-shadow);
-        }
-
-        .lang-icon {
-            font-size: 56px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .lang-flag {
-            width: 100%;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 15px;
-        }
-
-        .lang-card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: var(--color-primary);
-        }
-
-        .lang-card p {
-            color: var(--color-text-light);
-            font-size: 16px;
-            line-height: 1.7;
-        }
-
-        .about {
-            background: linear-gradient(135deg, #f8f9fa 0%, var(--color-white) 100%);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: var(--color-primary);
-        }
-
-        .about-text p {
-            margin-bottom: 20px;
-            color: var(--color-text-light);
-            font-size: 16px;
-            line-height: 1.8;
-        }
-
-        .experience-badge {
-            background: var(--color-primary);
-            color: var(--color-white);
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-            font-size: 18px;
-            margin-top: 20px;
-        }
-
-        .experience-badge .number {
-            font-size: 48px;
-            font-weight: 700;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .pricing {
-            background: var(--color-white);
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .pricing-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, var(--color-white) 100%);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px var(--color-shadow);
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .pricing-card.popular {
-            border-color: var(--color-accent);
-            transform: scale(1.05);
-        }
-
-        .pricing-card h3 {
-            font-size: 22px;
-            color: var(--color-primary);
-            margin-bottom: 20px;
-        }
-
-        .price {
-            font-size: 36px;
-            font-weight: 700;
-            color: var(--color-accent);
-            margin-bottom: 10px;
-        }
-
-        .price-description {
-            color: var(--color-text-light);
-            margin-bottom: 30px;
-            font-size: 14px;
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .pricing-features li {
-            padding: 10px 0;
-            color: var(--color-text-light);
-            border-bottom: 1px solid #ecf0f1;
-            display: flex;
-            align-items: center;
-            font-size: 15px;
-        }
-
-        .pricing-features li:before {
-            content: "✓";
-            color: var(--color-success);
-            font-weight: bold;
-            margin-right: 10px;
-            font-size: 18px;
-        }
-
-        .pricing-features li:last-child {
-            border-bottom: none;
-        }
-
-        .crypto-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: var(--color-white);
-            padding: 30px;
-            border-radius: 12px;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .crypto-section h4 {
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
-
-        .crypto-methods {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            font-size: 14px;
-            font-weight: 600;
-        }
-
-        .crypto-badge {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px 16px;
-            border-radius: 6px;
-            backdrop-filter: blur(10px);
-        }
-
-        .why-me {
-            background: linear-gradient(135deg, #f8f9fa 0%, var(--color-white) 100%);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-item {
-            text-align: center;
-            padding: 30px;
-            background: var(--color-white);
-            border-radius: 12px;
-            box-shadow: 0 2px 10px var(--color-shadow);
-        }
-
-        .feature-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .feature-item h3 {
-            font-size: 20px;
-            color: var(--color-primary);
-            margin-bottom: 15px;
-        }
-
-        .feature-item p {
-            color: var(--color-text-light);
-            font-size: 15px;
-            line-height: 1.7;
-        }
-
-        .contacts {
-            background: var(--color-white);
-        }
-
-        .contacts-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-
-        .contact-item h3 {
-            color: var(--color-primary);
-            margin-bottom: 15px;
-            font-size: 20px;
-        }
-
-        .contact-item p {
-            color: var(--color-text-light);
-            margin-bottom: 10px;
-        }
-
-        .contact-item a {
-            color: var(--color-primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .contact-item a:hover {
-            color: var(--color-accent);
-        }
-
-        footer {
-            background: var(--color-primary);
-            color: var(--color-white);
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 40px;
-        }
-
-        .testimonials {
-            background: var(--color-white);
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .testimonial {
-            background: linear-gradient(135deg, #f8f9fa 0%, var(--color-white) 100%);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px var(--color-shadow);
-            border-left: 4px solid var(--color-accent);
-        }
-
-        .testimonial-rating {
-            color: #f39c12;
-            font-size: 16px;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
-
-        .testimonial p {
-            color: var(--color-text-light);
-            margin-bottom: 15px;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            color: var(--color-primary);
-            font-weight: 600;
-        }
-
-        @media (max-width: 430px) {
-            html {
-                font-size: 13px;
-            }
-
-            body {
-                overflow-x: hidden;
-            }
-
-            header {
-                padding: 12px 0;
-            }
-
-            nav {
-                padding: 0 12px;
-                flex-wrap: wrap;
-            }
-
-            .logo {
-                font-size: 18px;
-            }
-
-            nav ul {
-                gap: 8px;
-                font-size: 12px;
-                width: 100%;
-                justify-content: space-between;
-            }
-
-            .lang-switcher {
-                gap: 6px;
-            }
-
-            .lang-btn {
-                padding: 4px 8px;
-                font-size: 11px;
-            }
-
-            .hero {
-                padding: 50px 16px;
-            }
-
-            h1 {
-                font-size: 24px;
-                margin-bottom: 12px;
-            }
-
-            .hero p {
-                font-size: 14px;
-                margin-bottom: 20px;
-            }
-
-            .cta-button {
-                padding: 12px 24px;
-                font-size: 14px;
-            }
-
-            section {
-                padding: 40px 16px;
-            }
-
-            h2 {
-                font-size: 22px;
-                margin-bottom: 24px;
-            }
-
-            .lang-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .lang-card {
-                padding: 24px 16px;
-            }
-
-            .lang-flag {
-                height: 80px;
-            }
-
-            .lang-icon {
-                font-size: 40px;
-            }
-
-            .lang-card h3 {
-                font-size: 18px;
-            }
-
-            .lang-card p {
-                font-size: 14px;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .about-text h3 {
-                font-size: 20px;
-            }
-
-            .about-text p {
-                font-size: 14px;
-            }
-
-            .experience-badge {
-                padding: 20px;
-                font-size: 14px;
-            }
-
-            .experience-badge .number {
-                font-size: 36px;
-            }
-
-            .pricing-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .pricing-card {
-                padding: 28px 16px;
-            }
-
-            .pricing-card.popular {
-                transform: scale(1);
-            }
-
-            .pricing-card h3 {
-                font-size: 18px;
-            }
-
-            .price {
-                font-size: 28px;
-            }
-
-            .pricing-features li {
-                font-size: 13px;
-            }
-
-            .crypto-section {
-                padding: 20px;
-                margin-top: 16px;
-            }
-
-            .crypto-section h4 {
-                font-size: 16px;
-            }
-
-            .crypto-methods {
-                gap: 10px;
-            }
-
-            .crypto-badge {
-                padding: 6px 12px;
-                font-size: 12px;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .feature-item {
-                padding: 20px 16px;
-            }
-
-            .feature-icon {
-                font-size: 36px;
-            }
-
-            .feature-item h3 {
-                font-size: 16px;
-            }
-
-            .feature-item p {
-                font-size: 13px;
-            }
-
-            .contacts-content {
-                grid-template-columns: 1fr;
-                gap: 28px;
-            }
-
-            .contact-item h3 {
-                font-size: 16px;
-            }
-
-            .contact-item p {
-                font-size: 13px;
-            }
-
-            footer {
-                padding: 20px 16px;
-            }
-
-            footer p {
-                font-size: 12px;
-            }
-
-            .container {
-                padding: 0 16px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            nav ul {
-                gap: 12px;
-            }
-
-            section {
-                padding: 45px 18px;
-            }
-
-            h2 {
-                font-size: 26px;
-            }
-        }
-
-        @media (min-width: 431px) and (max-width: 820px) {
-            html {
-                font-size: 14px;
-            }
-
-            body {
-                overflow-x: hidden;
-            }
-
-            .logo {
-                font-size: 22px;
-            }
-
-            nav ul {
-                gap: 20px;
-                font-size: 13px;
-            }
-
-            .lang-switcher {
-                gap: 8px;
-            }
-
-            .lang-btn {
-                padding: 6px 10px;
-                font-size: 12px;
-            }
-
-            .hero {
-                padding: 70px 24px;
-            }
-
-            h1 {
-                font-size: 32px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .cta-button {
-                padding: 14px 32px;
-                font-size: 16px;
-            }
-
-            section {
-                padding: 50px 24px;
-            }
-
-            h2 {
-                font-size: 30px;
-                margin-bottom: 32px;
-            }
-
-            .lang-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 24px;
-            }
-
-            .lang-card {
-                padding: 32px 24px;
-            }
-
-            .lang-flag {
-                height: 100px;
-            }
-
-            .lang-icon {
-                font-size: 48px;
-            }
-
-            .lang-card h3 {
-                font-size: 20px;
-            }
-
-            .lang-card p {
-                font-size: 15px;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .about-text h3 {
-                font-size: 24px;
-            }
-
-            .about-text p {
-                font-size: 15px;
-            }
-
-            .experience-badge {
-                padding: 24px;
-                font-size: 16px;
-            }
-
-            .experience-badge .number {
-                font-size: 40px;
-            }
-
-            .pricing-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 24px;
-            }
-
-            .pricing-card {
-                padding: 32px 24px;
-            }
-
-            .pricing-card.popular {
-                transform: scale(1);
-            }
-
-            .pricing-card h3 {
-                font-size: 20px;
-            }
-
-            .price {
-                font-size: 32px;
-            }
-
-            .pricing-features li {
-                font-size: 14px;
-            }
-
-            .crypto-section {
-                padding: 24px;
-                margin-top: 20px;
-            }
-
-            .crypto-section h4 {
-                font-size: 17px;
-            }
-
-            .crypto-methods {
-                gap: 15px;
-            }
-
-            .crypto-badge {
-                padding: 7px 14px;
-                font-size: 13px;
-            }
-
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 24px;
-            }
-
-            .feature-item {
-                padding: 24px 18px;
-            }
-
-            .feature-icon {
-                font-size: 42px;
-            }
-
-            .feature-item h3 {
-                font-size: 18px;
-            }
-
-            .feature-item p {
-                font-size: 14px;
-            }
-
-            .contacts-content {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 32px;
-            }
-
-            .contact-item h3 {
-                font-size: 18px;
-            }
-
-            .contact-item p {
-                font-size: 14px;
-            }
-
-            footer {
-                padding: 24px 18px;
-            }
-
-            footer p {
-                font-size: 13px;
-            }
-
-            .container {
-                padding: 0 24px;
-            }
-        }
-
-        @media (min-width: 821px) {
-            .lang-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-
-            .features-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 32px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            nav ul {
-                gap: 15px;
-                font-size: 14px;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .pricing-card.popular {
-                transform: scale(1);
-            }
-
-            h2 {
-                font-size: 28px;
-            }
-
-            section {
-                padding: 40px 20px;
-            }
-        }
-    </style>
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alexey Kazyro — преподаватель иностранных языков</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* Reviews Section */
-.reviews { padding: 4rem 2rem; background-color: var(--color-bg); }
-.reviews h2 { text-align: center; margin-bottom: 2rem; color: var(--color-text); font-size: 2rem; }
-.reviews-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 1.5rem; 
-    max-width: 1200px;
-    margin: 0 auto;
+:root{
+  --bg:#1c2530;
+  --bg-2:#232d3a;
+  --bg-3:#2a3645;
+  --surface:rgba(255,255,255,0.04);
+  --surface-2:rgba(255,255,255,0.07);
+  --text:#ffffff;
+  --text-2:#c0c9d6;
+  --text-3:#8995a8;
+  --line:rgba(255,255,255,0.12);
+  --line-soft:rgba(255,255,255,0.07);
+  --cyan:#4eb6b9;
+  --cyan-deep:#2a8f93;
+  --cyan-bright:#6dd0d4;
 }
-.review-card { 
-    background-color: var(--color-white); 
-    padding: 1.5rem; 
-    border-radius: 12px; 
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
-    cursor: pointer; 
-    transition: transform 0.2s, box-shadow 0.2s;
-    border: 1px solid rgba(0,0,0,0.05);
-}
-.review-card:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
-.review-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
-.review-user-info { display: flex; align-items: center; gap: 0.5rem; }
-.review-name { font-weight: bold; font-size: 1.1rem; color: var(--color-text); }
-.review-flag { font-size: 1.2rem; }
-.review-stars { color: #fbbf24; font-size: 1.2rem; letter-spacing: 2px; }
-.review-text { color: var(--color-text); font-size: 0.95rem; line-height: 1.6; }
-/* Truncated view */
-.review-text-short {
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.serif{font-family:'Instrument Serif','Cormorant Garamond',serif;font-weight:400;letter-spacing:-0.01em}
+.mono{font-family:'JetBrains Mono',monospace;font-weight:500}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-3)}
+.container{max-width:1240px;margin:0 auto;padding:0 32px}
 
-/* Modal Window */
-.modal-overlay { 
-    display: none; 
-    position: fixed; top: 0; left: 0; right: 0; bottom: 0; 
-    background-color: rgba(0,0,0,0.6); 
-    z-index: 9999; 
-    align-items: center; justify-content: center; 
-    padding: 1rem;
-    backdrop-filter: blur(4px);
-}
-.modal-content { 
-    background-color: var(--color-white); 
-    padding: 2.5rem 2rem 2rem; 
-    border-radius: 12px; 
-    max-width: 600px; 
-    width: 100%; 
-    position: relative;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-.modal-close { 
-    position: absolute; top: 1rem; right: 1.5rem; 
-    background: none; border: none; font-size: 2rem; 
-    cursor: pointer; color: var(--color-text); 
-    line-height: 1;
-}
-.modal-close:hover { opacity: 0.7; }
+/* HEADER */
+header{position:sticky;top:0;z-index:50;background:rgba(28,37,48,0.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft)}
+.nav{max-width:1240px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand-mark{width:36px;height:36px;border-radius:50%;background:var(--cyan-bright);color:var(--bg);display:grid;place-items:center;font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:22px;line-height:1;box-shadow:0 0 24px rgba(109,208,212,0.35)}
+.brand-name{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:22px;line-height:1.1;color:var(--text)}
+.brand-name small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);letter-spacing:0.15em;text-transform:uppercase;margin-top:2px}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:14px;color:var(--text-2);font-weight:500;position:relative;padding:6px 0;transition:color .2s}
+.nav-links a:hover{color:var(--cyan-bright)}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--cyan-bright);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.nav-links a:hover::after{transform:scaleX(1)}
+.lang-switch{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:transparent}
+.lang-switch button{padding:6px 12px;font-size:12px;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;color:var(--text-2);background:transparent;transition:all .2s}
+.lang-switch button.active{background:var(--cyan-bright);color:var(--bg)}
+.menu-toggle{display:none;width:36px;height:36px;border:1px solid var(--line);border-radius:8px;align-items:center;justify-content:center}
+.menu-toggle span{width:16px;height:1.5px;background:var(--text);position:relative}
+.menu-toggle span::before,.menu-toggle span::after{content:"";position:absolute;left:0;width:16px;height:1.5px;background:var(--text)}
+.menu-toggle span::before{top:-5px}.menu-toggle span::after{top:5px}
 
-/* Dark mode overrides (assuming the site uses data-theme) */
-[data-theme="dark"] .review-card { background-color: #1f2937; border-color: #374151; }
-[data-theme="dark"] .modal-content { background-color: #1f2937; }
+/* HERO */
+.hero{padding:88px 0 96px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(50% 70% at 90% 10%, rgba(78,182,185,0.16), transparent 60%),
+  radial-gradient(40% 60% at 10% 90%, rgba(42,143,147,0.22), transparent 60%);
+  pointer-events:none}
+.hero-inner{position:relative;display:grid;grid-template-columns:1.15fr 0.85fr;gap:64px;align-items:center}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:24px}
+.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--cyan-bright);box-shadow:0 0 12px var(--cyan-bright)}
+.hero h1{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:clamp(48px,7vw,108px);line-height:0.96;letter-spacing:-0.02em;font-weight:400;margin-bottom:28px;color:var(--text)}
+.hero h1 em{font-style:italic;color:var(--cyan-bright)}
+.hero-lead{font-size:18px;color:var(--text-2);max-width:520px;margin-bottom:36px}
+.hero-ctas{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.btn-primary{background:var(--cyan-bright);color:var(--bg);padding:16px 28px;border-radius:999px;font-weight:600;font-size:15px;display:inline-flex;align-items:center;gap:12px;transition:all .2s ease;box-shadow:0 6px 24px rgba(109,208,212,0.25)}
+.btn-primary:hover{background:var(--text);transform:translateY(-2px)}
+.btn-primary .arr{display:inline-flex;width:26px;height:26px;border-radius:50%;background:var(--bg);color:var(--cyan-bright);align-items:center;justify-content:center;transition:transform .2s}
+.btn-primary .arr svg{width:12px;height:12px;fill:currentColor}
+.btn-primary:hover .arr{transform:translateX(2px)}
+.btn-ghost{padding:16px 4px;font-weight:600;font-size:15px;color:var(--text);border-bottom:1px solid var(--text);transition:color .2s,border-color .2s}
+.btn-ghost:hover{color:var(--cyan-bright);border-color:var(--cyan-bright)}
+
+.hero-card{position:relative;aspect-ratio:4/5;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;backdrop-filter:blur(6px)}
+.hero-card::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(60% 60% at 80% 20%, rgba(78,182,185,0.20), transparent 60%),
+  radial-gradient(50% 50% at 20% 90%, rgba(42,143,147,0.25), transparent 60%);
+  pointer-events:none}
+.hc-top{display:flex;justify-content:space-between;align-items:flex-start;position:relative;z-index:1}
+.hc-stamp{border:1px solid var(--line);padding:4px 10px;border-radius:999px;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;color:var(--text-2)}
+.hc-langs{position:relative;z-index:1;display:flex;flex-direction:column;gap:14px}
+.hc-lang-row{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:baseline;padding-bottom:14px;border-bottom:1px dashed var(--line)}
+.hc-lang-row:last-child{border-bottom:none}
+.hc-lang-row .nm{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:38px;line-height:1;color:var(--text)}
+.hc-lang-row .meta{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);letter-spacing:0.12em;text-transform:uppercase}
+.hc-lang-row .pip{width:28px;height:18px;border-radius:2px;object-fit:cover;box-shadow:0 1px 4px rgba(0,0,0,0.45)}
+.hc-foot{display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:1}
+.hc-foot .who{font-family:'Instrument Serif','Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.15;color:var(--text)}
+.hc-foot .who small{display:block;font-family:'JetBrains Mono',monospace;font-style:normal;font-size:10px;color:var(--text-3);letter-spacing:0.14em;text-transform:uppercase;margin-top:4px}
+.hc-ring{width:64px;height:64px;border-radius:50%;border:1px solid var(--cyan-bright);display:grid;place-items:center;font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:14px;font-style:italic;color:var(--cyan-bright);box-shadow:inset 0 0 24px rgba(109,208,212,0.15)}
+.hc-ring strong{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:24px;font-weight:400;font-style:normal;display:block;line-height:1;color:var(--cyan-bright)}
+
+/* marquee */
+.marquee{margin-top:64px;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:18px 0;overflow:hidden;position:relative}
+.marquee-track{display:flex;gap:48px;white-space:nowrap;animation:marq 32s linear infinite;font-family:'Instrument Serif','Cormorant Garamond',serif;font-style:italic;font-size:28px;color:var(--text-2)}
+.marquee-track span{display:flex;align-items:center;gap:48px}
+.marquee-track .sep{font-family:'JetBrains Mono',monospace;font-style:normal;font-size:10px;letter-spacing:0.3em;color:var(--cyan-bright);text-transform:uppercase}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTION COMMON */
+.section{padding:96px 0;position:relative}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:48px;margin-bottom:56px;flex-wrap:wrap;position:relative;z-index:1}
+.section-head .heading{flex:1;min-width:280px}
+.section-head h2{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:clamp(40px,5vw,64px);line-height:1;letter-spacing:-0.01em;margin-top:10px;color:var(--text)}
+.section-head h2 em{font-style:italic;color:var(--cyan-bright)}
+.section-head .lead{max-width:380px;color:var(--text-2);font-size:16px}
+
+/* LANGUAGES */
+.languages{position:relative;overflow:hidden}
+.languages::before{content:"";position:absolute;inset:0;background:radial-gradient(40% 60% at 100% 0%, rgba(78,182,185,0.08), transparent 60%);pointer-events:none}
+.lang-grid{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;z-index:1}
+.lang-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:32px;position:relative;transition:all .3s ease;display:flex;flex-direction:column;min-height:420px;overflow:hidden;backdrop-filter:blur(4px)}
+.lang-card::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 100% at 100% 0%, rgba(78,182,185,0.14), transparent 60%);opacity:0.5;transition:opacity .3s;pointer-events:none}
+.lang-card:hover{transform:translateY(-4px);border-color:var(--cyan)}
+.lang-card:hover::before{opacity:1}
+.lang-card > *{position:relative;z-index:1}
+.lang-card .lc-flag{display:block;margin:0 0 28px;width:96px;height:64px;object-fit:cover;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,0.45)}
+.lang-card .nm{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:64px;line-height:1;color:var(--text);margin-bottom:8px}
+.lang-card .nm em{font-style:italic;color:var(--cyan-bright)}
+.lang-card .ru{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:20px}
+.lang-card .desc{color:var(--text-2);font-size:15px;flex:1}
+.lang-card .tags{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-family:'JetBrains Mono',monospace;font-size:11px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;color:var(--text-2)}
+
+/* ABOUT */
+.about{background:var(--bg-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);position:relative;overflow:hidden}
+.about::before{content:"";position:absolute;inset:0;background:radial-gradient(40% 60% at 100% 100%, rgba(78,182,185,0.10), transparent 60%);pointer-events:none}
+.about-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.about-portrait{position:relative;background:linear-gradient(135deg,#1f3e44 0%,#0e2326 100%);border-radius:12px;aspect-ratio:4/5;padding:36px;color:var(--text);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;border:1px solid var(--line)}
+.about-portrait::before{content:"";position:absolute;top:-40%;right:-30%;width:90%;height:90%;border-radius:50%;background:radial-gradient(circle,rgba(78,182,185,0.45),transparent 70%)}
+.about-portrait::after{content:"";position:absolute;bottom:-30%;left:-20%;width:70%;height:70%;border-radius:50%;background:radial-gradient(circle,rgba(42,143,147,0.35),transparent 70%)}
+.about-portrait > *{position:relative;z-index:1}
+.about-portrait .stat{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:180px;line-height:0.85;letter-spacing:-0.03em;color:var(--cyan-bright)}
+.about-portrait .stat sup{font-family:'JetBrains Mono',monospace;font-size:14px;vertical-align:super;letter-spacing:0.1em;margin-left:8px;color:var(--text)}
+.about-portrait .stat-cap{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;opacity:0.9;margin-top:12px;color:var(--text-2)}
+.about-portrait .sig{font-family:'Instrument Serif','Cormorant Garamond',serif;font-style:italic;font-size:32px;color:var(--text)}
+.about-portrait .sig small{display:block;font-family:'JetBrains Mono',monospace;font-style:normal;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.8;margin-top:6px;color:var(--text-2)}
+
+.about-body p{font-size:16px;color:var(--text-2);margin-bottom:18px}
+.about-body p strong{color:var(--text);font-weight:600}
+.method-list{margin-top:36px;display:flex;flex-direction:column;gap:0}
+.method-item{padding:22px 0;border-top:1px solid var(--line-soft);display:flex;gap:18px;align-items:flex-start}
+.method-item:last-child{border-bottom:1px solid var(--line-soft)}
+.method-item .mi-dot{flex-shrink:0;width:8px;height:8px;border-radius:50%;background:var(--cyan-bright);margin-top:12px;box-shadow:0 0 12px var(--cyan)}
+.method-item .mi-body{flex:1}
+.method-item .mi-title{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:22px;line-height:1.1;color:var(--text);margin-bottom:4px}
+.method-item .mi-desc{font-size:14px;color:var(--text-3)}
+
+/* WHY */
+.why{background:var(--bg);position:relative;overflow:hidden}
+.why::before{content:"";position:absolute;inset:0;background:radial-gradient(40% 50% at 50% 0%, rgba(78,182,185,0.08), transparent 60%);pointer-events:none}
+.why-grid{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:12px;overflow:hidden}
+.why-item{background:var(--bg);padding:36px 32px;display:flex;flex-direction:column;gap:14px;transition:background .25s}
+.why-item:hover{background:var(--surface)}
+.why-item .wi-icon{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--cyan);border-radius:50%;color:var(--cyan-bright)}
+.why-item .wi-icon svg{width:20px;height:20px}
+.why-item h3{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:28px;line-height:1.1;color:var(--text)}
+.why-item p{color:var(--text-2);font-size:15px}
+
+/* PRICING */
+.pricing{background:var(--bg-2);position:relative;overflow:hidden}
+.pricing::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(60% 80% at 20% 100%, rgba(78,182,185,0.20), transparent 60%),
+  radial-gradient(50% 80% at 100% 0%, rgba(42,143,147,0.35), transparent 60%);
+  pointer-events:none}
+.price-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;position:relative}
+.price-card{border:1px solid var(--line);border-radius:12px;padding:48px;background:var(--surface);backdrop-filter:blur(4px)}
+.price-card .ptag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan-bright);margin-bottom:24px;display:flex;align-items:center;gap:10px}
+.price-card .ptag::before{content:"";width:24px;height:1px;background:var(--cyan-bright)}
+.price-card h3{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:56px;line-height:1;letter-spacing:-0.01em;margin-bottom:14px;color:var(--text)}
+.price-card h3 em{font-style:italic;color:var(--cyan-bright)}
+.price-card .ptext{color:var(--text-2);font-size:16px;margin-bottom:36px;max-width:420px}
+.price-feats{display:flex;flex-direction:column;gap:14px;margin-bottom:40px}
+.price-feats li{list-style:none;display:flex;align-items:flex-start;gap:14px;font-size:15px;color:var(--text-2)}
+.price-feats svg{flex-shrink:0;margin-top:2px;color:var(--cyan-bright)}
+.price-side{display:flex;flex-direction:column;gap:18px}
+.pay-card{border:1px solid var(--line);border-radius:12px;padding:24px;background:var(--surface)}
+.pay-card .pc-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px}
+.pay-card .pc-list{display:flex;flex-wrap:wrap;gap:8px}
+.pay-card .pc-list span{padding:6px 12px;border:1px solid var(--line);border-radius:999px;font-size:13px;font-family:'JetBrains Mono',monospace;color:var(--text-2)}
+.pay-cta{background:var(--cyan-bright);color:var(--bg);padding:24px;border-radius:12px;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:transform .2s;box-shadow:0 8px 28px rgba(109,208,212,0.25)}
+.pay-cta:hover{transform:translateY(-2px)}
+.pay-cta .pc-title{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:24px;line-height:1.1;color:var(--bg)}
+.pay-cta .pc-arrow{width:36px;height:36px;border-radius:50%;background:var(--bg);color:var(--cyan-bright);display:grid;place-items:center}
+.pay-cta .pc-arrow svg{width:14px;height:14px;fill:currentColor}
+
+/* REVIEWS */
+.reviews{background:var(--bg);position:relative;overflow:hidden}
+.reviews::before{content:"";position:absolute;inset:0;background:radial-gradient(40% 50% at 0% 50%, rgba(78,182,185,0.08), transparent 60%);pointer-events:none}
+.rev-grid{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.rev-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px;cursor:pointer;transition:all .3s ease;display:flex;flex-direction:column;gap:16px;min-height:260px;backdrop-filter:blur(4px)}
+.rev-card:hover{border-color:var(--cyan);transform:translateY(-3px);background:var(--surface-2)}
+.rev-head{display:flex;justify-content:space-between;align-items:center}
+.rev-meta{display:flex;align-items:center;gap:10px}
+.rev-avatar{width:34px;height:34px;border-radius:50%;background:var(--cyan-deep);color:var(--text);display:grid;place-items:center;font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:16px}
+.rev-name{font-weight:600;font-size:15px;color:var(--text)}
+.rev-name small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);letter-spacing:0.1em;font-weight:500;margin-top:2px}
+.rev-stars{color:var(--cyan-bright);letter-spacing:1px;font-size:12px}
+.rev-quote{font-family:'Instrument Serif','Cormorant Garamond',serif;font-style:italic;font-size:20px;line-height:1.35;color:var(--text);flex:1}
+.rev-foot{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-3);display:flex;justify-content:flex-end;align-items:center}
+.rev-foot .more{color:var(--cyan-bright)}
+
+/* modal */
+.modal{position:fixed;inset:0;background:rgba(10,15,22,0.7);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;z-index:200;padding:24px}
+.modal.open{display:flex;animation:fade .2s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.modal-box{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:48px;max-width:640px;width:100%;max-height:88vh;overflow-y:auto;position:relative;box-shadow:0 24px 80px rgba(0,0,0,0.5)}
+.modal-box .close{position:absolute;top:18px;right:18px;width:36px;height:36px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;background:transparent;color:var(--text)}
+.modal-box .close:hover{background:var(--cyan-bright);color:var(--bg);border-color:var(--cyan-bright)}
+.modal-box .mh{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--line-soft)}
+.modal-box .mh .nm{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:32px;line-height:1;color:var(--text)}
+.modal-box .mh .nm small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);letter-spacing:0.16em;text-transform:uppercase;margin-top:6px}
+.modal-box .mbody{font-size:16px;color:var(--text-2);line-height:1.7;white-space:pre-line}
+
+/* CONTACT */
+.contact{background:var(--bg-2);border-top:1px solid var(--line-soft);position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 80% at 0% 50%, rgba(78,182,185,0.12), transparent 60%);pointer-events:none}
+.contact-grid{position:relative;display:grid;grid-template-columns:0.8fr 1.2fr;gap:64px;align-items:start}
+.contact-grid h2{margin-bottom:24px}
+.contact-grid .lead{color:var(--text-2);font-size:17px;max-width:380px;margin-bottom:36px}
+.contact-list{display:flex;flex-direction:column;gap:0}
+.contact-row{display:grid;grid-template-columns:120px 1fr auto;gap:24px;align-items:center;padding:24px 0;border-top:1px solid var(--line-soft);transition:padding .25s}
+.contact-row:last-child{border-bottom:1px solid var(--line-soft)}
+.contact-row:hover{padding-left:8px}
+.contact-row .clabel{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-3)}
+.contact-row .cmain{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:30px;line-height:1.1;color:var(--text)}
+.contact-row .cmain small{display:block;font-family:'Manrope',sans-serif;font-size:14px;color:var(--text-3);margin-top:4px;font-weight:400}
+.contact-row .carrow{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:all .2s;color:var(--text-2)}
+.contact-row .carrow svg{width:14px;height:14px;fill:currentColor}
+.contact-row:hover .carrow{background:var(--cyan-bright);color:var(--bg);border-color:var(--cyan-bright);transform:rotate(-45deg)}
+
+/* FOOTER */
+footer{background:var(--bg);color:var(--text);padding:64px 0 32px;border-top:1px solid var(--line-soft)}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--line-soft)}
+.foot-top h3{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:clamp(40px,5vw,68px);line-height:0.96;letter-spacing:-0.01em;color:var(--text)}
+.foot-top h3 em{font-style:italic;color:var(--cyan-bright)}
+.foot-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;color:var(--text-2);font-size:14px}
+.foot-cols .lab{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px}
+.foot-cols a:hover{color:var(--cyan-bright)}
+.foot-bottom{padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-3);flex-wrap:wrap;gap:12px}
+
+/* RESPONSIVE */
+@media (max-width:960px){
+  .hero{padding:56px 0 64px}
+  .hero-inner{grid-template-columns:1fr;gap:48px}
+  .hero-card{aspect-ratio:auto;min-height:420px}
+  .marquee{margin-top:48px}
+  .marquee-track{font-size:22px}
+  .section{padding:72px 0}
+  .lang-grid{grid-template-columns:1fr;gap:16px}
+  .lang-card{min-height:auto}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-portrait{aspect-ratio:1/1;padding:24px}
+  .about-portrait .stat{font-size:120px}
+  .why-grid{grid-template-columns:1fr}
+  .price-grid{grid-template-columns:1fr;gap:24px}
+  .price-card{padding:32px}
+  .price-card h3{font-size:40px}
+  .rev-grid{grid-template-columns:1fr;gap:16px}
+  .contact-grid{grid-template-columns:1fr;gap:40px}
+  .contact-row{grid-template-columns:90px 1fr auto;gap:16px}
+  .contact-row .cmain{font-size:22px}
+  .foot-top{grid-template-columns:1fr;gap:32px}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--bg-2);border-bottom:1px solid var(--line-soft);flex-direction:column;align-items:flex-start;padding:24px 32px;gap:16px}
+  .menu-toggle{display:inline-flex}
+}
+@media (max-width:600px){
+  .container{padding:0 20px}
+  .nav{padding:14px 20px}
+  .brand-name{font-size:18px}
+  .hero h1{font-size:56px}
+  .hero-card{padding:20px}
+  .hc-lang-row .nm{font-size:28px}
+  .section-head{flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:36px}
+  .section-head h2{font-size:36px}
+  .why-item{padding:28px 24px}
+  .price-card{padding:24px}
+  .price-card h3{font-size:32px}
+  .modal-box{padding:32px 24px}
+  .modal-box .mh .nm{font-size:24px}
+  .rev-quote{font-size:16px}
+  .contact-row{grid-template-columns:1fr;gap:8px;padding:20px 0}
+  .contact-row .carrow{display:none}
+  .foot-cols{grid-template-columns:1fr}
+}
 </style>
-
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Alexey Kazyro</div>
-            <ul>
-                <li><a href="#languages" data-en="Languages" data-ru="Языки">Языки</a></li>
-                <li><a href="#about" data-en="About" data-ru="Обо мне">Обо мне</a></li>
-                <li><a href="#pricing" data-en="Price" data-ru="Цена">Тарифы</a></li>
-                <li><a href="#contacts" data-en="Contact" data-ru="Контакты">Контакты</a></li>
-                <li>
-                    <div class="lang-switcher">
-                        <button class="lang-btn active" data-lang="ru">RU</button>
-                        <button class="lang-btn" data-lang="en">EN</button>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-    </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1 data-en="Learn English, French or Finnish" data-ru="Изучите английский, французский или финский">Изучите английский, французский или финский</h1>
-            <p data-en="Professional training with over 5 years of experience" data-ru="Профессиональное обучение с опытом более 5 лет">Профессиональное обучение с опытом более 5 лет</p>
-            <button class="cta-button" onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})" data-en="Book a lesson" data-ru="Записаться на урок">
-                Записаться на урок
-            </button>
+<header>
+  <div class="nav">
+    <a href="#top" class="brand">
+      <div class="brand-mark">A</div>
+      <div class="brand-name">
+        Alexey Kazyro
+        <small data-i18n="brand.role">репетитор · languages</small>
+      </div>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#languages" data-i18n="nav.languages">Языки</a>
+      <a href="#about" data-i18n="nav.about">Обо мне</a>
+      <a href="#why" data-i18n="nav.why">Подход</a>
+      <a href="#pricing" data-i18n="nav.pricing">Цена</a>
+      <a href="#reviews" data-i18n="nav.reviews">Отзывы</a>
+      <a href="#contact" data-i18n="nav.contact">Контакты</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:16px">
+      <div class="lang-switch" role="tablist" aria-label="Language">
+        <button data-lang="ru" class="active">RU</button>
+        <button data-lang="en">EN</button>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="container hero-inner">
+    <div>
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        <span class="eyebrow" data-i18n="hero.eyebrow">Online · 2020 — настоящее</span>
+      </div>
+      <h1>
+        <span data-i18n="hero.title.1">Учу говорить на</span>
+        <em data-i18n="hero.title.2">английском</em><span data-i18n="hero.title.comma">,</span><br>
+        <em data-i18n="hero.title.3">французском</em>
+        <span data-i18n="hero.title.and">и</span>
+        <em data-i18n="hero.title.4">финском.</em>
+      </h1>
+      <p class="hero-lead" data-i18n="hero.lead">Индивидуальные занятия для взрослых и подростков. Программа подбирается под ваши цели — экзамен, путешествие, работа или просто радость свободно понимать.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary">
+          <span data-i18n="hero.cta">Записаться на урок</span>
+          <span class="arr"><svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"/></svg></span>
+        </a>
+        <a href="#languages" class="btn-ghost" data-i18n="hero.cta2">Посмотреть программу</a>
+      </div>
+    </div>
+
+    <div class="hero-card" aria-hidden="true">
+      <div class="hc-top">
+        <span class="hc-stamp mono" data-i18n="hero.card.stamp">Online lesson</span>
+        <span class="eyebrow" style="font-size:10px" data-i18n="hero.card.zoom">via Zoom</span>
+      </div>
+      <div class="hc-langs">
+        <div class="hc-lang-row">
+          <img class="pip" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg" alt="UK flag">
+          <span class="nm serif">English</span>
+          <span class="meta">A1 — C2</span>
         </div>
-    </section>
+        <div class="hc-lang-row">
+          <img class="pip" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="France flag">
+          <span class="nm serif"><em style="font-style:italic;color:var(--cyan)">Français</em></span>
+          <span class="meta">A1 — C1</span>
+        </div>
+        <div class="hc-lang-row">
+          <img class="pip" src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Finland.svg" alt="Finland flag">
+          <span class="nm serif">Suomi</span>
+          <span class="meta">A1 — B2</span>
+        </div>
+      </div>
+      <div class="hc-foot">
+        <div class="who">
+          Alexey K.
+          <small data-i18n="hero.card.who">tutor · est. 2020</small>
+        </div>
+        <div class="hc-ring">
+          <div style="text-align:center">
+            <strong>5+</strong>
+            <span style="font-size:9px;letter-spacing:0.1em;display:block;font-family:'JetBrains Mono',monospace;font-style:normal;text-transform:uppercase;margin-top:2px" data-i18n="hero.card.yrs">yrs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <section id="languages" class="languages">
-	<div class="container">
-            <h2 data-en="Languages" data-ru="Языки обучения">Языки обучения</h2>
-            <div class="lang-grid">
-                <div class="lang-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.5s, transform 0.5s;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg" alt="Flag of Great Britain" class="lang-flag">
-                    <div class="lang-icon">English</div>
-                    <h3 data-en="English Language" data-ru="Английский язык">Английский язык</h3>
-                    <p data-en="Exam preparation, conversation practice, business English. Individual approach to each student." data-ru="Подготовка к экзаменам, разговорная речь, деловой английский. Индивидуальный подход к каждому студенту.">Подготовка к экзаменам, разговорная речь, деловой английский. Индивидуальный подход к каждому студенту.</p>
-                </div>
-                <div class="lang-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.5s, transform 0.5s;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="Flag of France" class="lang-flag">
-                    <div class="lang-icon">Français</div>
-                    <h3 data-en="French Language" data-ru="Французский язык">Французский язык</h3>
-                    <p data-en="From basic fundamentals to advanced levels. Cultural context and interesting materials throughout the learning process." data-ru="От базовых основ до продвинутых уровней. Культурный контекст и интересные материалы в процессе обучения.">От базовых основ до продвинутых уровней. Культурный контекст и интересные материалы в процессе обучения.</p>
-                </div>
-                <div class="lang-card" style="opacity: 1; transform: translateY(0px); transition: opacity 0.5s, transform 0.5s;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Finland.svg" alt="Flag of Finland" class="lang-flag">
-                    <div class="lang-icon">Suomi</div>
-                    <h3 data-en="Finnish Language" data-ru="Финский язык">Финский язык</h3>
-                    <p data-en="Rare specialization with deep knowledge of grammar and features of the Finnish language." data-ru="Редкая специализация с глубоким знанием грамматики и особенностей финского языка.">Редкая специализация с глубоким знанием грамматики и особенностей финского языка.</p>
-                </div>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Bonjour <span class="sep">·</span> Hello <span class="sep">·</span> Hei <span class="sep">·</span> Привет <span class="sep">·</span> Comment ça va <span class="sep">·</span> How are you <span class="sep">·</span> Mitä kuuluu <span class="sep">·</span></span>
+      <span>Bonjour <span class="sep">·</span> Hello <span class="sep">·</span> Hei <span class="sep">·</span> Привет <span class="sep">·</span> Comment ça va <span class="sep">·</span> How are you <span class="sep">·</span> Mitä kuuluu <span class="sep">·</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LANGUAGES ============ -->
+<section class="section" id="languages">
+  <div class="container">
+    <div class="section-head">
+      <div class="heading">
+        <span class="eyebrow" data-i18n="lang.eyebrow">Языки</span>
+        <h2><span data-i18n="lang.h.1">Три языка,</span> <em data-i18n="lang.h.2">три разговора</em></h2>
+      </div>
+      <p class="lead" data-i18n="lang.lead">Каждое направление — со своей методикой, материалами и культурным контекстом. Можно сочетать</p>
+    </div>
+
+    <div class="lang-grid">
+      <article class="lang-card">
+        <img class="lc-flag" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg" alt="UK flag">
+        <div class="nm serif">English</div>
+        <div class="ru" data-i18n="lang.en.ru">Английский язык</div>
+        <p class="desc" data-i18n="lang.en.desc">Подготовка к IELTS, TOEFL и школьным экзаменам, разговорная практика, деловой английский. Индивидуальный план под ваш уровень</p>
+        <div class="tags">
+          <span class="tag" data-i18n="lang.en.t1">IELTS / TOEFL</span>
+          <span class="tag" data-i18n="lang.en.t2">Business</span>
+          <span class="tag" data-i18n="lang.en.t3">Speaking</span>
+        </div>
+      </article>
+
+      <article class="lang-card">
+        <img class="lc-flag" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="France flag">
+        <div class="nm serif"><em>Français</em></div>
+        <div class="ru" data-i18n="lang.fr.ru">Французский язык</div>
+        <p class="desc" data-i18n="lang.fr.desc">От базовых основ до продвинутых уровней. Произношение, грамматика и культурный контекст — кино, песни, литература</p>
+        <div class="tags">
+          <span class="tag" data-i18n="lang.fr.t1">DELF / DALF</span>
+          <span class="tag" data-i18n="lang.fr.t2">Culture</span>
+          <span class="tag" data-i18n="lang.fr.t3">Grammaire</span>
+        </div>
+      </article>
+
+      <article class="lang-card">
+        <img class="lc-flag" src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Finland.svg" alt="Finland flag">
+        <div class="nm serif">Suomi</div>
+        <div class="ru" data-i18n="lang.fi.ru">Финский язык</div>
+        <p class="desc" data-i18n="lang.fi.desc">Редкая специализация. Глубокое знание грамматики, падежей и особенностей языка — для жизни, работы и учёбы в Финляндии</p>
+        <div class="tags">
+          <span class="tag" data-i18n="lang.fi.t1">YKI</span>
+          <span class="tag" data-i18n="lang.fi.t2">Kielioppi</span>
+          <span class="tag" data-i18n="lang.fi.t3">Arki</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="section-head">
+      <div class="heading">
+        <span class="eyebrow" data-i18n="about.eyebrow">Обо мне</span>
+        <h2><span data-i18n="about.h.1">Преподаю с</span> <em data-i18n="about.h.2">любопытством.</em></h2>
+      </div>
+      <p class="lead" data-i18n="about.lead">Подход — практичный и человечный: язык как живой инструмент, а не набор правил</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-portrait">
+        <div>
+          <div class="stat">5<sup data-i18n="about.stat.sup">+ years</sup></div>
+          <div class="stat-cap" data-i18n="about.stat.cap">лет преподавания · 100+ студентов</div>
+        </div>
+        <div class="sig">
+          Alexey Kazyro
+          <small data-i18n="about.sig">repetitor · en · fr · fi</small>
+        </div>
+      </div>
+
+      <div>
+        <div class="about-body">
+          <p data-i18n="about.p1"><strong>Я репетитор с 5+ годами опыта</strong> преподавания иностранных языков. Помогаю студентам всех уровней достигать своих целей — от первого «hello» до уверенной речи в работе и путешествиях</p>
+          <p data-i18n="about.p2">Мой подход построен на практическом применении знаний, развитии разговорных навыков и глубоком понимании грамматики. Каждый студент получает программу под свои цели и темп</p>
+        </div>
+
+        <div class="method-list">
+          <div class="method-item">
+            <span class="mi-dot"></span>
+            <div class="mi-body">
+              <div class="mi-title" data-i18n="method.1.t">Коммуникативный подход</div>
+              <div class="mi-desc" data-i18n="method.1.d">Акцент на устную речь и практическое применение с первого урока</div>
             </div>
-        </div>
-    </section>
-
-    <section id="about" class="about">
-        <div class="container">
-            <h2 data-en="About Me" data-ru="Обо мне">Обо мне</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3 data-en="Experience and Qualifications" data-ru="Опыт и квалификация">Опыт и квалификация</h3>
-                    <p data-en="I am a tutor with over 5 years of experience teaching foreign languages. I help students of all levels achieve their language learning goals." data-ru="Я репетитор с более чем 5-летним опытом преподавания иностранных языков. Помогаю студентам всех уровней достигать своих целей в изучении языков.">Я репетитор с более чем 5-летним опытом преподавания иностранных языков. Помогаю студентам всех уровней достигать своих целей в изучении языков.</p>
-                    <p data-en="My approach focuses on practical application of knowledge, development of speaking skills and deep understanding of grammar." data-ru="Мой подход ориентирован на практическое применение знаний, развитие разговорных навыков и глубокое понимание грамматики.">Мой подход ориентирован на практическое применение знаний, развитие разговорных навыков и глубокое понимание грамматики.</p>
-                    <p data-en="Each student receives a personalized learning program tailored to their goals and level of preparation." data-ru="Каждый студент получает персональную программу обучения, адаптированную к его целям и уровню подготовки.">Каждый студент получает персональную программу обучения, адаптированную к его целям и уровню подготовки.</p>
-                    <div class="experience-badge">
-                        <span class="number">5+</span>
-                        <span data-en="years of teaching" data-ru="лет преподавания">лет преподавания</span>
-                    </div>
-                </div>
-                <div class="about-text">
-                    <h3 data-en="Teaching Methods" data-ru="Методика обучения">Методика обучения</h3>
-                    <p><strong data-en="Communicative approach" data-ru="Коммуникативный подход">Коммуникативный подход</strong> <span data-en="- focus on oral communication and practical application." data-ru="- акцент на устное общение и практическое применение.">- акцент на устное общение и практическое применение.</span></p>
-                    <p><strong data-en="Individualization" data-ru="Индивидуализация">Индивидуализация</strong> <span data-en="- lessons adapt to your pace and learning style." data-ru="- уроки подстраиваются под ваш темп и стиль обучения.">- уроки подстраиваются под ваш темп и стиль обучения.</span></p>
-                    <p><strong data-en="Modern Materials" data-ru="Современные материалы">Современные материалы</strong> <span data-en="- use of current and interesting educational resources." data-ru="- использование актуальных и интересных учебных ресурсов.">- использование актуальных и интересных учебных ресурсов.</span></p>
-                    <p><strong data-en="Flexible Schedule" data-ru="Гибкое расписание">Гибкое расписание</strong> <span data-en="- classes at a time convenient for you." data-ru="- занятия в удобное для вас время.">- занятия в удобное для вас время.</span></p>
-                    <p><strong data-en="Support Between Lessons" data-ru="Поддержка между уроками">Поддержка между уроками</strong> <span data-en="- answers to questions and help with homework." data-ru="- ответы на вопросы и помощь в выполнении домашних заданий.">- ответы на вопросы и помощь в выполнении домашних заданий.</span></p>
-                </div>
+          </div>
+          <div class="method-item">
+            <span class="mi-dot"></span>
+            <div class="mi-body">
+              <div class="mi-title" data-i18n="method.2.t">Индивидуализация</div>
+              <div class="mi-desc" data-i18n="method.2.d">Уроки подстраиваются под ваш темп, цели и стиль обучения</div>
             </div>
-        </div>
-    </section>
-
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <h2 data-en="Price" data-ru="Цена">Цена</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card" style="max-width: 600px; margin: 0 auto;">
-                    <h3 data-en="Negotiable Price" data-ru="Цена договорная">Цена договорная</h3>
-                    <div class="price" style="font-size: 1.5rem; margin: 1.5rem 0;">
-                        <span data-en="Contact me to discuss" data-ru="Свяжитесь со мной для обсуждения">Свяжитесь со мной для обсуждения</span>
-                    </div>
-                    <ul class="pricing-features">
-                        <li data-en="Individual approach to each student" data-ru="Индивидуальный подход к каждому студенту">Индивидуальный подход к каждому студенту</li>
-                        <li data-en="Flexible pricing depending on the number of lessons" data-ru="Гибкая цена в зависимости от количества уроков">Гибкая цена в зависимости от количества уроков</li>
-                        <li data-en="Payment by card, SBP or cryptocurrency" data-ru="Оплата картой, СБП или криптовалютой">Оплата картой, СБП или криптовалютой</li>
-                    </ul>
-                </div>
+          </div>
+          <div class="method-item">
+            <span class="mi-dot"></span>
+            <div class="mi-body">
+              <div class="mi-title" data-i18n="method.3.t">Современные материалы</div>
+              <div class="mi-desc" data-i18n="method.3.d">Актуальные учебники, подкасты, фильмы, статьи — а не сухие правила</div>
             </div>
-        </div>
-    </section>
-
-    <section id="why-me" class="why-me">
-        <div class="container">
-            <h2 data-en="Why Choose Me" data-ru="Почему выбирают меня">Почему выбирают меня</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">✓</div>
-                    <h3 data-en="Results" data-ru="Результаты">Результаты</h3>
-                    <p data-en="My students successfully pass exams and achieve fluent language skills." data-ru="Мои студенты успешно сдают экзамены и достигают свободного владения языками.">Мои студенты успешно сдают экзамены и достигают свободного владения языками.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">⏰</div>
-                    <h3 data-en="Flexible Schedule" data-ru="Гибкое расписание">Гибкое расписание</h3>
-                    <p data-en="Lessons are held at a convenient time for you, including weekends." data-ru="Уроки проводятся в удобное для вас время, включая выходные дни.">Уроки проводятся в удобное для вас время, включая выходные дни.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">👤</div>
-                    <h3 data-en="Personal Approach" data-ru="Личный подход">Личный подход</h3>
-                    <p data-en="Each training program is developed individually for a specific student." data-ru="Каждая программа обучения разрабатывается индивидуально для конкретного студента.">Каждая программа обучения разрабатывается индивидуально для конкретного студента.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">📚</div>
-                    <h3 data-en="Modern Methods" data-ru="Современные методы">Современные методы</h3>
-                    <p data-en="I use the latest teaching methods and high-quality educational materials." data-ru="Использую новейшие методики преподавания и качественные учебные материалы.">Использую новейшие методики преподавания и качественные учебные материалы.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">💬</div>
-                    <h3 data-en="Support" data-ru="Поддержка">Поддержка</h3>
-                    <p data-en="Help between lessons, answers to questions and analysis of difficult moments." data-ru="Помощь между уроками, ответы на вопросы и разбор сложных моментов.">Помощь между уроками, ответы на вопросы и разбор сложных моментов.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🎯</div>
-                    <h3 data-en="Clear Goals" data-ru="Четкие цели">Четкие цели</h3>
-                    <p data-en="Together we set goals and track progress in each lesson." data-ru="Вместе определяем цели и отслеживаем прогресс на каждом уроке.">Вместе определяем цели и отслеживаем прогресс на каждом уроке.</p>
-                </div>
+          </div>
+          <div class="method-item">
+            <span class="mi-dot"></span>
+            <div class="mi-body">
+              <div class="mi-title" data-i18n="method.4.t">Гибкое расписание</div>
+              <div class="mi-desc" data-i18n="method.4.d">Занятия в удобное время — будни, вечера, выходные</div>
             </div>
-        </div>
-    </section>
-
-    
-	<section id="reviews" class="reviews">
-	<h2 data-en="Reviews" data-ru="Отзывы">Отзывы</h2>
-		<div class="reviews-grid">
-	
-			<div class="review-card" onclick="openReviewModal(0)">
-				<div class="review-header">
-					<div class="review-user-info">
-						<span class="review-name">Яна</span>
-						<img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg" style="height:1em;width:auto;vertical-align:middle;">
-					</div>
-					<div class="review-stars">⭐⭐⭐⭐⭐</div>
-				</div>
-				<div class="review-text">Занятия по французскому были хорошо структурированы и проходили в спокойной, рабочей атмосфере. Преподаватель понятно объясняет материал, обращает ...</div>
-				<div id="review-full-text-0" style="display:none;">Занятия по французскому были хорошо структурированы и проходили в спокойной, рабочей атмосфере. Преподаватель понятно объясняет материал, обращает внимание на произношение, грамматику и помогает преодолеть языковой барьер.
-
-	Уроки были практичными и адаптированы под мой уровень. Алексей терпеливо отвечал на вопросы и поддерживал меня в процессе обучения. Теперь я говорю гораздо лучше.
-
-	Рекомендую этого преподавателя всем.</div>
-				<div id="review-name-0" style="display:none;">Яна</div>
-				<div id="review-flag-0" style="display:none;">https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Canada_%28Pantone%29.svg</div>
-			</div>
-
-			<div class="review-card" onclick="openReviewModal(1)">
-				<div class="review-header">
-					<div class="review-user-info">
-						<span class="review-name">Наталья</span>
-						<img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg" style="height:1em;width:auto;vertical-align:middle;">
-					</div>
-					<div class="review-stars">⭐⭐⭐⭐⭐</div>
-				</div>
-				<div class="review-text">Занимаюсь с Алексеем длительное время.
-	Результатами очень довольна💯
-	Нравится, что преподаватель всегда прислушивается к моему запросу по сложности ...</div>
-				<div id="review-full-text-1" style="display:none;">Занимаюсь с Алексеем длительное время.
-	Результатами очень довольна💯
-	Нравится, что преподаватель всегда прислушивается к моему запросу по сложности и скорости подачи материала, а также обладает терпением.
-	На уроках с Алексеем всегда сохраняется позитивный настрой и хорошее настроение 👍</div>
-				<div id="review-name-1" style="display:none;">Наталья</div>
-				<div id="review-flag-1" style="display:none;">https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg</div>
-			</div>
-
-			<div class="review-card" onclick="openReviewModal(2)">
-				<div class="review-header">
-					<div class="review-user-info">
-						<span class="review-name">Janne T.</span>
-						<img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Finland.svg" style="height:1em;width:auto;vertical-align:middle;">
-					</div>
-					<div class="review-stars">⭐⭐⭐⭐⭐</div>
-				</div>
-				<div class="review-text">Loistavaa opetusta pojalleni, voin suositella suomen kielen kielioppiin ja kielen oppimiseen alusta alkaen! Janne Haahkola</div>
-				<div id="review-full-text-2" style="display:none;">Loistavaa opetusta pojalleni, voin suositella suomen kielen kielioppiin ja kielen oppimiseen alusta alkaen! Janne Haahkola</div>
-				<div id="review-name-2" style="display:none;">Janne T.</div>
-				<div id="review-flag-2" style="display:none;">https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Finland.svg</div>
-			</div>
-
-			<div class="review-card" onclick="openReviewModal(3)">
-				<div class="review-header">
-					<div class="review-user-info">
-						<span class="review-name">Виктория</span>
-						<img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg" style="height:1em;width:auto;vertical-align:middle;">
-					</div>
-					<div class="review-stars">⭐⭐⭐⭐⭐</div>
-				</div>
-				<div class="review-text">Работа с данным преподавателем проходит на высшем уровне. Объяснения понятны, если вдруг что-то не понял с первого раза, объяснят столько, сколько ...</div>
-				<div id="review-full-text-3" style="display:none;">Работа с данным преподавателем проходит на высшем уровне. Объяснения понятны, если вдруг что-то не понял с первого раза, объяснят столько, сколько нужно для понимания. Задания хорошие, делать домашнюю работу в одно удовольствие. Дополнительные материалы понятны, интересны и легко усваиваются. Уроки проходят на позитиве и даже забываешь о времени, лишь бы только продолжить занятие дальше. После окончания занятий остаешься на позитиве, а не как выжитый лимон. 😉
-	Со своим знанием Английского за пару занятий все начинает становится на свои места. Поддержание связи и вне урочное время подтверждает заинтересованность, педагогический подход и желание заниматься любимым делом. Очень вдохновляет и направляет на нужный путь. С таким преподавателем хочется окунаться в учебу, нелюбимые темы становятся интереснее и дает стремление идти дальше. 🫶🏼</div>
-				<div id="review-name-3" style="display:none;">Виктория</div>
-				<div id="review-flag-3" style="display:none;">https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg</div>
-			</div>
-
-			<div class="review-card" onclick="openReviewModal(4)">
-				<div class="review-header">
-					<div class="review-user-info">
-						<span class="review-name">Ирина</span>
-						<img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg" style="height:1em;width:auto;vertical-align:middle;">
-					</div>
-					<div class="review-stars">⭐⭐⭐⭐⭐</div>
-				</div>
-				<div class="review-text">Дочка 12 лет занимается с Алексеем Леонидовичем почти год по скайпу французским языком. Это удобно и сильно экономит время. Алексей Леонидович вним...</div>
-				<div id="review-full-text-4" style="display:none;">Дочка 12 лет занимается с Алексеем Леонидовичем почти год по скайпу французским языком. Это удобно и сильно экономит время. Алексей Леонидович внимательный, чуткий, очень позитивно настроенный преподаватель. Он крайне ответственно подходит к своему делу. Занятие всегда проходит вовремя, все материалы для повторения мы получаем от преподавателя. Общение с Алексеем Леонидовичем всегда радостное и спокойное.</div>
-				<div id="review-name-4" style="display:none;">Ирина</div>
-				<div id="review-flag-4" style="display:none;">https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg</div>
-			</div>
-
-			<div class="review-card" onclick="openReviewModal(5)">
-				<div class="review-header">
-					<div class="review-user-info">
-						<span class="review-name">Александр</span>
-						<img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg" style="height:1em;width:auto;vertical-align:middle;">
-					</div>
-					<div class="review-stars">⭐⭐⭐⭐⭐</div>
-				</div>
-				<div class="review-text">Отличный преподаватель английского! Обучал двух моих девочек с увлечением, дал массу интересных знаний. Дети в восторге, прогресс огромный! Рекомен...</div>
-				<div id="review-full-text-5" style="display:none;">Отличный преподаватель английского! Обучал двух моих девочек с увлечением, дал массу интересных знаний. Дети в восторге, прогресс огромный! Рекомендую всем.</div>
-				<div id="review-name-5" style="display:none;">Александр</div>
-				<div id="review-flag-5" style="display:none;">https://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Russia.svg</div>
-			</div>
-
-		</div>
-	</section>
-
-	<div id="reviewModal" class="modal-overlay" onclick="if(event.target === this) closeReviewModal()">
-		<div class="modal-content">
-			<button class="modal-close" onclick="closeReviewModal()">&times;</button>
-			<div class="review-header" style="margin-bottom: 1.5rem;">
-				<div class="review-user-info">
-					<span id="modalName" class="review-name"></span>
-					<img id="modalFlag" class="review-flag" style="height:1em;width:auto;vertical-align:middle;">
-				</div>
-				<div class="review-stars">⭐⭐⭐⭐⭐</div>
-			</div>
-			<div id="modalText" class="review-text" style="font-size: 1.05rem;"></div>
-		</div>
-	</div>
-
-	<script>
-	function openReviewModal(index) {
-		document.getElementById('modalName').innerText = document.getElementById('review-name-' + index).innerText;
-		document.getElementById('modalFlag').src = document.getElementById('review-flag-' + index).innerText.trim();
-
-		let text = document.getElementById('review-full-text-' + index).innerText;
-		text = text.replace(/\n/g, '<br>');
-		document.getElementById('modalText').innerHTML = text;
-
-		const modal = document.getElementById('reviewModal');
-		modal.style.display = 'flex';
-		document.body.style.overflow = 'hidden';
-	}
-
-	function closeReviewModal() {
-		document.getElementById('reviewModal').style.display = 'none';
-		document.body.style.overflow = 'auto';
-	}
-	</script>
-
-<section id="contacts" class="contacts">
-        <div class="container">
-            <h2 data-en="Contact Me" data-ru="Свяжитесь со мной">Свяжитесь со мной</h2>
-            <div class="contacts-content">
-                <div class="contact-item">
-                    <h3 data-en="📧 Email" data-ru="📧 Email">📧 Email</h3>
-                    <p data-en="Send me a message with information about yourself and your learning goals" data-ru="Напишите мне письмо с информацией о себе и целях обучения">Напишите мне письмо с информацией о себе и целях обучения</p>
-                    
-					<a href="mailto:alexeiusa@mail.ru">alexeiusa@mail.ru</a>
-                </div>
-                <div class="contact-item">
-                    <h3 data-en="📞 Telegram" data-ru="📞 Telegram">📞 Telegram</h3>
-                    <p data-en="Quick communication and schedule coordination" data-ru="Быстрое общение и согласование расписания">Быстрое общение и согласование расписания</p>
-                    <a href="https://t.me/Dobryieh">@Dobryieh</a>
-                </div>
-                <div class="contact-item">
-                    <h3 data-en="📱 Phone" data-ru="📱 Телефон">📱 Телефон</h3>
-                    <p data-en="Call or message on WhatsApp for quick communication" data-ru="Позвоните или напишите в WhatsApp для быстрого общения">Позвоните или напишите в WhatsApp для быстрого общения</p>
-                    <a href="tel:+79632415756">+7 (963) 241-57-56</a>
-                </div>
-                <div class="contact-item">
-                    <h3 data-en="🌐 Platforms" data-ru="🌐 Платформы">🌐 Платформы</h3>
-                    <p data-en="Lessons are conducted online via Zoom or another convenient messenger" data-ru="Уроки проводятся онлайн через Zoom или другой удобный мессенджер">Уроки проводятся онлайн через Zoom или другой удобный мессенджер</p>
-                    <p style="color: var(--color-text-light);" data-en="Available for classes at any convenient time" data-ru="Доступны для занятий в любое удобное время">Доступны для занятий в любое удобное время</p>
-                </div>
+          </div>
+          <div class="method-item">
+            <span class="mi-dot"></span>
+            <div class="mi-body">
+              <div class="mi-title" data-i18n="method.5.t">Поддержка между уроками</div>
+              <div class="mi-desc" data-i18n="method.5.d">Отвечаю на вопросы и помогаю с домашкой в мессенджере</div>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <p data-en="© 2026 Alexey Kazyro. All rights reserved." data-ru="© 2026 Alexey Kazyro. Все права защищены.">&copy; 2025 Alexey Kazyro. Все права защищены.</p>
-        <p style="margin-top: 10px; opacity: 0.8;" data-en="Online lessons in English, French and Finnish" data-ru="Онлайн обучение английскому, французскому и финскому языкам">Онлайн обучение английскому, французскому и финскому языкам</p>
-    </footer>
+<!-- ============ WHY ============ -->
+<section class="section why" id="why">
+  <div class="container">
+    <div class="section-head">
+      <div class="heading">
+        <span class="eyebrow" data-i18n="why.eyebrow">Почему я</span>
+        <h2><span data-i18n="why.h.1">Шесть причин</span> <em data-i18n="why.h.2">остаться</em></h2>
+      </div>
+    </div>
 
-    <script>
-        const currentLang = localStorage.getItem('language') || 'ru';
-        
-        function setLanguage(lang) {
-            localStorage.setItem('language', lang);
-            document.querySelectorAll('[data-en][data-ru]').forEach(el => {
-                el.textContent = el.getAttribute(`data-${lang}`);
-            });
-            
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelector(`.lang-btn[data-lang="${lang}"]`).classList.add('active');
-        }
-        
-        setLanguage(currentLang);
-        
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                setLanguage(this.getAttribute('data-lang'));
-            });
-        });
-		
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="wi-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12.5l5 5L20 6.5"/></svg>
+        </div>
+        <h3 data-i18n="why.1.t">Результаты</h3>
+        <p data-i18n="why.1.d">Мои студенты сдают экзамены, переезжают, работают на новом языке. Прогресс измеряемый</p>
+      </div>
+      <div class="why-item">
+        <div class="wi-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M12 1v3M9 1h6"/></svg>
+        </div>
+        <h3 data-i18n="why.2.t">Гибкое расписание</h3>
+        <p data-i18n="why.2.d">Будни, вечера, выходные. Подстроюсь под ваш ритм жизни и часовой пояс</p>
+      </div>
+      <div class="why-item">
+        <div class="wi-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+        </div>
+        <h3 data-i18n="why.3.t">Личный подход</h3>
+        <p data-i18n="why.3.d">Программа собирается с нуля под вашу цель — без шаблонных «уровней по учебнику»</p>
+      </div>
+      <div class="why-item">
+        <div class="wi-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h12a2 2 0 012 2v14H6a2 2 0 01-2-2V4z"/><path d="M4 4v14a2 2 0 002 2h12"/><path d="M8 8h6M8 12h6"/></svg>
+        </div>
+        <h3 data-i18n="why.4.t">Современные методы</h3>
+        <p data-i18n="why.4.d">Только то, что действительно работает: общение, иммерсия, осмысленные задания</p>
+      </div>
+      <div class="why-item">
+        <div class="wi-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12c0 4.4-4 8-9 8-1.6 0-3.1-.4-4.4-1L3 20l1-4.4C3.4 14.3 3 12.7 3 11c0-4.4 4-8 9-8s9 3.6 9 8z"/></svg>
+        </div>
+        <h3 data-i18n="why.5.t">Поддержка</h3>
+        <p data-i18n="why.5.d">Между уроками — на связи: разберём сложный момент, поможем с заданием</p>
+      </div>
+      <div class="why-item">
+        <div class="wi-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+        </div>
+        <h3 data-i18n="why.6.t">Чёткие цели</h3>
+        <p data-i18n="why.6.d">Вместе определяем, куда идём, и отмечаем прогресс на каждом уроке</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+<!-- ============ PRICING ============ -->
+<section class="section pricing" id="pricing">
+  <div class="container">
+    <div class="section-head">
+      <div class="heading">
+        <span class="eyebrow" data-i18n="price.eyebrow">Цена</span>
+        <h2><span data-i18n="price.h.1">Договорная,</span> <em data-i18n="price.h.2">прозрачная.</em></h2>
+      </div>
+      <p class="lead" data-i18n="price.lead">Стоимость зависит от языка, формата и количества уроков. Обсудим на знакомстве — оно бесплатное</p>
+    </div>
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
+    <div class="price-grid">
+      <div class="price-card">
+        <div class="ptag" data-i18n="price.tag">Индивидуальные занятия</div>
+        <h3><span data-i18n="price.title.1">Свяжитесь</span> <em data-i18n="price.title.2">для обсуждения</em></h3>
+        <p class="ptext" data-i18n="price.text">Первое знакомство — 20 минут бесплатно: определим уровень, цели и подберём формат. Дальше — гибко.</p>
+        <ul class="price-feats">
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>
+            <span data-i18n="price.f1">Индивидуальный подход к каждому студенту</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>
+            <span data-i18n="price.f2">Гибкая цена в зависимости от количества уроков</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>
+            <span data-i18n="price.f3">Оплата картой, СБП или криптовалютой</span>
+          </li>
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>
+            <span data-i18n="price.f4">Скидка при покупке пакета занятий</span>
+          </li>
+        </ul>
+      </div>
 
-        document.querySelectorAll('.lang-card, .pricing-card, .feature-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            observer.observe(el);
-        });
-    </script>
+      <div class="price-side">
+        <div class="pay-card">
+          <div class="pc-label" data-i18n="price.pay">Способы оплаты</div>
+          <div class="pc-list">
+            <span data-i18n="price.pay.card">Карта</span>
+            <span>SBP</span>
+            <span>USDT</span>
+            <span>BTC</span>
+            <span data-i18n="price.pay.tx">Перевод</span>
+          </div>
+        </div>
+        <a href="#contact" class="pay-cta">
+          <div>
+            <div class="pc-title" data-i18n="price.cta">Записаться<br>на знакомство</div>
+          </div>
+          <div class="pc-arrow"><svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"/></svg></div>
+        </a>
+        <div class="pay-card">
+          <div class="pc-label" data-i18n="price.fmt">Формат</div>
+          <div class="pc-list">
+            <span>Telegram</span>
+            <span>Zoom</span>
+            <span data-i18n="price.fmt.yandex">Яндекс Телемост</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="section reviews" id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <div class="heading">
+        <span class="eyebrow" data-i18n="rev.eyebrow">Отзывы</span>
+        <h2><span data-i18n="rev.h.1">Что говорят</span> <em data-i18n="rev.h.2">студенты.</em></h2>
+      </div>
+      <p class="lead" data-i18n="rev.lead">Реальные отзывы — без правок и витрин. Кликните на карточку, чтобы прочитать целиком</p>
+    </div>
+
+    <div class="rev-grid" id="revGrid"></div>
+  </div>
+</section>
+
+<div class="modal" id="reviewModal" onclick="if(event.target===this) closeModal()">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal()" aria-label="Close">×</button>
+    <div class="mh">
+      <div class="nm">
+        <span id="mNm"></span>
+        <small id="mFrom"></small>
+      </div>
+      <div class="rev-stars">★ ★ ★ ★ ★</div>
+    </div>
+    <div class="mbody" id="mBody"></div>
+  </div>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <span class="eyebrow" data-i18n="con.eyebrow">Контакты</span>
+        <h2><span data-i18n="con.h.1">Напишите.</span> <em data-i18n="con.h.2">Ответим быстро.</em></h2>
+        <p class="lead" data-i18n="con.lead">Удобнее всего — Telegram. Если предпочитаете почту или звонок, всё ниже.</p>
+        <span class="eyebrow" style="display:block;margin-top:36px" data-i18n="con.platforms">Платформы · Telegram · Zoom · Яндекс Телемост</span>
+      </div>
+
+      <div class="contact-list">
+        <a href="https://t.me/Dobryieh" class="contact-row" target="_blank" rel="noopener">
+          <span class="clabel">Telegram</span>
+          <div class="cmain">
+            @Dobryieh
+            <small data-i18n="con.tg">Быстрое общение и согласование расписания</small>
+          </div>
+          <span class="carrow"><svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"/></svg></span>
+        </a>
+        <a href="/cdn-cgi/l/email-protection#d0b1bcb5a8b5b9a5a3b190bdb1b9bcfea2a5" class="contact-row">
+          <span class="clabel">Email</span>
+          <div class="cmain">
+            <span class="__cf_email__" data-cfemail="6809040d100d011d1b092805090104461a1d">alexeiusa@mail.ru</span>
+            <small data-i18n="con.em">Подробности о себе и целях обучения</small>
+          </div>
+          <span class="carrow"><svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"/></svg></span>
+        </a>
+        <a href="tel:+79632415756" class="contact-row">
+          <span class="clabel" data-i18n="con.phone.l">Телефон</span>
+          <div class="cmain">
+            +7 (963) 241-57-56
+            <small data-i18n="con.phone">Звонок или WhatsApp</small>
+          </div>
+          <span class="carrow"><svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-top">
+      <h3><span data-i18n="foot.h.1">Готовы</span><br><em data-i18n="foot.h.2">начать говорить?</em></h3>
+      <div class="foot-cols">
+        <div>
+          <div class="lab" data-i18n="foot.l1">Языки</div>
+          <a href="#languages" data-i18n="foot.lang.en">English</a><br>
+          <a href="#languages" data-i18n="foot.lang.fr">Français</a><br>
+          <a href="#languages" data-i18n="foot.lang.fi">Suomi</a>
+        </div>
+        <div>
+          <div class="lab" data-i18n="foot.l2">Связь</div>
+          <a href="https://t.me/Dobryieh">Telegram</a><br>
+          <a href="alexeiusa@mail.ru">Email</a><br>
+          <a href="tel:+79632415756">+7 (963) 241-57-56</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Alexey Kazyro</span>
+      <span data-i18n="foot.tagline">Online · English · Français · Suomi</span>
+    </div>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ============ I18N ============
+const dict = {
+  ru: {
+    'brand.role':'репетитор · языки',
+    'nav.languages':'Языки','nav.about':'Обо мне','nav.why':'Подход','nav.pricing':'Цена','nav.reviews':'Отзывы','nav.contact':'Контакты',
+
+    'hero.eyebrow':'Online · 2020 — настоящее',
+    'hero.title.1':'Учу говорить на','hero.title.2':'английском','hero.title.comma':',','hero.title.3':'французском','hero.title.and':'и','hero.title.4':'финском',
+    'hero.lead':'Индивидуальные занятия для взрослых и подростков. Программа подбирается под ваши цели — экзамен, путешествие, работа или просто радость свободно понимать',
+    'hero.cta':'Записаться на урок','hero.cta2':'Посмотреть программу',
+    'hero.card.zoom':'через Zoom','hero.card.stamp':'Онлайн-урок','hero.card.who':'репетитор · с 2020','hero.card.yrs':'лет',
+
+    'lang.eyebrow':'Языки','lang.h.1':'Три языка,','lang.h.2':'три разговора','lang.lead':'Каждое направление — со своей методикой, материалами и культурным контекстом. Можно сочетать',
+    'lang.en.ru':'Английский язык','lang.en.desc':'Подготовка к IELTS, TOEFL и школьным экзаменам, разговорная практика, деловой английский. Индивидуальный план под ваш уровень','lang.en.t1':'IELTS / TOEFL','lang.en.t2':'Деловой','lang.en.t3':'Разговорный',
+    'lang.fr.ru':'Французский язык','lang.fr.desc':'От базовых основ до продвинутых уровней. Произношение, грамматика и культурный контекст — кино, песни, литература','lang.fr.t1':'DELF / DALF','lang.fr.t2':'Культура','lang.fr.t3':'Грамматика',
+    'lang.fi.ru':'Финский язык','lang.fi.desc':'Редкая специализация. Глубокое знание грамматики, падежей и особенностей языка — для жизни, работы и учёбы в Финляндии','lang.fi.t1':'YKI','lang.fi.t2':'Грамматика','lang.fi.t3':'Быт',
+
+    'about.eyebrow':'Обо мне','about.h.1':'Преподаю с','about.h.2':'любопытством','about.lead':'Подход — практичный и человечный: язык как живой инструмент, а не набор правил',
+    'about.stat.sup':'+ лет','about.stat.cap':'лет преподавания · 100+ студентов','about.sig':'репетитор · en · fr · fi',
+    'about.p1':'<strong>Я репетитор с 5+ годами опыта</strong> преподавания иностранных языков. Помогаю студентам всех уровней достигать своих целей — от первого «hello» до уверенной речи в работе и путешествиях.',
+    'about.p2':'Мой подход построен на практическом применении знаний, развитии разговорных навыков и глубоком понимании грамматики. Каждый студент получает программу под свои цели и темп.',
+    'method.1.t':'Коммуникативный подход','method.1.d':'Акцент на устную речь и практическое применение с первого урока',
+    'method.2.t':'Индивидуализация','method.2.d':'Уроки подстраиваются под ваш темп, цели и стиль обучения',
+    'method.3.t':'Современные материалы','method.3.d':'Актуальные учебники, подкасты, фильмы, статьи — а не сухие правила',
+    'method.4.t':'Гибкое расписание','method.4.d':'Занятия в удобное время — будни, вечера, выходные',
+    'method.5.t':'Поддержка между уроками','method.5.d':'Отвечаю на вопросы и помогаю с домашкой в мессенджере',
+
+    'why.eyebrow':'Почему я','why.h.1':'Шесть причин','why.h.2':'остаться',
+    'why.1.t':'Результаты','why.1.d':'Мои студенты сдают экзамены, переезжают, работают на новом языке. Прогресс измеряемый',
+    'why.2.t':'Гибкое расписание','why.2.d':'Будни, вечера, выходные. Подстроюсь под ваш ритм жизни и часовой пояс',
+    'why.3.t':'Личный подход','why.3.d':'Программа собирается с нуля под вашу цель — без шаблонных «уровней по учебнику»',
+    'why.4.t':'Современные методы','why.4.d':'Только то, что действительно работает: общение, иммерсия, осмысленные задания',
+    'why.5.t':'Поддержка','why.5.d':'Между уроками — на связи: разберём сложный момент, поможем с заданием',
+    'why.6.t':'Чёткие цели','why.6.d':'Вместе определяем, куда идём, и отмечаем прогресс на каждом уроке',
+
+    'price.eyebrow':'Цена','price.h.1':'Договорная,','price.h.2':'прозрачная','price.lead':'Стоимость зависит от языка, формата и количества уроков. Обсудим на знакомстве — оно бесплатное',
+    'price.tag':'Индивидуальные занятия','price.title.1':'Свяжитесь','price.title.2':'для обсуждения',
+    'price.text':'Первое знакомство — 20 минут бесплатно: определим уровень, цели и подберём формат. Дальше — гибко.',
+    'price.f1':'Индивидуальный подход к каждому студенту','price.f2':'Гибкая цена в зависимости от количества уроков','price.f3':'Оплата картой, СБП или криптовалютой','price.f4':'Скидка при покупке пакета занятий',
+    'price.pay':'Способы оплаты','price.pay.card':'Карта','price.pay.tx':'Перевод','price.fmt.yandex':'Яндекс Телемост','price.cta':'Записаться<br>на знакомство','price.fmt':'Формат',
+
+    'rev.eyebrow':'Отзывы','rev.h.1':'Что говорят','rev.h.2':'студенты','rev.lead':'Реальные отзывы — без правок и витрин. Кликните на карточку, чтобы прочитать целиком',
+
+    'con.eyebrow':'Контакты','con.h.1':'Напишите.','con.h.2':'Ответим быстро.','con.lead':'Удобнее всего — Telegram. Если предпочитаете почту или звонок, всё ниже.',
+    'con.platforms':'Платформы · Telegram · Zoom · Яндекс Телемост','con.tg':'Быстрое общение и согласование расписания','con.em':'Подробности о себе и целях обучения','con.phone.l':'Телефон','con.phone':'Звонок или WhatsApp',
+
+    'foot.h.1':'Готовы','foot.h.2':'начать говорить?','foot.l1':'Языки','foot.l2':'Связь',
+    'foot.lang.en':'English','foot.lang.fr':'Français','foot.lang.fi':'Suomi',
+    'foot.tagline':'Online · English · Français · Suomi',
+    'rev.more':'Читать полностью'
+  },
+  en: {
+    'brand.role':'tutor · languages',
+    'nav.languages':'Languages','nav.about':'About','nav.why':'Approach','nav.pricing':'Price','nav.reviews':'Reviews','nav.contact':'Contact',
+
+    'hero.eyebrow':'Online · 2020 — present',
+    'hero.title.1':'I teach you to speak','hero.title.2':'English',' hero.title.comma':',','hero.title.3':'French','hero.title.and':'and','hero.title.4':'Finnish','hero.title.comma':',',
+    'hero.lead':'One-on-one lessons for adults and teens. Each program is tailored to your goal — an exam, a trip, work, or simply the joy of understanding',
+    'hero.cta':'Book a lesson','hero.cta2':'See the program',
+    'hero.card.zoom':'via Zoom','hero.card.stamp':'Online lesson','hero.card.who':'tutor · est. 2020','hero.card.yrs':'yrs',
+
+    'lang.eyebrow':'Languages','lang.h.1':'Three languages,','lang.h.2':'three conversations','lang.lead':'Each direction comes with its own method, materials and cultural context. Mix and match welcome',
+    'lang.en.ru':'English','lang.en.desc':'Preparation for IELTS, TOEFL and school exams, speaking practice, business English. A plan made for your level','lang.en.t1':'IELTS / TOEFL','lang.en.t2':'Business','lang.en.t3':'Speaking',
+    'lang.fr.ru':'French','lang.fr.desc':'From the basics to advanced. Pronunciation, grammar and cultural context — cinema, music, literature','lang.fr.t1':'DELF / DALF','lang.fr.t2':'Culture','lang.fr.t3':'Grammar',
+    'lang.fi.ru':'Finnish','lang.fi.desc':'A rare specialization. Deep grasp of grammar, cases and Finnish quirks — for life, work and studies in Finland','lang.fi.t1':'YKI','lang.fi.t2':'Grammar','lang.fi.t3':'Daily life',
+
+    'about.eyebrow':'About','about.h.1':'I teach with','about.h.2':'curiosity.','about.lead':'A practical, human approach: language as a living tool, not a list of rules',
+    'about.stat.sup':'+ years','about.stat.cap':'years teaching · 100+ students','about.sig':'tutor · en · fr · fi',
+    'about.p1':'<strong>I\'m a tutor with 5+ years of experience</strong> teaching foreign languages. I help students of every level reach their goals — from the first “hello” to confident speech at work or abroad.',
+    'about.p2':'My approach focuses on practical use, speaking skills and deep understanding of grammar. Every student gets a program tuned to their goals and pace.',
+    'method.1.t':'Communicative approach','method.1.d':'Speaking and real use from the very first lesson',
+    'method.2.t':'Individualized','method.2.d':'Lessons adapt to your pace, goals and learning style',
+    'method.3.t':'Modern materials','method.3.d':'Current textbooks, podcasts, films, articles — not dry rules',
+    'method.4.t':'Flexible schedule','method.4.d':'Lessons whenever suits you — weekdays, evenings, weekends',
+    'method.5.t':'Support between lessons','method.5.d':'I answer questions and help with homework in chat',
+
+    'why.eyebrow':'Why me','why.h.1':'Six reasons','why.h.2':'to stay',
+    'why.1.t':'Results','why.1.d':'My students pass exams, relocate, work in a new language. Measurable progress',
+    'why.2.t':'Flexible schedule','why.2.d':'Weekdays, evenings, weekends — I adapt to your rhythm and time zone',
+    'why.3.t':'Personal approach','why.3.d':'A program built from scratch for your goal — not a stock “textbook level”',
+    'why.4.t':'Modern methods','why.4.d':'Only what actually works: real conversation, immersion, meaningful tasks',
+    'why.5.t':'Support','why.5.d':'Between lessons I stay reachable: we untangle the tricky bit, help with the task',
+    'why.6.t':'Clear goals','why.6.d':'We define where we\'re going and mark progress in every lesson',
+
+    'price.eyebrow':'Price','price.h.1':'Negotiable,','price.h.2':'transparent','price.lead':'The price depends on the language, format and lesson count. We\'ll discuss it at the intro call — it\'s free',
+    'price.tag':'One-on-one lessons','price.title.1':'Get in touch','price.title.2':'to discuss',
+    'price.text':'A free 20-minute intro: we figure out your level, goals and the right format. After that — flexible.',
+    'price.f1':'Individual approach to every student','price.f2':'Flexible price based on the lesson count','price.f3':'Card, SBP or cryptocurrency payments','price.f4':'Discount on lesson packages',
+    'price.pay':'Payment','price.pay.card':'Card','price.pay.tx':'Transfer','price.fmt.yandex':'Yandex Telemost','price.cta':'Book an<br>intro call','price.fmt':'Format',
+
+    'rev.eyebrow':'Reviews','rev.h.1':'What students','rev.h.2':'are saying','rev.lead':'Real reviews — no edits, no showcase. Click a card to read in full',
+
+    'con.eyebrow':'Contact','con.h.1':'Drop a line.','con.h.2':'I reply fast.','con.lead':'Telegram is easiest. Email and phone work too — everything below.',
+    'con.platforms':'Platforms · Telegram · Zoom · Yandex Telemost','con.tg':'Quick chats and scheduling','con.em':'Tell me a bit about yourself and your goals','con.phone.l':'Phone','con.phone':'Call or WhatsApp',
+
+    'foot.h.1':'Ready to','foot.h.2':'start speaking?','foot.l1':'Languages','foot.l2':'Contact',
+    'foot.lang.en':'English','foot.lang.fr':'Français','foot.lang.fi':'Suomi',
+    'foot.tagline':'Online · English · Français · Suomi',
+    'rev.more':'Read in full'
+  }
+};
+
+// reviews data — original text + EN translations
+const reviews = [
+  {name:{ru:'Яна',en:'Yana'}, from:{ru:'Канада · французский',en:'Canada · French'}, init:'Я',
+    short:{
+      ru:'Занятия по французскому были хорошо структурированы и проходили в спокойной, рабочей атмосфере.',
+      en:'The French lessons were well structured and took place in a calm, focused atmosphere.'
+    },
+    full:{
+      ru:'Занятия по французскому были хорошо структурированы и проходили в спокойной, рабочей атмосфере. Преподаватель понятно объясняет материал, обращает внимание на произношение, грамматику и помогает преодолеть языковой барьер.\n\nУроки были практичными и адаптированы под мой уровень. Алексей терпеливо отвечал на вопросы и поддерживал меня в процессе обучения. Теперь я говорю гораздо лучше.\n\nРекомендую этого преподавателя всем.',
+      en:'The French lessons were well structured and took place in a calm, focused atmosphere. Alexey explains things clearly, pays attention to pronunciation and grammar, and helps you push past the language barrier.\n\nThe lessons were practical and adapted to my level. He answered questions patiently and supported me throughout. I now speak much better.\n\nI recommend him to everyone.'
+    }
+  },
+  {name:{ru:'Наталья',en:'Natalia'}, from:{ru:'Россия · английский',en:'Russia · English'}, init:'Н',
+    short:{
+      ru:'Занимаюсь с Алексеем длительное время. Результатами очень довольна. Нравится, что преподаватель прислушивается к запросу.',
+      en:'I\'ve been studying with Alexey for a long time. Very happy with the results. He really listens to what I need.'
+    },
+    full:{
+      ru:'Занимаюсь с Алексеем длительное время. Результатами очень довольна 💯\n\nНравится, что преподаватель всегда прислушивается к моему запросу по сложности и скорости подачи материала, а также обладает терпением.\n\nНа уроках с Алексеем всегда сохраняется позитивный настрой и хорошее настроение 👍',
+      en:'I\'ve been studying with Alexey for a long time. Very happy with the results 💯\n\nWhat I love is that he listens to what I need — pacing, difficulty — and is very patient.\n\nLessons with Alexey always stay positive and uplifting 👍'
+    }
+  },
+  {name:{ru:'Janne T.',en:'Janne T.'}, from:{ru:'Финляндия · финский',en:'Finland · Finnish'}, init:'J',
+    short:{
+      ru:'Loistavaa opetusta pojalleni, voin suositella suomen kielen kielioppiin ja kielen oppimiseen alusta alkaen!',
+      en:'Excellent teaching for my son — I can recommend Alexey for Finnish grammar and learning from scratch!'
+    },
+    full:{
+      ru:'Loistavaa opetusta pojalleni, voin suositella suomen kielen kielioppiin ja kielen oppimiseen alusta alkaen! Janne Haahkola',
+      en:'Excellent teaching for my son — I can recommend Alexey for Finnish grammar and learning from scratch! Janne Haahkola'
+    }
+  },
+  {name:{ru:'Виктория',en:'Victoria'}, from:{ru:'Россия · английский',en:'Russia · English'}, init:'В',
+    short:{
+      ru:'Работа с преподавателем на высшем уровне. Объяснения понятны, дополнительные материалы интересны и легко усваиваются.',
+      en:'Working with this teacher is top-level. Explanations are clear, materials are interesting and easy to absorb.'
+    },
+    full:{
+      ru:'Работа с данным преподавателем проходит на высшем уровне. Объяснения понятны, если вдруг что-то не понял с первого раза, объяснят столько, сколько нужно для понимания.\n\nЗадания хорошие, делать домашнюю работу в одно удовольствие. Дополнительные материалы понятны, интересны и легко усваиваются. Уроки проходят на позитиве и даже забываешь о времени, лишь бы только продолжить занятие дальше.\n\nСо своим знанием Английского за пару занятий все начинает становится на свои места. Поддержание связи и вне урочное время подтверждает заинтересованность, педагогический подход и желание заниматься любимым делом. 🫶🏼',
+      en:'Working with this teacher is top-level. Explanations are clear; if you don\'t get something the first time, he\'ll explain as many times as needed.\n\nThe assignments are great — doing homework is a pleasure. The extra materials are clear, interesting and easy to absorb. Lessons are upbeat and you lose track of time.\n\nWith my level of English, things started clicking after just a couple of lessons. Staying in touch between lessons shows real care and a love for the craft. 🫶🏼'
+    }
+  },
+  {name:{ru:'Ирина',en:'Irina'}, from:{ru:'Россия · французский',en:'Russia · French'}, init:'И',
+    short:{
+      ru:'Дочка 12 лет занимается с Алексеем Леонидовичем почти год по скайпу французским. Это удобно и сильно экономит время.',
+      en:'My 12-year-old daughter has been studying French with Alexey via Skype for almost a year. It\'s convenient and saves time.'
+    },
+    full:{
+      ru:'Дочка 12 лет занимается с Алексеем Леонидовичем почти год по скайпу французским языком. Это удобно и сильно экономит время.\n\nАлексей Леонидович внимательный, чуткий, очень позитивно настроенный преподаватель. Он крайне ответственно подходит к своему делу. Занятие всегда проходит вовремя, все материалы для повторения мы получаем от преподавателя. Общение с Алексеем Леонидовичем всегда радостное и спокойное.',
+      en:'My 12-year-old daughter has been studying French with Alexey via Skype for almost a year. It\'s convenient and saves a lot of time.\n\nAlexey is attentive, sensitive and a very positive teacher. He approaches his work seriously. Lessons always start on time, we get all review materials from him. Talking to Alexey is always warm and easy-going.'
+    }
+  },
+  {name:{ru:'Александр',en:'Alexander'}, from:{ru:'Россия · английский',en:'Russia · English'}, init:'А',
+    short:{
+      ru:'Отличный преподаватель английского! Обучал двух моих девочек с увлечением. Дети в восторге, прогресс огромный!',
+      en:'A great English teacher! He taught both my girls with real enthusiasm. The kids love it, huge progress!'
+    },
+    full:{
+      ru:'Отличный преподаватель английского! Обучал двух моих девочек с увлечением, дал массу интересных знаний.\n\nДети в восторге, прогресс огромный! Рекомендую всем.',
+      en:'A great English teacher! He taught both my girls with real enthusiasm and shared a wealth of interesting knowledge.\n\nThe kids love it, huge progress! Highly recommended.'
+    }
+  }
+];
+
+let curLang = localStorage.getItem('lang') || 'ru';
+
+function applyLang(lang){
+  curLang = lang;
+  localStorage.setItem('lang',lang);
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.getAttribute('data-i18n');
+    if(dict[lang] && dict[lang][k] !== undefined){
+      el.innerHTML = dict[lang][k];
+    }
+  });
+  document.querySelectorAll('.lang-switch button').forEach(b=>{
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+  renderReviews();
+}
+
+document.querySelectorAll('.lang-switch button').forEach(b=>{
+  b.addEventListener('click',()=>applyLang(b.dataset.lang));
+});
+
+// ============ REVIEWS RENDER ============
+function renderReviews(){
+  const grid = document.getElementById('revGrid');
+  grid.innerHTML = '';
+  reviews.forEach((r,i)=>{
+    const card = document.createElement('article');
+    card.className = 'rev-card';
+    card.onclick = ()=>openModal(i);
+    card.innerHTML = `
+      <div class="rev-head">
+        <div class="rev-meta">
+          <div class="rev-avatar">${r.init}</div>
+          <div class="rev-name">${r.name[curLang]}<small>${r.from[curLang]}</small></div>
+        </div>
+        <div class="rev-stars">★★★★★</div>
+      </div>
+      <div class="rev-quote">«${r.short[curLang]}»</div>
+      <div class="rev-foot">
+        <span class="more">${dict[curLang]['rev.more']}</span>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function openModal(i){
+  const r = reviews[i];
+  document.getElementById('mNm').textContent = r.name[curLang];
+  document.getElementById('mFrom').textContent = r.from[curLang];
+  document.getElementById('mBody').textContent = r.full[curLang];
+  document.getElementById('reviewModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){
+  document.getElementById('reviewModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape') closeModal()});
+
+// ============ NAV ============
+document.getElementById('menuToggle').addEventListener('click',()=>{
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t){
+      e.preventDefault();
+      t.scrollIntoView({behavior:'smooth',block:'start'});
+      document.getElementById('navLinks').classList.remove('open');
+    }
+  });
+});
+
+// init
+applyLang(curLang);
+</script>
 </body>
 </html>
