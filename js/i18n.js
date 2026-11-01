@@ -6,7 +6,7 @@ const dict = {
 
     'hero.eyebrow':'Online · 2020 — настоящее',
     'hero.title.1':'Учу говорить на','hero.title.2':'английском','hero.title.comma':',','hero.title.3':'французском','hero.title.and':'и','hero.title.4':'финском',
-    'hero.lead':'Индивидуальные занятия для взрослых и подростков. Программа подбирается под ваши цели — экзамен, путешествие, работа или просто радость свободно понимать',
+    'hero.lead':'Индивидуальные занятия для взрослых и подростков. Программа подбирается под ваши цели — экзамен, путешествие, работа или просто свободное понимание и общение',
     'hero.cta':'Записаться на урок','hero.cta2':'Посмотреть программу',
     'hero.card.zoom':'через Zoom','hero.card.stamp':'Онлайн-урок','hero.card.who':'репетитор · с 2020','hero.card.yrs':'лет',
 
@@ -15,8 +15,8 @@ const dict = {
     'lang.fr.ru':'Французский язык','lang.fr.desc':'От базовых основ до продвинутых уровней. Произношение, грамматика и культурный контекст — кино, песни, литература','lang.fr.t1':'DELF / DALF','lang.fr.t2':'Культура','lang.fr.t3':'Грамматика',
     'lang.fi.ru':'Финский язык','lang.fi.desc':'Редкая специализация. Глубокое знание грамматики, падежей и особенностей языка — для жизни, работы и учёбы в Финляндии','lang.fi.t1':'YKI','lang.fi.t2':'Грамматика','lang.fi.t3':'Быт',
 
-    'about.eyebrow':'Обо мне','about.h.1':'Преподаю с','about.h.2':'любопытством','about.lead':'Подход — практичный и человечный: язык как живой инструмент, а не набор правил',
-    'about.stat.sup':'+ лет','about.stat.cap':'лет преподавания · 100+ студентов','about.sig':'репетитор · en · fr · fi',
+    'about.eyebrow':'Обо мне','about.h.1':'Преподаю с','about.h.2':'любопытством','about.lead':'Практичный и коммуникативный подход, большой акцент делается на говорение',
+    'about.stat.sup':'+ лет','about.stat.cap':'лет преподавания<span class="cap-sep"> · </span>100+ студентов','about.sig':'репетитор · en · fr · fi',
     'about.p1':'<strong>Я репетитор с 5+ годами опыта</strong> преподавания иностранных языков. Помогаю студентам всех уровней достигать своих целей — от первого «hello» до уверенной речи в работе и путешествиях.',
     'about.p2':'Мой подход построен на практическом применении знаний, развитии разговорных навыков и глубоком понимании грамматики. Каждый студент получает программу под свои цели и темп.',
     'method.1.t':'Коммуникативный подход','method.1.d':'Акцент на устную речь и практическое применение с первого урока',
@@ -39,7 +39,7 @@ const dict = {
     'price.f1':'Индивидуальный подход к каждому студенту','price.f2':'Гибкая цена в зависимости от количества уроков','price.f3':'Оплата картой, СБП или криптовалютой','price.f4':'Скидка при покупке пакета занятий',
     'price.pay':'Способы оплаты','price.pay.card':'Карта','price.pay.sbp':'СБП','price.pay.tx':'Перевод','price.fmt.yandex':'Яндекс Телемост','price.cta':'Записаться<br>на знакомство','price.fmt':'Формат',
 
-    'rev.eyebrow':'Отзывы','rev.h.1':'Что говорят','rev.h.2':'студенты','rev.lead':'Реальные отзывы — без правок и витрин. Кликните на карточку, чтобы прочитать целиком',
+    'rev.eyebrow':'Отзывы','rev.h.1':'Что говорят','rev.h.2':'студенты','rev.lead':'Реальные отзывы от реальных учеников. Кликните на карточку, чтобы прочитать целиком',
 
     'con.eyebrow':'Контакты','con.h.1':'Напишите.','con.h.2':'Ответим быстро.','con.lead':'Удобнее всего — Telegram. Если предпочитаете почту или звонок, всё ниже.',
     'con.platforms':'Платформы · Telegram · Zoom · Яндекс Телемост','con.tg':'Быстрое общение и согласование расписания','con.em':'Подробности о себе и целях обучения','con.phone.l':'Телефон','con.phone':'Звонок или WhatsApp',
@@ -55,7 +55,7 @@ const dict = {
 
     'hero.eyebrow':'Online · 2020 — present',
     'hero.title.1':'I teach you to speak','hero.title.2':'English','hero.title.comma':',','hero.title.3':'French','hero.title.and':'and','hero.title.4':'Finnish',
-    'hero.lead':'One-on-one lessons for adults and teens. Each program is tailored to your goal — an exam, a trip, work, or simply the joy of understanding',
+    'hero.lead':'One-on-one lessons for adults and teens. Each program is tailored to your goal — an exam, a trip, work, or simply understanding and speaking freely',
     'hero.cta':'Book a lesson','hero.cta2':'See the program',
     'hero.card.zoom':'via Zoom','hero.card.stamp':'Online lesson','hero.card.who':'tutor · est. 2020','hero.card.yrs':'yrs',
 
@@ -64,8 +64,8 @@ const dict = {
     'lang.fr.ru':'French','lang.fr.desc':'From the basics to advanced. Pronunciation, grammar and cultural context — cinema, music, literature','lang.fr.t1':'DELF / DALF','lang.fr.t2':'Culture','lang.fr.t3':'Grammar',
     'lang.fi.ru':'Finnish','lang.fi.desc':'A rare specialization. Deep grasp of grammar, cases and Finnish quirks — for life, work and studies in Finland','lang.fi.t1':'YKI','lang.fi.t2':'Grammar','lang.fi.t3':'Daily life',
 
-    'about.eyebrow':'About','about.h.1':'I teach with','about.h.2':'curiosity.','about.lead':'A practical, human approach: language as a living tool, not a list of rules',
-    'about.stat.sup':'+ years','about.stat.cap':'years teaching · 100+ students','about.sig':'tutor · en · fr · fi',
+    'about.eyebrow':'About','about.h.1':'I teach with','about.h.2':'curiosity.','about.lead':'A practical, communicative approach with a strong focus on speaking',
+    'about.stat.sup':'+ years','about.stat.cap':'years teaching<span class="cap-sep"> · </span>100+ students','about.sig':'tutor · en · fr · fi',
     'about.p1':'<strong>I\'m a tutor with 5+ years of experience</strong> teaching foreign languages. I help students of every level reach their goals — from the first “hello” to confident speech at work or abroad.',
     'about.p2':'My approach focuses on practical use, speaking skills and deep understanding of grammar. Every student gets a program tuned to their goals and pace.',
     'method.1.t':'Communicative approach','method.1.d':'Speaking and real use from the very first lesson',
@@ -88,7 +88,7 @@ const dict = {
     'price.f1':'Individual approach to every student','price.f2':'Flexible price based on the lesson count','price.f3':'Card, SBP or cryptocurrency payments','price.f4':'Discount on lesson packages',
     'price.pay':'Payment','price.pay.card':'Card','price.pay.sbp':'SBP','price.pay.tx':'Transfer','price.fmt.yandex':'Yandex Telemost','price.cta':'Book an<br>intro call','price.fmt':'Format',
 
-    'rev.eyebrow':'Reviews','rev.h.1':'What students','rev.h.2':'are saying','rev.lead':'Real reviews — no edits, no showcase. Click a card to read in full',
+    'rev.eyebrow':'Reviews','rev.h.1':'What students','rev.h.2':'are saying','rev.lead':'Real reviews from real students. Click a card to read in full',
 
     'con.eyebrow':'Contact','con.h.1':'Drop a line.','con.h.2':'I reply fast.','con.lead':'Telegram is easiest. Email and phone work too — everything below.',
     'con.platforms':'Platforms · Telegram · Zoom · Yandex Telemost','con.tg':'Quick chats and scheduling','con.em':'Tell me a bit about yourself and your goals','con.phone.l':'Phone','con.phone':'Call or WhatsApp',

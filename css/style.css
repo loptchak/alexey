@@ -28,7 +28,12 @@ button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
 header{position:sticky;top:0;z-index:50;background:rgba(28,37,48,0.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft)}
 .nav{max-width:1240px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .brand{display:flex;align-items:center;gap:12px}
-.brand-mark{width:36px;height:36px;border-radius:50%;background:var(--cyan-bright);color:var(--bg);display:grid;place-items:center;font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:22px;line-height:1;box-shadow:0 0 24px rgba(109,208,212,0.35)}
+/* round photo avatar: cut-out photo on the brand gradient; the badge may sit outside the circle */
+.avatar{position:relative;flex-shrink:0;display:block;border-radius:50%;background:linear-gradient(160deg,#2a8f93 0%,#1f3e44 100%)}
+.avatar img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover}
+.avatar--sm{width:36px;height:36px;box-shadow:0 0 0 2px var(--cyan-bright),0 0 24px rgba(109,208,212,0.35)}
+.avatar--md{width:56px;height:56px;box-shadow:0 0 0 2px rgba(109,208,212,0.45)}
+.avatar--lg{width:200px;height:200px;box-shadow:0 0 0 2px var(--cyan-bright),0 0 0 10px rgba(109,208,212,0.10),0 24px 60px rgba(0,0,0,0.35)}
 .brand-name{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:22px;line-height:1.1;color:var(--text)}
 .brand-name small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);letter-spacing:0.15em;text-transform:uppercase;margin-top:2px}
 .nav-links{display:flex;align-items:center;gap:28px}
@@ -134,6 +139,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(28,37,48,0.82);backdrop-
 .about-portrait .stat sup{font-family:'JetBrains Mono',monospace;font-size:14px;vertical-align:super;letter-spacing:0.1em;margin-left:8px;color:var(--text)}
 .about-portrait .stat-cap{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;opacity:0.9;margin-top:12px;color:var(--text-2)}
 .about-portrait .sig{font-family:'Instrument Serif','Cormorant Garamond',serif;font-style:italic;font-size:32px;color:var(--text)}
+.about-portrait .about-profile{display:flex;flex-direction:column;align-items:flex-start;gap:24px}
 .about-portrait .sig small{display:block;font-family:'JetBrains Mono',monospace;font-style:normal;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.8;margin-top:6px;color:var(--text-2)}
 
 .about-body p{font-size:16px;color:var(--text-2);margin-bottom:18px}
@@ -239,6 +245,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(28,37,48,0.82);backdrop-
 .contact-row .clabel{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-3);display:inline-flex;align-items:center;gap:10px}
 .contact-row .clabel .ic{font-size:16px;color:var(--cyan-bright)}
 .contact-row .cmain{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:30px;line-height:1.1;color:var(--text)}
+/* Telegram row carries the avatar: the preferred channel */
+.contact-row .cmain--tg{display:flex;align-items:center;gap:16px}
+.contact-row .cmain--tg .avatar{width:48px;height:48px}
 .contact-row .cmain small{display:block;font-family:'Manrope',sans-serif;font-size:14px;color:var(--text-3);margin-top:4px;font-weight:400}
 .contact-row .carrow{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:all .2s;color:var(--text-2)}
 .contact-row .carrow svg{width:16px;height:16px;stroke-width:2}
@@ -265,7 +274,8 @@ footer{background:var(--bg);color:var(--text);padding:64px 0 32px;border-top:1px
   .lang-grid{grid-template-columns:1fr;gap:16px}
   .lang-card{min-height:auto}
   .about-grid{grid-template-columns:1fr;gap:40px}
-  .about-portrait{aspect-ratio:1/1;padding:24px}
+  .about-portrait{max-width:440px;padding:24px;aspect-ratio:auto;gap:40px}
+  .about-portrait .avatar--lg{width:160px;height:160px}
   .about-portrait .stat{font-size:120px}
   .why-grid{grid-template-columns:1fr}
   .price-grid{grid-template-columns:1fr;gap:24px}
@@ -299,4 +309,7 @@ footer{background:var(--bg);color:var(--text);padding:64px 0 32px;border-top:1px
   .contact-row{grid-template-columns:1fr;gap:8px;padding:20px 0}
   .contact-row .carrow{display:none}
   .foot-cols{grid-template-columns:1fr}
+  /* phone: smaller caption, separator becomes a line break -> two tidy lines */
+  .about-portrait .stat-cap{max-width:none;font-size:10px}
+  .about-portrait .stat-cap .cap-sep{display:block;font-size:0}
 }
