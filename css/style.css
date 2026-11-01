@@ -86,8 +86,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(28,37,48,0.82);backdrop-
 
 /* marquee */
 .marquee{margin-top:64px;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:18px 0;overflow:hidden;position:relative}
-.marquee-track{display:flex;gap:48px;white-space:nowrap;animation:marq 32s linear infinite;font-family:'Instrument Serif','Cormorant Garamond',serif;font-style:italic;font-size:28px;color:var(--text-2)}
-.marquee-track span{display:flex;align-items:center;gap:48px}
+/* width:max-content so translateX(-50%) is exactly half the content; spacing via padding so both halves are identical */
+.marquee-track{display:flex;width:max-content;white-space:nowrap;animation:marq 68s linear infinite;font-family:'Instrument Serif','Cormorant Garamond',serif;font-style:italic;font-size:28px;color:var(--text-2)}
+.marquee-track > span{display:flex;align-items:center;gap:48px;padding-right:48px}
 .marquee-track .sep{font-family:'JetBrains Mono',monospace;font-style:normal;font-size:10px;letter-spacing:0.3em;color:var(--cyan-bright);text-transform:uppercase}
 @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
