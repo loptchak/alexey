@@ -4,292 +4,42 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Alexey Kazyro — преподаватель иностранных языков</title>
+<meta name="description" content="Индивидуальные онлайн-занятия английским, французским и финским языками. Репетитор Alexey Kazyro, 5+ лет опыта. Бесплатное знакомство — 20 минут." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Alexey Kazyro — преподаватель иностранных языков" />
+<meta property="og:description" content="Английский, французский и финский онлайн. Программа под ваши цели." />
+<meta property="og:url" content="https://loptchak.github.io/alexey/" />
+<meta name="theme-color" content="#1c2530" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#1c2530;
-  --bg-2:#232d3a;
-  --bg-3:#2a3645;
-  --surface:rgba(255,255,255,0.04);
-  --surface-2:rgba(255,255,255,0.07);
-  --text:#ffffff;
-  --text-2:#c0c9d6;
-  --text-3:#8995a8;
-  --line:rgba(255,255,255,0.12);
-  --line-soft:rgba(255,255,255,0.07);
-  --cyan:#4eb6b9;
-  --cyan-deep:#2a8f93;
-  --cyan-bright:#6dd0d4;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
-.serif{font-family:'Instrument Serif','Cormorant Garamond',serif;font-weight:400;letter-spacing:-0.01em}
-.mono{font-family:'JetBrains Mono',monospace;font-weight:500}
-.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-3)}
-.container{max-width:1240px;margin:0 auto;padding:0 32px}
-
-/* HEADER */
-header{position:sticky;top:0;z-index:50;background:rgba(28,37,48,0.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft)}
-.nav{max-width:1240px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.brand{display:flex;align-items:center;gap:12px}
-.brand-mark{width:36px;height:36px;border-radius:50%;background:var(--cyan-bright);color:var(--bg);display:grid;place-items:center;font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:22px;line-height:1;box-shadow:0 0 24px rgba(109,208,212,0.35)}
-.brand-name{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:22px;line-height:1.1;color:var(--text)}
-.brand-name small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);letter-spacing:0.15em;text-transform:uppercase;margin-top:2px}
-.nav-links{display:flex;align-items:center;gap:28px}
-.nav-links a{font-size:14px;color:var(--text-2);font-weight:500;position:relative;padding:6px 0;transition:color .2s}
-.nav-links a:hover{color:var(--cyan-bright)}
-.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:1px;background:var(--cyan-bright);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
-.nav-links a:hover::after{transform:scaleX(1)}
-.lang-switch{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:transparent}
-.lang-switch button{padding:6px 12px;font-size:12px;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;color:var(--text-2);background:transparent;transition:all .2s}
-.lang-switch button.active{background:var(--cyan-bright);color:var(--bg)}
-.menu-toggle{display:none;width:36px;height:36px;border:1px solid var(--line);border-radius:8px;align-items:center;justify-content:center}
-.menu-toggle span{width:16px;height:1.5px;background:var(--text);position:relative}
-.menu-toggle span::before,.menu-toggle span::after{content:"";position:absolute;left:0;width:16px;height:1.5px;background:var(--text)}
-.menu-toggle span::before{top:-5px}.menu-toggle span::after{top:5px}
-
-/* HERO */
-.hero{padding:88px 0 96px;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(50% 70% at 90% 10%, rgba(78,182,185,0.16), transparent 60%),
-  radial-gradient(40% 60% at 10% 90%, rgba(42,143,147,0.22), transparent 60%);
-  pointer-events:none}
-.hero-inner{position:relative;display:grid;grid-template-columns:1.15fr 0.85fr;gap:64px;align-items:center}
-.hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:24px}
-.hero-eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--cyan-bright);box-shadow:0 0 12px var(--cyan-bright)}
-.hero h1{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:clamp(48px,7vw,108px);line-height:0.96;letter-spacing:-0.02em;font-weight:400;margin-bottom:28px;color:var(--text)}
-.hero h1 em{font-style:italic;color:var(--cyan-bright)}
-.hero-lead{font-size:18px;color:var(--text-2);max-width:520px;margin-bottom:36px}
-.hero-ctas{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-.btn-primary{background:var(--cyan-bright);color:var(--bg);padding:16px 28px;border-radius:999px;font-weight:600;font-size:15px;display:inline-flex;align-items:center;gap:12px;transition:all .2s ease;box-shadow:0 6px 24px rgba(109,208,212,0.25)}
-.btn-primary:hover{background:var(--text);transform:translateY(-2px)}
-.btn-primary .arr{display:inline-flex;width:26px;height:26px;border-radius:50%;background:var(--bg);color:var(--cyan-bright);align-items:center;justify-content:center;transition:transform .2s}
-.btn-primary .arr svg{width:12px;height:12px;fill:currentColor}
-.btn-primary:hover .arr{transform:translateX(2px)}
-.btn-ghost{padding:16px 4px;font-weight:600;font-size:15px;color:var(--text);border-bottom:1px solid var(--text);transition:color .2s,border-color .2s}
-.btn-ghost:hover{color:var(--cyan-bright);border-color:var(--cyan-bright)}
-
-.hero-card{position:relative;aspect-ratio:4/5;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;backdrop-filter:blur(6px)}
-.hero-card::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(60% 60% at 80% 20%, rgba(78,182,185,0.20), transparent 60%),
-  radial-gradient(50% 50% at 20% 90%, rgba(42,143,147,0.25), transparent 60%);
-  pointer-events:none}
-.hc-top{display:flex;justify-content:space-between;align-items:flex-start;position:relative;z-index:1}
-.hc-stamp{border:1px solid var(--line);padding:4px 10px;border-radius:999px;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;color:var(--text-2)}
-.hc-langs{position:relative;z-index:1;display:flex;flex-direction:column;gap:14px}
-.hc-lang-row{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:baseline;padding-bottom:14px;border-bottom:1px dashed var(--line)}
-.hc-lang-row:last-child{border-bottom:none}
-.hc-lang-row .nm{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:38px;line-height:1;color:var(--text)}
-.hc-lang-row .meta{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);letter-spacing:0.12em;text-transform:uppercase}
-.hc-lang-row .pip{width:28px;height:18px;border-radius:2px;object-fit:cover;box-shadow:0 1px 4px rgba(0,0,0,0.45)}
-.hc-foot{display:flex;justify-content:space-between;align-items:flex-end;position:relative;z-index:1}
-.hc-foot .who{font-family:'Instrument Serif','Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.15;color:var(--text)}
-.hc-foot .who small{display:block;font-family:'JetBrains Mono',monospace;font-style:normal;font-size:10px;color:var(--text-3);letter-spacing:0.14em;text-transform:uppercase;margin-top:4px}
-.hc-ring{width:64px;height:64px;border-radius:50%;border:1px solid var(--cyan-bright);display:grid;place-items:center;font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:14px;font-style:italic;color:var(--cyan-bright);box-shadow:inset 0 0 24px rgba(109,208,212,0.15)}
-.hc-ring strong{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:24px;font-weight:400;font-style:normal;display:block;line-height:1;color:var(--cyan-bright)}
-
-/* marquee */
-.marquee{margin-top:64px;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);padding:18px 0;overflow:hidden;position:relative}
-.marquee-track{display:flex;gap:48px;white-space:nowrap;animation:marq 32s linear infinite;font-family:'Instrument Serif','Cormorant Garamond',serif;font-style:italic;font-size:28px;color:var(--text-2)}
-.marquee-track span{display:flex;align-items:center;gap:48px}
-.marquee-track .sep{font-family:'JetBrains Mono',monospace;font-style:normal;font-size:10px;letter-spacing:0.3em;color:var(--cyan-bright);text-transform:uppercase}
-@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* SECTION COMMON */
-.section{padding:96px 0;position:relative}
-.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:48px;margin-bottom:56px;flex-wrap:wrap;position:relative;z-index:1}
-.section-head .heading{flex:1;min-width:280px}
-.section-head h2{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:clamp(40px,5vw,64px);line-height:1;letter-spacing:-0.01em;margin-top:10px;color:var(--text)}
-.section-head h2 em{font-style:italic;color:var(--cyan-bright)}
-.section-head .lead{max-width:380px;color:var(--text-2);font-size:16px}
-
-/* LANGUAGES */
-.languages{position:relative;overflow:hidden}
-.languages::before{content:"";position:absolute;inset:0;background:radial-gradient(40% 60% at 100% 0%, rgba(78,182,185,0.08), transparent 60%);pointer-events:none}
-.lang-grid{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;z-index:1}
-.lang-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:32px;position:relative;transition:all .3s ease;display:flex;flex-direction:column;min-height:420px;overflow:hidden;backdrop-filter:blur(4px)}
-.lang-card::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 100% at 100% 0%, rgba(78,182,185,0.14), transparent 60%);opacity:0.5;transition:opacity .3s;pointer-events:none}
-.lang-card:hover{transform:translateY(-4px);border-color:var(--cyan)}
-.lang-card:hover::before{opacity:1}
-.lang-card > *{position:relative;z-index:1}
-.lang-card .lc-flag{display:block;margin:0 0 28px;width:96px;height:64px;object-fit:cover;border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,0.45)}
-.lang-card .nm{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:64px;line-height:1;color:var(--text);margin-bottom:8px}
-.lang-card .nm em{font-style:italic;color:var(--cyan-bright)}
-.lang-card .ru{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:20px}
-.lang-card .desc{color:var(--text-2);font-size:15px;flex:1}
-.lang-card .tags{margin-top:24px;display:flex;flex-wrap:wrap;gap:8px}
-.tag{font-family:'JetBrains Mono',monospace;font-size:11px;padding:4px 10px;border:1px solid var(--line);border-radius:999px;color:var(--text-2)}
-
-/* ABOUT */
-.about{background:var(--bg-2);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);position:relative;overflow:hidden}
-.about::before{content:"";position:absolute;inset:0;background:radial-gradient(40% 60% at 100% 100%, rgba(78,182,185,0.10), transparent 60%);pointer-events:none}
-.about-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.about-portrait{position:relative;background:linear-gradient(135deg,#1f3e44 0%,#0e2326 100%);border-radius:12px;aspect-ratio:4/5;padding:36px;color:var(--text);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;border:1px solid var(--line)}
-.about-portrait::before{content:"";position:absolute;top:-40%;right:-30%;width:90%;height:90%;border-radius:50%;background:radial-gradient(circle,rgba(78,182,185,0.45),transparent 70%)}
-.about-portrait::after{content:"";position:absolute;bottom:-30%;left:-20%;width:70%;height:70%;border-radius:50%;background:radial-gradient(circle,rgba(42,143,147,0.35),transparent 70%)}
-.about-portrait > *{position:relative;z-index:1}
-.about-portrait .stat{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:180px;line-height:0.85;letter-spacing:-0.03em;color:var(--cyan-bright)}
-.about-portrait .stat sup{font-family:'JetBrains Mono',monospace;font-size:14px;vertical-align:super;letter-spacing:0.1em;margin-left:8px;color:var(--text)}
-.about-portrait .stat-cap{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;opacity:0.9;margin-top:12px;color:var(--text-2)}
-.about-portrait .sig{font-family:'Instrument Serif','Cormorant Garamond',serif;font-style:italic;font-size:32px;color:var(--text)}
-.about-portrait .sig small{display:block;font-family:'JetBrains Mono',monospace;font-style:normal;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;opacity:0.8;margin-top:6px;color:var(--text-2)}
-
-.about-body p{font-size:16px;color:var(--text-2);margin-bottom:18px}
-.about-body p strong{color:var(--text);font-weight:600}
-.method-list{margin-top:36px;display:flex;flex-direction:column;gap:0}
-.method-item{padding:22px 0;border-top:1px solid var(--line-soft);display:flex;gap:18px;align-items:flex-start}
-.method-item:last-child{border-bottom:1px solid var(--line-soft)}
-.method-item .mi-dot{flex-shrink:0;width:8px;height:8px;border-radius:50%;background:var(--cyan-bright);margin-top:12px;box-shadow:0 0 12px var(--cyan)}
-.method-item .mi-body{flex:1}
-.method-item .mi-title{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:22px;line-height:1.1;color:var(--text);margin-bottom:4px}
-.method-item .mi-desc{font-size:14px;color:var(--text-3)}
-
-/* WHY */
-.why{background:var(--bg);position:relative;overflow:hidden}
-.why::before{content:"";position:absolute;inset:0;background:radial-gradient(40% 50% at 50% 0%, rgba(78,182,185,0.08), transparent 60%);pointer-events:none}
-.why-grid{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:12px;overflow:hidden}
-.why-item{background:var(--bg);padding:36px 32px;display:flex;flex-direction:column;gap:14px;transition:background .25s}
-.why-item:hover{background:var(--surface)}
-.why-item .wi-icon{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--cyan);border-radius:50%;color:var(--cyan-bright)}
-.why-item .wi-icon svg{width:20px;height:20px}
-.why-item h3{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:28px;line-height:1.1;color:var(--text)}
-.why-item p{color:var(--text-2);font-size:15px}
-
-/* PRICING */
-.pricing{background:var(--bg-2);position:relative;overflow:hidden}
-.pricing::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(60% 80% at 20% 100%, rgba(78,182,185,0.20), transparent 60%),
-  radial-gradient(50% 80% at 100% 0%, rgba(42,143,147,0.35), transparent 60%);
-  pointer-events:none}
-.price-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;position:relative}
-.price-card{border:1px solid var(--line);border-radius:12px;padding:48px;background:var(--surface);backdrop-filter:blur(4px)}
-.price-card .ptag{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--cyan-bright);margin-bottom:24px;display:flex;align-items:center;gap:10px}
-.price-card .ptag::before{content:"";width:24px;height:1px;background:var(--cyan-bright)}
-.price-card h3{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:56px;line-height:1;letter-spacing:-0.01em;margin-bottom:14px;color:var(--text)}
-.price-card h3 em{font-style:italic;color:var(--cyan-bright)}
-.price-card .ptext{color:var(--text-2);font-size:16px;margin-bottom:36px;max-width:420px}
-.price-feats{display:flex;flex-direction:column;gap:14px;margin-bottom:40px}
-.price-feats li{list-style:none;display:flex;align-items:flex-start;gap:14px;font-size:15px;color:var(--text-2)}
-.price-feats svg{flex-shrink:0;margin-top:2px;color:var(--cyan-bright)}
-.price-side{display:flex;flex-direction:column;gap:18px}
-.pay-card{border:1px solid var(--line);border-radius:12px;padding:24px;background:var(--surface)}
-.pay-card .pc-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px}
-.pay-card .pc-list{display:flex;flex-wrap:wrap;gap:8px}
-.pay-card .pc-list span{padding:6px 12px;border:1px solid var(--line);border-radius:999px;font-size:13px;font-family:'JetBrains Mono',monospace;color:var(--text-2)}
-.pay-cta{background:var(--cyan-bright);color:var(--bg);padding:24px;border-radius:12px;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:transform .2s;box-shadow:0 8px 28px rgba(109,208,212,0.25)}
-.pay-cta:hover{transform:translateY(-2px)}
-.pay-cta .pc-title{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:24px;line-height:1.1;color:var(--bg)}
-.pay-cta .pc-arrow{width:36px;height:36px;border-radius:50%;background:var(--bg);color:var(--cyan-bright);display:grid;place-items:center}
-.pay-cta .pc-arrow svg{width:14px;height:14px;fill:currentColor}
-
-/* REVIEWS */
-.reviews{background:var(--bg);position:relative;overflow:hidden}
-.reviews::before{content:"";position:absolute;inset:0;background:radial-gradient(40% 50% at 0% 50%, rgba(78,182,185,0.08), transparent 60%);pointer-events:none}
-.rev-grid{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.rev-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:28px;cursor:pointer;transition:all .3s ease;display:flex;flex-direction:column;gap:16px;min-height:260px;backdrop-filter:blur(4px)}
-.rev-card:hover{border-color:var(--cyan);transform:translateY(-3px);background:var(--surface-2)}
-.rev-head{display:flex;justify-content:space-between;align-items:center}
-.rev-meta{display:flex;align-items:center;gap:10px}
-.rev-avatar{width:34px;height:34px;border-radius:50%;background:var(--cyan-deep);color:var(--text);display:grid;place-items:center;font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:16px}
-.rev-name{font-weight:600;font-size:15px;color:var(--text)}
-.rev-name small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);letter-spacing:0.1em;font-weight:500;margin-top:2px}
-.rev-stars{color:var(--cyan-bright);letter-spacing:1px;font-size:12px}
-.rev-quote{font-family:'Instrument Serif','Cormorant Garamond',serif;font-style:italic;font-size:20px;line-height:1.35;color:var(--text);flex:1}
-.rev-foot{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-3);display:flex;justify-content:flex-end;align-items:center}
-.rev-foot .more{color:var(--cyan-bright)}
-
-/* modal */
-.modal{position:fixed;inset:0;background:rgba(10,15,22,0.7);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;z-index:200;padding:24px}
-.modal.open{display:flex;animation:fade .2s ease}
-@keyframes fade{from{opacity:0}to{opacity:1}}
-.modal-box{background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:48px;max-width:640px;width:100%;max-height:88vh;overflow-y:auto;position:relative;box-shadow:0 24px 80px rgba(0,0,0,0.5)}
-.modal-box .close{position:absolute;top:18px;right:18px;width:36px;height:36px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;background:transparent;color:var(--text)}
-.modal-box .close:hover{background:var(--cyan-bright);color:var(--bg);border-color:var(--cyan-bright)}
-.modal-box .mh{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--line-soft)}
-.modal-box .mh .nm{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:32px;line-height:1;color:var(--text)}
-.modal-box .mh .nm small{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--text-3);letter-spacing:0.16em;text-transform:uppercase;margin-top:6px}
-.modal-box .mbody{font-size:16px;color:var(--text-2);line-height:1.7;white-space:pre-line}
-
-/* CONTACT */
-.contact{background:var(--bg-2);border-top:1px solid var(--line-soft);position:relative;overflow:hidden}
-.contact::before{content:"";position:absolute;inset:0;background:radial-gradient(50% 80% at 0% 50%, rgba(78,182,185,0.12), transparent 60%);pointer-events:none}
-.contact-grid{position:relative;display:grid;grid-template-columns:0.8fr 1.2fr;gap:64px;align-items:start}
-.contact-grid h2{margin-bottom:24px}
-.contact-grid .lead{color:var(--text-2);font-size:17px;max-width:380px;margin-bottom:36px}
-.contact-list{display:flex;flex-direction:column;gap:0}
-.contact-row{display:grid;grid-template-columns:120px 1fr auto;gap:24px;align-items:center;padding:24px 0;border-top:1px solid var(--line-soft);transition:padding .25s}
-.contact-row:last-child{border-bottom:1px solid var(--line-soft)}
-.contact-row:hover{padding-left:8px}
-.contact-row .clabel{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-3)}
-.contact-row .cmain{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:30px;line-height:1.1;color:var(--text)}
-.contact-row .cmain small{display:block;font-family:'Manrope',sans-serif;font-size:14px;color:var(--text-3);margin-top:4px;font-weight:400}
-.contact-row .carrow{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:all .2s;color:var(--text-2)}
-.contact-row .carrow svg{width:14px;height:14px;fill:currentColor}
-.contact-row:hover .carrow{background:var(--cyan-bright);color:var(--bg);border-color:var(--cyan-bright);transform:rotate(-45deg)}
-
-/* FOOTER */
-footer{background:var(--bg);color:var(--text);padding:64px 0 32px;border-top:1px solid var(--line-soft)}
-.foot-top{display:grid;grid-template-columns:1.4fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--line-soft)}
-.foot-top h3{font-family:'Instrument Serif','Cormorant Garamond',serif;font-size:clamp(40px,5vw,68px);line-height:0.96;letter-spacing:-0.01em;color:var(--text)}
-.foot-top h3 em{font-style:italic;color:var(--cyan-bright)}
-.foot-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;color:var(--text-2);font-size:14px}
-.foot-cols .lab{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px}
-.foot-cols a:hover{color:var(--cyan-bright)}
-.foot-bottom{padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-3);flex-wrap:wrap;gap:12px}
-
-/* RESPONSIVE */
-@media (max-width:960px){
-  .hero{padding:56px 0 64px}
-  .hero-inner{grid-template-columns:1fr;gap:48px}
-  .hero-card{aspect-ratio:auto;min-height:420px}
-  .marquee{margin-top:48px}
-  .marquee-track{font-size:22px}
-  .section{padding:72px 0}
-  .lang-grid{grid-template-columns:1fr;gap:16px}
-  .lang-card{min-height:auto}
-  .about-grid{grid-template-columns:1fr;gap:40px}
-  .about-portrait{aspect-ratio:1/1;padding:24px}
-  .about-portrait .stat{font-size:120px}
-  .why-grid{grid-template-columns:1fr}
-  .price-grid{grid-template-columns:1fr;gap:24px}
-  .price-card{padding:32px}
-  .price-card h3{font-size:40px}
-  .rev-grid{grid-template-columns:1fr;gap:16px}
-  .contact-grid{grid-template-columns:1fr;gap:40px}
-  .contact-row{grid-template-columns:90px 1fr auto;gap:16px}
-  .contact-row .cmain{font-size:22px}
-  .foot-top{grid-template-columns:1fr;gap:32px}
-  .nav-links{display:none}
-  .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;background:var(--bg-2);border-bottom:1px solid var(--line-soft);flex-direction:column;align-items:flex-start;padding:24px 32px;gap:16px}
-  .menu-toggle{display:inline-flex}
-}
-@media (max-width:600px){
-  .container{padding:0 20px}
-  .nav{padding:14px 20px}
-  .brand-name{font-size:18px}
-  .hero h1{font-size:56px}
-  .hero-card{padding:20px}
-  .hc-lang-row .nm{font-size:28px}
-  .section-head{flex-direction:column;align-items:flex-start;gap:16px;margin-bottom:36px}
-  .section-head h2{font-size:36px}
-  .why-item{padding:28px 24px}
-  .price-card{padding:24px}
-  .price-card h3{font-size:32px}
-  .modal-box{padding:32px 24px}
-  .modal-box .mh .nm{font-size:24px}
-  .rev-quote{font-size:16px}
-  .contact-row{grid-template-columns:1fr;gap:8px;padding:20px 0}
-  .contact-row .carrow{display:none}
-  .foot-cols{grid-template-columns:1fr}
-}
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+<!-- Icons: Lucide (ISC) + Simple Icons (CC0). Use as <svg class="ic"><use href="#i-NAME"/></svg> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-trophy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2" /><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2" /><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3" /><path d="M4 22h16" /><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z" /><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3" /></g></symbol>
+  <symbol id="i-calendar-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 14v2.2l1.6 1" /><path d="M16 2v3" /><path d="M21 7.338V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h2.338" /><path d="M3 9h5.859" /><path d="M8 2v3" /><circle cx="16" cy="16" r="6" /></g></symbol>
+  <symbol id="i-user-round" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5" /><path d="M20 21a8 8 0 0 0-16 0" /></g></symbol>
+  <symbol id="i-book-open" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v16" /><path d="M20.001 19A2 2 0 0022 17V5a2 2 0 00-1.999-2L16 3.002A5 5 0 0012 5a5 5 0 00-4-2H4a2 2 0 00-2 2v12a2 2 0 001.999 2H8a5 5 0 014 2 5 5 0 014-2z" /></g></symbol>
+  <symbol id="i-message-circle-more" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /><path d="M8 12h.01" /><path d="M12 12h.01" /><path d="M16 12h.01" /></g></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></g></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></g></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></g></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><g fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z" /></g></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></g></symbol>
+  <symbol id="i-credit-card" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2" /><line x1="2" x2="22" y1="10" y2="10" /><path d="M6 14h2" /></g></symbol>
+  <symbol id="i-landmark" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10 18v-7" /><path d="M11.119 2.205a2 2 0 0 1 1.762 0l7.84 3.846A.5.5 0 0 1 20.5 7h-17a.5.5 0 0 1-.22-.949z" /><path d="M14 18v-7" /><path d="M18 18v-7" /><path d="M3 22h18" /><path d="M6 18v-7" /></g></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5" /><rect x="2" y="6" width="14" height="12" rx="2" /></g></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" /><rect x="2" y="4" width="20" height="16" rx="2" /></g></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" /></g></symbol>
+  <symbol id="i-bitcoin" viewBox="0 0 24 24"><g fill="currentColor" stroke="none"><path d="M23.638 14.904c-1.602 6.43-8.113 10.34-14.542 8.736C2.67 22.05-1.244 15.525.362 9.105 1.962 2.67 8.475-1.243 14.9.358c6.43 1.605 10.342 8.115 8.738 14.548v-.002zm-6.35-4.613c.24-1.59-.974-2.45-2.64-3.03l.54-2.153-1.315-.33-.525 2.107c-.345-.087-.705-.167-1.064-.25l.526-2.127-1.32-.33-.54 2.165c-.285-.067-.565-.132-.84-.2l-1.815-.45-.35 1.407s.975.225.955.236c.535.136.63.486.615.766l-1.477 5.92c-.075.166-.24.406-.614.314.015.02-.96-.24-.96-.24l-.66 1.51 1.71.426.93.242-.54 2.19 1.32.327.54-2.17c.36.1.705.19 1.05.273l-.51 2.154 1.32.33.545-2.19c2.24.427 3.93.257 4.64-1.774.57-1.637-.03-2.58-1.217-3.196.854-.193 1.5-.76 1.68-1.93h.01zm-3.01 4.22c-.404 1.64-3.157.75-4.05.53l.72-2.9c.896.23 3.757.67 3.33 2.37zm.41-4.24c-.37 1.49-2.662.735-3.405.55l.654-2.64c.744.18 3.137.524 2.75 2.084v.006z"/></g></symbol>
+  <symbol id="i-tether" viewBox="0 0 24 24"><g fill="currentColor" stroke="none"><path d="M18.7538 10.5176c0 .6251-2.2379 1.1483-5.2381 1.2812l.0028.0007c-.0848.0064-.5233.0325-1.5012.0325-.7778 0-1.33-.0233-1.5237-.0325-3.0059-.1322-5.2495-.6555-5.2495-1.2819s2.2436-1.149 5.2495-1.2834v2.0442c.1965.0142.7594.0474 1.5372.0474.9334 0 1.4008-.0389 1.4849-.0466V9.2356c2.9994.1337 5.2381.657 5.2381 1.282zm5.19.5466L12.1248 22.389a.1803.1803 0 0 1-.2496 0L.0562 11.0635a.1781.1781 0 0 1-.0382-.2079l4.3762-9.1921a.1767.1767 0 0 1 .1626-.1026h14.8878a.1768.1768 0 0 1 .1612.1032l4.3762 9.1922a.1782.1782 0 0 1-.0382.2079zm-4.478-.4038c0-.8068-2.5515-1.4799-5.9473-1.6369V7.195h4.186V4.4055H6.3076V7.195h4.1852v1.8286c-3.4018.1562-5.9601.83-5.9601 1.6376 0 .8075 2.5583 1.4806 5.9601 1.6376v5.8618h3.025v-5.8639c3.394-.1563 5.948-.8295 5.948-1.6363z"/></g></symbol>
+  <symbol id="i-sbp" viewBox="0 0 97.3 120"><path d="M0 26.12l14.532 25.975v15.844L.017 93.863 0 26.12z" fill="#5B57A2"/><path d="M55.797 42.643l13.617-8.346 27.868-.026-41.485 25.414V42.643z" fill="#D90751"/><path d="M55.72 25.967l.077 34.39-14.566-8.95V0l14.49 25.967z" fill="#FAB718"/><path d="M97.282 34.271l-27.869.026-13.693-8.33L41.231 0l56.05 34.271z" fill="#ED6F26"/><path d="M55.797 94.007V77.322l-14.566-8.78.008 51.458 14.558-25.993z" fill="#63B22F"/><path d="M69.38 85.737L14.531 52.095 0 26.12l97.223 59.583-27.844.034z" fill="#1487C9"/><path d="M41.24 120l14.556-25.993 13.583-8.27 27.843-.034L41.24 120z" fill="#017F36"/><path d="M.017 93.863l41.333-25.32-13.896-8.526-12.922 7.922L.017 93.863z" fill="#984995"/></symbol>
+  <symbol id="i-telegram" viewBox="0 0 24 24"><g fill="currentColor" stroke="none"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></g></symbol>
+</svg>
 
 <header>
   <div class="nav">
@@ -337,7 +87,7 @@ footer{background:var(--bg);color:var(--text);padding:64px 0 32px;border-top:1px
       <div class="hero-ctas">
         <a href="#contact" class="btn-primary">
           <span data-i18n="hero.cta">Записаться на урок</span>
-          <span class="arr"><svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"/></svg></span>
+          <span class="arr"><svg class="ic"><use href="#i-arrow-right"/></svg></span>
         </a>
         <a href="#languages" class="btn-ghost" data-i18n="hero.cta2">Посмотреть программу</a>
       </div>
@@ -350,17 +100,17 @@ footer{background:var(--bg);color:var(--text);padding:64px 0 32px;border-top:1px
       </div>
       <div class="hc-langs">
         <div class="hc-lang-row">
-          <img class="pip" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg" alt="UK flag">
+          <img class="pip" src="img/flags/uk.svg" alt="UK flag">
           <span class="nm serif">English</span>
           <span class="meta">A1 — C2</span>
         </div>
         <div class="hc-lang-row">
-          <img class="pip" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="France flag">
+          <img class="pip" src="img/flags/fr.svg" alt="France flag">
           <span class="nm serif"><em style="font-style:italic;color:var(--cyan)">Français</em></span>
           <span class="meta">A1 — C1</span>
         </div>
         <div class="hc-lang-row">
-          <img class="pip" src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Finland.svg" alt="Finland flag">
+          <img class="pip" src="img/flags/fi.svg" alt="Finland flag">
           <span class="nm serif">Suomi</span>
           <span class="meta">A1 — B2</span>
         </div>
@@ -389,6 +139,7 @@ footer{background:var(--bg);color:var(--text);padding:64px 0 32px;border-top:1px
 </section>
 
 <!-- ============ LANGUAGES ============ -->
+<!-- Landmark silhouettes are hand-drawn flat SVGs, tinted and muted via .lc-landmark -->
 <section class="section" id="languages">
   <div class="container">
     <div class="section-head">
@@ -401,7 +152,8 @@ footer{background:var(--bg);color:var(--text);padding:64px 0 32px;border-top:1px
 
     <div class="lang-grid">
       <article class="lang-card">
-        <img class="lc-flag" src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg" alt="UK flag">
+        <svg class="lc-landmark lc-landmark--bigben" viewBox="22 0 76 400" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M32,162h56v222h-56ZM41,196V179A3,3 0 0 1 47,179V196ZM57,196V179A3,3 0 0 1 63,179V196ZM73,196V179A3,3 0 0 1 79,179V196ZM41,226V209A3,3 0 0 1 47,209V226ZM57,226V209A3,3 0 0 1 63,209V226ZM73,226V209A3,3 0 0 1 79,209V226ZM41,256V239A3,3 0 0 1 47,239V256ZM57,256V239A3,3 0 0 1 63,239V256ZM73,256V239A3,3 0 0 1 79,239V256ZM41,286V269A3,3 0 0 1 47,269V286ZM57,286V269A3,3 0 0 1 63,269V286ZM73,286V269A3,3 0 0 1 79,269V286ZM41,316V299A3,3 0 0 1 47,299V316ZM57,316V299A3,3 0 0 1 63,299V316ZM73,316V299A3,3 0 0 1 79,299V316ZM41,346V329A3,3 0 0 1 47,329V346ZM57,346V329A3,3 0 0 1 63,329V346ZM73,346V329A3,3 0 0 1 79,329V346ZM41,376V359A3,3 0 0 1 47,359V376ZM57,376V359A3,3 0 0 1 63,359V376ZM73,376V359A3,3 0 0 1 79,359V376Z"/><path fill-rule="evenodd" d="M28,382h64v18h-64Z"/><path fill-rule="evenodd" d="M28,154h64v8h-64Z"/><path fill-rule="evenodd" d="M26,96h68v58h-68ZM37,125a23,23 0 1 0 46,0a23,23 0 1 0 -46,0Z"/><path fill-rule="evenodd" d="M40,125a20,20 0 1 0 40,0a20,20 0 1 0 -40,0ZM59,125V109h2V125ZM60,124L71,121l.6,2L60,126Z"/><path fill-rule="evenodd" d="M26,96h8l-4,-20Z M86,96h8l-4,-20Z"/><path fill-rule="evenodd" d="M32,70h56v26h-56ZM39.5,92V79.5A4.5,4.5 0 0 1 48.5,79.5V92ZM55.5,92V79.5A4.5,4.5 0 0 1 64.5,79.5V92ZM71.5,92V79.5A4.5,4.5 0 0 1 80.5,79.5V92Z"/><path fill-rule="evenodd" d="M30,70H90L72,26H48Z"/><path fill-rule="evenodd" d="M30,70h6l-3,-20Z M84,70h6l-3,-20Z"/><path fill-rule="evenodd" d="M51,16h18v10h-18ZM52,16L60,0L68,16Z"/></svg>
+        <img class="lc-flag" src="img/flags/uk.svg" alt="UK flag">
         <div class="nm serif">English</div>
         <div class="ru" data-i18n="lang.en.ru">Английский язык</div>
         <p class="desc" data-i18n="lang.en.desc">Подготовка к IELTS, TOEFL и школьным экзаменам, разговорная практика, деловой английский. Индивидуальный план под ваш уровень</p>
@@ -413,7 +165,8 @@ footer{background:var(--bg);color:var(--text);padding:64px 0 32px;border-top:1px
       </article>
 
       <article class="lang-card">
-        <img class="lc-flag" src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg" alt="France flag">
+        <svg class="lc-landmark lc-landmark--eiffel" viewBox="10 0 180 400" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M14,400Q38,350 50,296H150Q162,350 186,400ZM56,400Q60,322 100,316Q140,322 144,400Z"/><path fill-rule="evenodd" d="M40,280h120v18h-120ZM48.27,284L55.73,284L52,287.73ZM57,285.27L57,292.73L53.27,289ZM55.73,294L48.27,294L52,290.27ZM47,292.73L47,285.27L50.73,289ZM60.27,284L67.73,284L64,287.73ZM69,285.27L69,292.73L65.27,289ZM67.73,294L60.27,294L64,290.27ZM59,292.73L59,285.27L62.73,289ZM72.27,284L79.73,284L76,287.73ZM81,285.27L81,292.73L77.27,289ZM79.73,294L72.27,294L76,290.27ZM71,292.73L71,285.27L74.73,289ZM84.27,284L91.73,284L88,287.73ZM93,285.27L93,292.73L89.27,289ZM91.73,294L84.27,294L88,290.27ZM83,292.73L83,285.27L86.73,289ZM96.27,284L103.73,284L100,287.73ZM105,285.27L105,292.73L101.27,289ZM103.73,294L96.27,294L100,290.27ZM95,292.73L95,285.27L98.73,289ZM108.27,284L115.73,284L112,287.73ZM117,285.27L117,292.73L113.27,289ZM115.73,294L108.27,294L112,290.27ZM107,292.73L107,285.27L110.73,289ZM120.27,284L127.73,284L124,287.73ZM129,285.27L129,292.73L125.27,289ZM127.73,294L120.27,294L124,290.27ZM119,292.73L119,285.27L122.73,289ZM132.27,284L139.73,284L136,287.73ZM141,285.27L141,292.73L137.27,289ZM139.73,294L132.27,294L136,290.27ZM131,292.73L131,285.27L134.73,289ZM144.27,284L151.73,284L148,287.73ZM153,285.27L153,292.73L149.27,289ZM151.73,294L144.27,294L148,290.27ZM143,292.73L143,285.27L146.73,289Z"/><path fill-rule="evenodd" d="M54,284Q66,236 74,206H126Q134,236 146,284ZM80,284L89,226H111L120,284ZM65.08,255.3L80.33,255.3L70.66,265.35ZM81.56,257.19L78.19,278.93L71.78,267.37ZM76.65,280.7L58.95,280.7L70.18,269.03ZM57.97,278.55L63.43,256.86L69.06,267.01ZM71.72,229.3L84.4,229.3L76.22,238.24ZM85.58,231.26L82.55,250.83L77.27,240.35ZM81.03,252.7L65.98,252.7L75.69,242.08ZM65.07,250.44L70.07,230.92L74.63,239.98ZM119.67,255.3L134.92,255.3L129.34,265.35ZM136.57,256.86L142.03,278.55L130.94,267.01ZM141.05,280.7L123.35,280.7L129.82,269.03ZM121.81,278.93L118.44,257.19L128.22,267.37ZM115.6,229.3L128.28,229.3L123.78,238.24ZM129.93,230.92L134.93,250.44L125.37,239.98ZM134.02,252.7L118.97,252.7L124.31,242.08ZM117.45,250.83L114.42,231.26L122.73,240.35Z"/><path fill-rule="evenodd" d="M66,194h68v14h-68ZM72.28,197L79.72,197L76,199.98ZM81,198.02L81,203.98L77.28,201ZM79.72,205L72.28,205L76,202.02ZM71,203.98L71,198.02L74.72,201ZM84.28,197L91.72,197L88,199.98ZM93,198.02L93,203.98L89.28,201ZM91.72,205L84.28,205L88,202.02ZM83,203.98L83,198.02L86.72,201ZM96.28,197L103.72,197L100,199.98ZM105,198.02L105,203.98L101.28,201ZM103.72,205L96.28,205L100,202.02ZM95,203.98L95,198.02L98.72,201ZM108.28,197L115.72,197L112,199.98ZM117,198.02L117,203.98L113.28,201ZM115.72,205L108.28,205L112,202.02ZM107,203.98L107,198.02L110.72,201ZM120.28,197L127.72,197L124,199.98ZM129,198.02L129,203.98L125.28,201ZM127.72,205L120.28,205L124,202.02ZM119,203.98L119,198.02L122.72,201Z"/><path fill-rule="evenodd" d="M76,196Q88,120 94,50H106Q112,120 124,196ZM86.47,157.4L113.53,157.4L100,170.77ZM115.46,158.87L120.19,190.72L101.71,172.46ZM118.77,192.7L81.23,192.7L100,174.15ZM79.81,190.72L84.54,158.87L98.29,172.46ZM90.32,128.51L109.68,128.51L100,138.21ZM111.58,130.01L114.61,152.84L101.7,139.91ZM113.18,154.8L86.82,154.8L100,141.61ZM85.39,152.84L88.42,130.01L98.3,139.91ZM93.05,105.77L106.95,105.77L100,112.88ZM108.81,107.3L110.81,123.96L101.68,114.6ZM109.37,125.91L90.63,125.91L100,116.32ZM89.19,123.96L91.19,107.3L98.32,114.6ZM95.06,87.42L104.94,87.42L100,92.63ZM106.76,88.98L108.11,101.2L101.65,94.38ZM106.67,103.17L93.33,103.17L100,96.13ZM91.89,101.2L93.24,88.98L98.35,94.38ZM96.57,72.29L103.43,72.29L100,76.07ZM105.21,73.9L106.11,82.81L101.62,77.86ZM104.7,84.82L95.3,84.82L100,79.64ZM93.89,82.81L94.79,73.9L98.38,77.86Z"/><path fill-rule="evenodd" d="M90,42h20v8h-20Z"/><path fill-rule="evenodd" d="M92,42L94,30H106L108,42ZM99,2h2v28h-2Z"/></svg>
+        <img class="lc-flag" src="img/flags/fr.svg" alt="France flag">
         <div class="nm serif"><em>Français</em></div>
         <div class="ru" data-i18n="lang.fr.ru">Французский язык</div>
         <p class="desc" data-i18n="lang.fr.desc">От базовых основ до продвинутых уровней. Произношение, грамматика и культурный контекст — кино, песни, литература</p>
@@ -425,7 +178,8 @@ footer{background:var(--bg);color:var(--text);padding:64px 0 32px;border-top:1px
       </article>
 
       <article class="lang-card">
-        <img class="lc-flag" src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Finland.svg" alt="Finland flag">
+        <svg class="lc-landmark lc-landmark--helsinki" viewBox="0 0 300 280" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M0,270h300v10h-300ZM15,260h270v10h-270ZM30,250h240v10h-240Z"/><path fill-rule="evenodd" d="M60,160h180v90h-180ZM108,178h12v68h-12ZM126,178h12v68h-12ZM144,178h12v68h-12ZM162,178h12v68h-12ZM180,178h12v68h-12ZM68,186h8v26h-8ZM68,224h8v16h-8ZM84,186h8v26h-8ZM84,224h8v16h-8ZM208,186h8v26h-8ZM208,224h8v16h-8ZM224,186h8v26h-8ZM224,224h8v16h-8ZM98,162h104v1.6h-104Z"/><path fill-rule="evenodd" d="M147,124h6v12h-6ZM95,148h5v12h-5ZM200,148h5v12h-5Z"/><defs><mask id="hc-ped-gap" maskUnits="userSpaceOnUse" x="0" y="0" width="300" height="280"><rect width="300" height="280" fill="#fff"/><path d="M93,161L150,132L207,161" fill="none" stroke="#000" stroke-width="5"/></mask></defs><g mask="url(#hc-ped-gap)"><path fill-rule="evenodd" d="M100,146h100v14h-100Z"/><path fill-rule="evenodd" d="M108,136h84v10h-84Z"/></g><path fill-rule="evenodd" d="M96,160L150,134L204,160Z"/><path fill-rule="evenodd" d="M114,92h72v44h-72ZM122,98h6v34h-6ZM132,98h6v34h-6ZM142,98h6v34h-6ZM152,98h6v34h-6ZM162,98h6v34h-6ZM172,98h6v34h-6Z"/><path fill-rule="evenodd" d="M110,84h80v8h-80Z"/><path fill-rule="evenodd" d="M116,74h68v10h-68Z"/><path fill-rule="evenodd" d="M116,74C116,38 132,22 150,22C168,22 184,38 184,74Z"/><path fill-rule="evenodd" d="M143,12h14v12h-14ZM146,15h2.5v7h-2.5ZM151.5,15h2.5v7h-2.5Z"/><path fill-rule="evenodd" d="M141,13Q150,3 159,13ZM149,0h2v8h-2ZM146,2.5h8v2h-8Z"/><path fill-rule="evenodd" d="M67,118h22v42h-22ZM71,124h3v30h-3ZM76.5,124h3v30h-3ZM82,124h3v30h-3Z"/><path fill-rule="evenodd" d="M65,112h26v6h-26Z"/><path fill-rule="evenodd" d="M66,112C66,98 72,92 78,92C84,92 90,98 90,112Z"/><path fill-rule="evenodd" d="M77,80h2v13h-2ZM74.5,83.5h7v2h-7Z"/><path fill-rule="evenodd" d="M211,118h22v42h-22ZM215,124h3v30h-3ZM220.5,124h3v30h-3ZM226,124h3v30h-3Z"/><path fill-rule="evenodd" d="M209,112h26v6h-26Z"/><path fill-rule="evenodd" d="M210,112C210,98 216,92 222,92C228,92 234,98 234,112Z"/><path fill-rule="evenodd" d="M221,80h2v13h-2ZM218.5,83.5h7v2h-7Z"/></svg>
+        <img class="lc-flag" src="img/flags/fi.svg" alt="Finland flag">
         <div class="nm serif">Suomi</div>
         <div class="ru" data-i18n="lang.fi.ru">Финский язык</div>
         <p class="desc" data-i18n="lang.fi.desc">Редкая специализация. Глубокое знание грамматики, падежей и особенностей языка — для жизни, работы и учёбы в Финляндии</p>
@@ -523,42 +277,42 @@ footer{background:var(--bg);color:var(--text);padding:64px 0 32px;border-top:1px
     <div class="why-grid">
       <div class="why-item">
         <div class="wi-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12.5l5 5L20 6.5"/></svg>
+          <svg class="ic"><use href="#i-trophy"/></svg>
         </div>
         <h3 data-i18n="why.1.t">Результаты</h3>
         <p data-i18n="why.1.d">Мои студенты сдают экзамены, переезжают, работают на новом языке. Прогресс измеряемый</p>
       </div>
       <div class="why-item">
         <div class="wi-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M12 1v3M9 1h6"/></svg>
+          <svg class="ic"><use href="#i-calendar-clock"/></svg>
         </div>
         <h3 data-i18n="why.2.t">Гибкое расписание</h3>
         <p data-i18n="why.2.d">Будни, вечера, выходные. Подстроюсь под ваш ритм жизни и часовой пояс</p>
       </div>
       <div class="why-item">
         <div class="wi-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+          <svg class="ic"><use href="#i-user-round"/></svg>
         </div>
         <h3 data-i18n="why.3.t">Личный подход</h3>
         <p data-i18n="why.3.d">Программа собирается с нуля под вашу цель — без шаблонных «уровней по учебнику»</p>
       </div>
       <div class="why-item">
         <div class="wi-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h12a2 2 0 012 2v14H6a2 2 0 01-2-2V4z"/><path d="M4 4v14a2 2 0 002 2h12"/><path d="M8 8h6M8 12h6"/></svg>
+          <svg class="ic"><use href="#i-book-open"/></svg>
         </div>
         <h3 data-i18n="why.4.t">Современные методы</h3>
         <p data-i18n="why.4.d">Только то, что действительно работает: общение, иммерсия, осмысленные задания</p>
       </div>
       <div class="why-item">
         <div class="wi-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 12c0 4.4-4 8-9 8-1.6 0-3.1-.4-4.4-1L3 20l1-4.4C3.4 14.3 3 12.7 3 11c0-4.4 4-8 9-8s9 3.6 9 8z"/></svg>
+          <svg class="ic"><use href="#i-message-circle-more"/></svg>
         </div>
         <h3 data-i18n="why.5.t">Поддержка</h3>
         <p data-i18n="why.5.d">Между уроками — на связи: разберём сложный момент, поможем с заданием</p>
       </div>
       <div class="why-item">
         <div class="wi-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+          <svg class="ic"><use href="#i-target"/></svg>
         </div>
         <h3 data-i18n="why.6.t">Чёткие цели</h3>
         <p data-i18n="why.6.d">Вместе определяем, куда идём, и отмечаем прогресс на каждом уроке</p>
@@ -585,19 +339,19 @@ footer{background:var(--bg);color:var(--text);padding:64px 0 32px;border-top:1px
         <p class="ptext" data-i18n="price.text">Первое знакомство — 20 минут бесплатно: определим уровень, цели и подберём формат. Дальше — гибко.</p>
         <ul class="price-feats">
           <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>
+            <svg class="ic"><use href="#i-check"/></svg>
             <span data-i18n="price.f1">Индивидуальный подход к каждому студенту</span>
           </li>
           <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>
+            <svg class="ic"><use href="#i-check"/></svg>
             <span data-i18n="price.f2">Гибкая цена в зависимости от количества уроков</span>
           </li>
           <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>
+            <svg class="ic"><use href="#i-check"/></svg>
             <span data-i18n="price.f3">Оплата картой, СБП или криптовалютой</span>
           </li>
           <li>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12.5l5 5L20 6.5"/></svg>
+            <svg class="ic"><use href="#i-check"/></svg>
             <span data-i18n="price.f4">Скидка при покупке пакета занятий</span>
           </li>
         </ul>
@@ -607,25 +361,25 @@ footer{background:var(--bg);color:var(--text);padding:64px 0 32px;border-top:1px
         <div class="pay-card">
           <div class="pc-label" data-i18n="price.pay">Способы оплаты</div>
           <div class="pc-list">
-            <span data-i18n="price.pay.card">Карта</span>
-            <span>SBP</span>
-            <span>USDT</span>
-            <span>BTC</span>
-            <span data-i18n="price.pay.tx">Перевод</span>
+            <span class="chip"><i class="badge"><svg class="ic"><use href="#i-credit-card"/></svg></i><span data-i18n="price.pay.card">Карта</span></span>
+            <span class="chip"><i class="badge badge-sbp"><svg class="ic"><use href="#i-sbp"/></svg></i><span data-i18n="price.pay.sbp">СБП</span></span>
+            <span class="chip"><i class="badge badge-usdt"><svg class="ic"><use href="#i-tether"/></svg></i>USDT</span>
+            <span class="chip"><i class="badge badge-btc"><svg class="ic"><use href="#i-bitcoin"/></svg></i>BTC</span>
+            <span class="chip"><i class="badge"><svg class="ic"><use href="#i-landmark"/></svg></i><span data-i18n="price.pay.tx">Перевод</span></span>
           </div>
         </div>
         <a href="#contact" class="pay-cta">
           <div>
             <div class="pc-title" data-i18n="price.cta">Записаться<br>на знакомство</div>
           </div>
-          <div class="pc-arrow"><svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"/></svg></div>
+          <div class="pc-arrow"><svg class="ic"><use href="#i-arrow-right"/></svg></div>
         </a>
         <div class="pay-card">
           <div class="pc-label" data-i18n="price.fmt">Формат</div>
           <div class="pc-list">
-            <span>Telegram</span>
-            <span>Zoom</span>
-            <span data-i18n="price.fmt.yandex">Яндекс Телемост</span>
+            <span class="chip"><i class="badge badge-tg"><svg class="ic"><use href="#i-telegram"/></svg></i>Telegram</span>
+            <span class="chip"><i class="badge badge-zoom"><svg class="ic"><use href="#i-video"/></svg></i>Zoom</span>
+            <span class="chip"><i class="badge"><svg class="ic"><use href="#i-video"/></svg></i><span data-i18n="price.fmt.yandex">Яндекс Телемост</span></span>
           </div>
         </div>
       </div>
@@ -648,15 +402,18 @@ footer{background:var(--bg);color:var(--text);padding:64px 0 32px;border-top:1px
   </div>
 </section>
 
-<div class="modal" id="reviewModal" onclick="if(event.target===this) closeModal()">
+<div class="modal" id="reviewModal">
   <div class="modal-box">
-    <button class="close" onclick="closeModal()" aria-label="Close">×</button>
+    <button class="close" id="modalClose" aria-label="Close"><svg class="ic"><use href="#i-x"/></svg></button>
     <div class="mh">
-      <div class="nm">
-        <span id="mNm"></span>
-        <small id="mFrom"></small>
+      <div class="rev-meta">
+        <div class="rev-avatar" id="mAvatar"></div>
+        <div class="nm">
+          <span id="mNm"></span>
+          <small id="mFrom"></small>
+        </div>
       </div>
-      <div class="rev-stars">★ ★ ★ ★ ★</div>
+      <div class="rev-stars" id="mStars"></div>
     </div>
     <div class="mbody" id="mBody"></div>
   </div>
@@ -675,28 +432,28 @@ footer{background:var(--bg);color:var(--text);padding:64px 0 32px;border-top:1px
 
       <div class="contact-list">
         <a href="https://t.me/Dobryieh" class="contact-row" target="_blank" rel="noopener">
-          <span class="clabel">Telegram</span>
+          <span class="clabel"><svg class="ic"><use href="#i-telegram"/></svg>Telegram</span>
           <div class="cmain">
             @Dobryieh
             <small data-i18n="con.tg">Быстрое общение и согласование расписания</small>
           </div>
-          <span class="carrow"><svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"/></svg></span>
+          <span class="carrow"><svg class="ic"><use href="#i-arrow-right"/></svg></span>
         </a>
-        <a href="/cdn-cgi/l/email-protection#d0b1bcb5a8b5b9a5a3b190bdb1b9bcfea2a5" class="contact-row">
-          <span class="clabel">Email</span>
+        <a href="mailto:alexeiusa@mail.ru" class="contact-row">
+          <span class="clabel"><svg class="ic"><use href="#i-mail"/></svg>Email</span>
           <div class="cmain">
-            <span class="__cf_email__" data-cfemail="6809040d100d011d1b092805090104461a1d">alexeiusa@mail.ru</span>
+            alexeiusa@mail.ru
             <small data-i18n="con.em">Подробности о себе и целях обучения</small>
           </div>
-          <span class="carrow"><svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"/></svg></span>
+          <span class="carrow"><svg class="ic"><use href="#i-arrow-right"/></svg></span>
         </a>
         <a href="tel:+79632415756" class="contact-row">
-          <span class="clabel" data-i18n="con.phone.l">Телефон</span>
+          <span class="clabel"><svg class="ic"><use href="#i-phone"/></svg><span data-i18n="con.phone.l">Телефон</span></span>
           <div class="cmain">
             +7 (963) 241-57-56
             <small data-i18n="con.phone">Звонок или WhatsApp</small>
           </div>
-          <span class="carrow"><svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M313.941 216H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h301.941v46.059c0 21.382 25.851 32.09 40.971 16.971l86.059-86.059c9.373-9.373 9.373-24.569 0-33.941l-86.059-86.059c-15.119-15.119-40.971-4.411-40.971 16.971V216z"/></svg></span>
+          <span class="carrow"><svg class="ic"><use href="#i-arrow-right"/></svg></span>
         </a>
       </div>
     </div>
@@ -716,8 +473,8 @@ footer{background:var(--bg);color:var(--text);padding:64px 0 32px;border-top:1px
         </div>
         <div>
           <div class="lab" data-i18n="foot.l2">Связь</div>
-          <a href="https://t.me/Dobryieh">Telegram</a><br>
-          <a href="alexeiusa@mail.ru">Email</a><br>
+          <a href="https://t.me/Dobryieh" target="_blank" rel="noopener">Telegram</a><br>
+          <a href="mailto:alexeiusa@mail.ru">Email</a><br>
           <a href="tel:+79632415756">+7 (963) 241-57-56</a>
         </div>
       </div>
@@ -729,251 +486,8 @@ footer{background:var(--bg);color:var(--text);padding:64px 0 32px;border-top:1px
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// ============ I18N ============
-const dict = {
-  ru: {
-    'brand.role':'репетитор · языки',
-    'nav.languages':'Языки','nav.about':'Обо мне','nav.why':'Подход','nav.pricing':'Цена','nav.reviews':'Отзывы','nav.contact':'Контакты',
-
-    'hero.eyebrow':'Online · 2020 — настоящее',
-    'hero.title.1':'Учу говорить на','hero.title.2':'английском','hero.title.comma':',','hero.title.3':'французском','hero.title.and':'и','hero.title.4':'финском',
-    'hero.lead':'Индивидуальные занятия для взрослых и подростков. Программа подбирается под ваши цели — экзамен, путешествие, работа или просто радость свободно понимать',
-    'hero.cta':'Записаться на урок','hero.cta2':'Посмотреть программу',
-    'hero.card.zoom':'через Zoom','hero.card.stamp':'Онлайн-урок','hero.card.who':'репетитор · с 2020','hero.card.yrs':'лет',
-
-    'lang.eyebrow':'Языки','lang.h.1':'Три языка,','lang.h.2':'три разговора','lang.lead':'Каждое направление — со своей методикой, материалами и культурным контекстом. Можно сочетать',
-    'lang.en.ru':'Английский язык','lang.en.desc':'Подготовка к IELTS, TOEFL и школьным экзаменам, разговорная практика, деловой английский. Индивидуальный план под ваш уровень','lang.en.t1':'IELTS / TOEFL','lang.en.t2':'Деловой','lang.en.t3':'Разговорный',
-    'lang.fr.ru':'Французский язык','lang.fr.desc':'От базовых основ до продвинутых уровней. Произношение, грамматика и культурный контекст — кино, песни, литература','lang.fr.t1':'DELF / DALF','lang.fr.t2':'Культура','lang.fr.t3':'Грамматика',
-    'lang.fi.ru':'Финский язык','lang.fi.desc':'Редкая специализация. Глубокое знание грамматики, падежей и особенностей языка — для жизни, работы и учёбы в Финляндии','lang.fi.t1':'YKI','lang.fi.t2':'Грамматика','lang.fi.t3':'Быт',
-
-    'about.eyebrow':'Обо мне','about.h.1':'Преподаю с','about.h.2':'любопытством','about.lead':'Подход — практичный и человечный: язык как живой инструмент, а не набор правил',
-    'about.stat.sup':'+ лет','about.stat.cap':'лет преподавания · 100+ студентов','about.sig':'репетитор · en · fr · fi',
-    'about.p1':'<strong>Я репетитор с 5+ годами опыта</strong> преподавания иностранных языков. Помогаю студентам всех уровней достигать своих целей — от первого «hello» до уверенной речи в работе и путешествиях.',
-    'about.p2':'Мой подход построен на практическом применении знаний, развитии разговорных навыков и глубоком понимании грамматики. Каждый студент получает программу под свои цели и темп.',
-    'method.1.t':'Коммуникативный подход','method.1.d':'Акцент на устную речь и практическое применение с первого урока',
-    'method.2.t':'Индивидуализация','method.2.d':'Уроки подстраиваются под ваш темп, цели и стиль обучения',
-    'method.3.t':'Современные материалы','method.3.d':'Актуальные учебники, подкасты, фильмы, статьи — а не сухие правила',
-    'method.4.t':'Гибкое расписание','method.4.d':'Занятия в удобное время — будни, вечера, выходные',
-    'method.5.t':'Поддержка между уроками','method.5.d':'Отвечаю на вопросы и помогаю с домашкой в мессенджере',
-
-    'why.eyebrow':'Почему я','why.h.1':'Шесть причин','why.h.2':'остаться',
-    'why.1.t':'Результаты','why.1.d':'Мои студенты сдают экзамены, переезжают, работают на новом языке. Прогресс измеряемый',
-    'why.2.t':'Гибкое расписание','why.2.d':'Будни, вечера, выходные. Подстроюсь под ваш ритм жизни и часовой пояс',
-    'why.3.t':'Личный подход','why.3.d':'Программа собирается с нуля под вашу цель — без шаблонных «уровней по учебнику»',
-    'why.4.t':'Современные методы','why.4.d':'Только то, что действительно работает: общение, иммерсия, осмысленные задания',
-    'why.5.t':'Поддержка','why.5.d':'Между уроками — на связи: разберём сложный момент, поможем с заданием',
-    'why.6.t':'Чёткие цели','why.6.d':'Вместе определяем, куда идём, и отмечаем прогресс на каждом уроке',
-
-    'price.eyebrow':'Цена','price.h.1':'Договорная,','price.h.2':'прозрачная','price.lead':'Стоимость зависит от языка, формата и количества уроков. Обсудим на знакомстве — оно бесплатное',
-    'price.tag':'Индивидуальные занятия','price.title.1':'Свяжитесь','price.title.2':'для обсуждения',
-    'price.text':'Первое знакомство — 20 минут бесплатно: определим уровень, цели и подберём формат. Дальше — гибко.',
-    'price.f1':'Индивидуальный подход к каждому студенту','price.f2':'Гибкая цена в зависимости от количества уроков','price.f3':'Оплата картой, СБП или криптовалютой','price.f4':'Скидка при покупке пакета занятий',
-    'price.pay':'Способы оплаты','price.pay.card':'Карта','price.pay.tx':'Перевод','price.fmt.yandex':'Яндекс Телемост','price.cta':'Записаться<br>на знакомство','price.fmt':'Формат',
-
-    'rev.eyebrow':'Отзывы','rev.h.1':'Что говорят','rev.h.2':'студенты','rev.lead':'Реальные отзывы — без правок и витрин. Кликните на карточку, чтобы прочитать целиком',
-
-    'con.eyebrow':'Контакты','con.h.1':'Напишите.','con.h.2':'Ответим быстро.','con.lead':'Удобнее всего — Telegram. Если предпочитаете почту или звонок, всё ниже.',
-    'con.platforms':'Платформы · Telegram · Zoom · Яндекс Телемост','con.tg':'Быстрое общение и согласование расписания','con.em':'Подробности о себе и целях обучения','con.phone.l':'Телефон','con.phone':'Звонок или WhatsApp',
-
-    'foot.h.1':'Готовы','foot.h.2':'начать говорить?','foot.l1':'Языки','foot.l2':'Связь',
-    'foot.lang.en':'English','foot.lang.fr':'Français','foot.lang.fi':'Suomi',
-    'foot.tagline':'Online · English · Français · Suomi',
-    'rev.more':'Читать полностью'
-  },
-  en: {
-    'brand.role':'tutor · languages',
-    'nav.languages':'Languages','nav.about':'About','nav.why':'Approach','nav.pricing':'Price','nav.reviews':'Reviews','nav.contact':'Contact',
-
-    'hero.eyebrow':'Online · 2020 — present',
-    'hero.title.1':'I teach you to speak','hero.title.2':'English',' hero.title.comma':',','hero.title.3':'French','hero.title.and':'and','hero.title.4':'Finnish','hero.title.comma':',',
-    'hero.lead':'One-on-one lessons for adults and teens. Each program is tailored to your goal — an exam, a trip, work, or simply the joy of understanding',
-    'hero.cta':'Book a lesson','hero.cta2':'See the program',
-    'hero.card.zoom':'via Zoom','hero.card.stamp':'Online lesson','hero.card.who':'tutor · est. 2020','hero.card.yrs':'yrs',
-
-    'lang.eyebrow':'Languages','lang.h.1':'Three languages,','lang.h.2':'three conversations','lang.lead':'Each direction comes with its own method, materials and cultural context. Mix and match welcome',
-    'lang.en.ru':'English','lang.en.desc':'Preparation for IELTS, TOEFL and school exams, speaking practice, business English. A plan made for your level','lang.en.t1':'IELTS / TOEFL','lang.en.t2':'Business','lang.en.t3':'Speaking',
-    'lang.fr.ru':'French','lang.fr.desc':'From the basics to advanced. Pronunciation, grammar and cultural context — cinema, music, literature','lang.fr.t1':'DELF / DALF','lang.fr.t2':'Culture','lang.fr.t3':'Grammar',
-    'lang.fi.ru':'Finnish','lang.fi.desc':'A rare specialization. Deep grasp of grammar, cases and Finnish quirks — for life, work and studies in Finland','lang.fi.t1':'YKI','lang.fi.t2':'Grammar','lang.fi.t3':'Daily life',
-
-    'about.eyebrow':'About','about.h.1':'I teach with','about.h.2':'curiosity.','about.lead':'A practical, human approach: language as a living tool, not a list of rules',
-    'about.stat.sup':'+ years','about.stat.cap':'years teaching · 100+ students','about.sig':'tutor · en · fr · fi',
-    'about.p1':'<strong>I\'m a tutor with 5+ years of experience</strong> teaching foreign languages. I help students of every level reach their goals — from the first “hello” to confident speech at work or abroad.',
-    'about.p2':'My approach focuses on practical use, speaking skills and deep understanding of grammar. Every student gets a program tuned to their goals and pace.',
-    'method.1.t':'Communicative approach','method.1.d':'Speaking and real use from the very first lesson',
-    'method.2.t':'Individualized','method.2.d':'Lessons adapt to your pace, goals and learning style',
-    'method.3.t':'Modern materials','method.3.d':'Current textbooks, podcasts, films, articles — not dry rules',
-    'method.4.t':'Flexible schedule','method.4.d':'Lessons whenever suits you — weekdays, evenings, weekends',
-    'method.5.t':'Support between lessons','method.5.d':'I answer questions and help with homework in chat',
-
-    'why.eyebrow':'Why me','why.h.1':'Six reasons','why.h.2':'to stay',
-    'why.1.t':'Results','why.1.d':'My students pass exams, relocate, work in a new language. Measurable progress',
-    'why.2.t':'Flexible schedule','why.2.d':'Weekdays, evenings, weekends — I adapt to your rhythm and time zone',
-    'why.3.t':'Personal approach','why.3.d':'A program built from scratch for your goal — not a stock “textbook level”',
-    'why.4.t':'Modern methods','why.4.d':'Only what actually works: real conversation, immersion, meaningful tasks',
-    'why.5.t':'Support','why.5.d':'Between lessons I stay reachable: we untangle the tricky bit, help with the task',
-    'why.6.t':'Clear goals','why.6.d':'We define where we\'re going and mark progress in every lesson',
-
-    'price.eyebrow':'Price','price.h.1':'Negotiable,','price.h.2':'transparent','price.lead':'The price depends on the language, format and lesson count. We\'ll discuss it at the intro call — it\'s free',
-    'price.tag':'One-on-one lessons','price.title.1':'Get in touch','price.title.2':'to discuss',
-    'price.text':'A free 20-minute intro: we figure out your level, goals and the right format. After that — flexible.',
-    'price.f1':'Individual approach to every student','price.f2':'Flexible price based on the lesson count','price.f3':'Card, SBP or cryptocurrency payments','price.f4':'Discount on lesson packages',
-    'price.pay':'Payment','price.pay.card':'Card','price.pay.tx':'Transfer','price.fmt.yandex':'Yandex Telemost','price.cta':'Book an<br>intro call','price.fmt':'Format',
-
-    'rev.eyebrow':'Reviews','rev.h.1':'What students','rev.h.2':'are saying','rev.lead':'Real reviews — no edits, no showcase. Click a card to read in full',
-
-    'con.eyebrow':'Contact','con.h.1':'Drop a line.','con.h.2':'I reply fast.','con.lead':'Telegram is easiest. Email and phone work too — everything below.',
-    'con.platforms':'Platforms · Telegram · Zoom · Yandex Telemost','con.tg':'Quick chats and scheduling','con.em':'Tell me a bit about yourself and your goals','con.phone.l':'Phone','con.phone':'Call or WhatsApp',
-
-    'foot.h.1':'Ready to','foot.h.2':'start speaking?','foot.l1':'Languages','foot.l2':'Contact',
-    'foot.lang.en':'English','foot.lang.fr':'Français','foot.lang.fi':'Suomi',
-    'foot.tagline':'Online · English · Français · Suomi',
-    'rev.more':'Read in full'
-  }
-};
-
-// reviews data — original text + EN translations
-const reviews = [
-  {name:{ru:'Яна',en:'Yana'}, from:{ru:'Канада · французский',en:'Canada · French'}, init:'Я',
-    short:{
-      ru:'Занятия по французскому были хорошо структурированы и проходили в спокойной, рабочей атмосфере.',
-      en:'The French lessons were well structured and took place in a calm, focused atmosphere.'
-    },
-    full:{
-      ru:'Занятия по французскому были хорошо структурированы и проходили в спокойной, рабочей атмосфере. Преподаватель понятно объясняет материал, обращает внимание на произношение, грамматику и помогает преодолеть языковой барьер.\n\nУроки были практичными и адаптированы под мой уровень. Алексей терпеливо отвечал на вопросы и поддерживал меня в процессе обучения. Теперь я говорю гораздо лучше.\n\nРекомендую этого преподавателя всем.',
-      en:'The French lessons were well structured and took place in a calm, focused atmosphere. Alexey explains things clearly, pays attention to pronunciation and grammar, and helps you push past the language barrier.\n\nThe lessons were practical and adapted to my level. He answered questions patiently and supported me throughout. I now speak much better.\n\nI recommend him to everyone.'
-    }
-  },
-  {name:{ru:'Наталья',en:'Natalia'}, from:{ru:'Россия · английский',en:'Russia · English'}, init:'Н',
-    short:{
-      ru:'Занимаюсь с Алексеем длительное время. Результатами очень довольна. Нравится, что преподаватель прислушивается к запросу.',
-      en:'I\'ve been studying with Alexey for a long time. Very happy with the results. He really listens to what I need.'
-    },
-    full:{
-      ru:'Занимаюсь с Алексеем длительное время. Результатами очень довольна 💯\n\nНравится, что преподаватель всегда прислушивается к моему запросу по сложности и скорости подачи материала, а также обладает терпением.\n\nНа уроках с Алексеем всегда сохраняется позитивный настрой и хорошее настроение 👍',
-      en:'I\'ve been studying with Alexey for a long time. Very happy with the results 💯\n\nWhat I love is that he listens to what I need — pacing, difficulty — and is very patient.\n\nLessons with Alexey always stay positive and uplifting 👍'
-    }
-  },
-  {name:{ru:'Janne T.',en:'Janne T.'}, from:{ru:'Финляндия · финский',en:'Finland · Finnish'}, init:'J',
-    short:{
-      ru:'Loistavaa opetusta pojalleni, voin suositella suomen kielen kielioppiin ja kielen oppimiseen alusta alkaen!',
-      en:'Excellent teaching for my son — I can recommend Alexey for Finnish grammar and learning from scratch!'
-    },
-    full:{
-      ru:'Loistavaa opetusta pojalleni, voin suositella suomen kielen kielioppiin ja kielen oppimiseen alusta alkaen! Janne Haahkola',
-      en:'Excellent teaching for my son — I can recommend Alexey for Finnish grammar and learning from scratch! Janne Haahkola'
-    }
-  },
-  {name:{ru:'Виктория',en:'Victoria'}, from:{ru:'Россия · английский',en:'Russia · English'}, init:'В',
-    short:{
-      ru:'Работа с преподавателем на высшем уровне. Объяснения понятны, дополнительные материалы интересны и легко усваиваются.',
-      en:'Working with this teacher is top-level. Explanations are clear, materials are interesting and easy to absorb.'
-    },
-    full:{
-      ru:'Работа с данным преподавателем проходит на высшем уровне. Объяснения понятны, если вдруг что-то не понял с первого раза, объяснят столько, сколько нужно для понимания.\n\nЗадания хорошие, делать домашнюю работу в одно удовольствие. Дополнительные материалы понятны, интересны и легко усваиваются. Уроки проходят на позитиве и даже забываешь о времени, лишь бы только продолжить занятие дальше.\n\nСо своим знанием Английского за пару занятий все начинает становится на свои места. Поддержание связи и вне урочное время подтверждает заинтересованность, педагогический подход и желание заниматься любимым делом. 🫶🏼',
-      en:'Working with this teacher is top-level. Explanations are clear; if you don\'t get something the first time, he\'ll explain as many times as needed.\n\nThe assignments are great — doing homework is a pleasure. The extra materials are clear, interesting and easy to absorb. Lessons are upbeat and you lose track of time.\n\nWith my level of English, things started clicking after just a couple of lessons. Staying in touch between lessons shows real care and a love for the craft. 🫶🏼'
-    }
-  },
-  {name:{ru:'Ирина',en:'Irina'}, from:{ru:'Россия · французский',en:'Russia · French'}, init:'И',
-    short:{
-      ru:'Дочка 12 лет занимается с Алексеем Леонидовичем почти год по скайпу французским. Это удобно и сильно экономит время.',
-      en:'My 12-year-old daughter has been studying French with Alexey via Skype for almost a year. It\'s convenient and saves time.'
-    },
-    full:{
-      ru:'Дочка 12 лет занимается с Алексеем Леонидовичем почти год по скайпу французским языком. Это удобно и сильно экономит время.\n\nАлексей Леонидович внимательный, чуткий, очень позитивно настроенный преподаватель. Он крайне ответственно подходит к своему делу. Занятие всегда проходит вовремя, все материалы для повторения мы получаем от преподавателя. Общение с Алексеем Леонидовичем всегда радостное и спокойное.',
-      en:'My 12-year-old daughter has been studying French with Alexey via Skype for almost a year. It\'s convenient and saves a lot of time.\n\nAlexey is attentive, sensitive and a very positive teacher. He approaches his work seriously. Lessons always start on time, we get all review materials from him. Talking to Alexey is always warm and easy-going.'
-    }
-  },
-  {name:{ru:'Александр',en:'Alexander'}, from:{ru:'Россия · английский',en:'Russia · English'}, init:'А',
-    short:{
-      ru:'Отличный преподаватель английского! Обучал двух моих девочек с увлечением. Дети в восторге, прогресс огромный!',
-      en:'A great English teacher! He taught both my girls with real enthusiasm. The kids love it, huge progress!'
-    },
-    full:{
-      ru:'Отличный преподаватель английского! Обучал двух моих девочек с увлечением, дал массу интересных знаний.\n\nДети в восторге, прогресс огромный! Рекомендую всем.',
-      en:'A great English teacher! He taught both my girls with real enthusiasm and shared a wealth of interesting knowledge.\n\nThe kids love it, huge progress! Highly recommended.'
-    }
-  }
-];
-
-let curLang = localStorage.getItem('lang') || 'ru';
-
-function applyLang(lang){
-  curLang = lang;
-  localStorage.setItem('lang',lang);
-  document.documentElement.lang = lang;
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const k = el.getAttribute('data-i18n');
-    if(dict[lang] && dict[lang][k] !== undefined){
-      el.innerHTML = dict[lang][k];
-    }
-  });
-  document.querySelectorAll('.lang-switch button').forEach(b=>{
-    b.classList.toggle('active', b.dataset.lang === lang);
-  });
-  renderReviews();
-}
-
-document.querySelectorAll('.lang-switch button').forEach(b=>{
-  b.addEventListener('click',()=>applyLang(b.dataset.lang));
-});
-
-// ============ REVIEWS RENDER ============
-function renderReviews(){
-  const grid = document.getElementById('revGrid');
-  grid.innerHTML = '';
-  reviews.forEach((r,i)=>{
-    const card = document.createElement('article');
-    card.className = 'rev-card';
-    card.onclick = ()=>openModal(i);
-    card.innerHTML = `
-      <div class="rev-head">
-        <div class="rev-meta">
-          <div class="rev-avatar">${r.init}</div>
-          <div class="rev-name">${r.name[curLang]}<small>${r.from[curLang]}</small></div>
-        </div>
-        <div class="rev-stars">★★★★★</div>
-      </div>
-      <div class="rev-quote">«${r.short[curLang]}»</div>
-      <div class="rev-foot">
-        <span class="more">${dict[curLang]['rev.more']}</span>
-      </div>
-    `;
-    grid.appendChild(card);
-  });
-}
-
-function openModal(i){
-  const r = reviews[i];
-  document.getElementById('mNm').textContent = r.name[curLang];
-  document.getElementById('mFrom').textContent = r.from[curLang];
-  document.getElementById('mBody').textContent = r.full[curLang];
-  document.getElementById('reviewModal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeModal(){
-  document.getElementById('reviewModal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown',e=>{if(e.key==='Escape') closeModal()});
-
-// ============ NAV ============
-document.getElementById('menuToggle').addEventListener('click',()=>{
-  document.getElementById('navLinks').classList.toggle('open');
-});
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const t = document.querySelector(a.getAttribute('href'));
-    if(t){
-      e.preventDefault();
-      t.scrollIntoView({behavior:'smooth',block:'start'});
-      document.getElementById('navLinks').classList.remove('open');
-    }
-  });
-});
-
-// init
-applyLang(curLang);
-</script>
+<script src="js/i18n.js" defer></script>
+<script src="js/reviews.js" defer></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>
