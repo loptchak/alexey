@@ -59,5 +59,15 @@ const reviews = [
       ru:'Отличный преподаватель английского! Обучал двух моих девочек с увлечением, дал массу интересных знаний.\n\nДети в восторге, прогресс огромный! Рекомендую всем.',
       en:'A great English teacher! He taught both my girls with real enthusiasm and shared a wealth of interesting knowledge.\n\nThe kids love it, huge progress! Highly recommended.'
     }
+  },
+  {name:{ru:'Леонид',en:'Leonid'}, from:{ru:'Россия · финский',en:'Russia · Finnish'}, init:'Л', lang:'fi',
+    short:{
+      ru:'Алексей — крайне увлечённый своим делом преподаватель. Сын однозначно выбрал его за живость и энтузиазм.',
+      en:'Alexey is a teacher truly passionate about his work. My son chose him without hesitation for his energy and enthusiasm.'
+    },
+    full:{
+      ru:'Алексей — крайне увлечённый своим делом преподаватель. Всегда на позитиве и в хорошем настроении.\n\nЗанимается с ребёнком финским языком. Провели пробные уроки с разными преподавателями, но сын однозначно выбрал Алексея за его живость и энтузиазм.\n\nАлексей очень быстро подобрал для нас индивидуальную программу, и ребёнок с удовольствием посещает занятия на протяжении уже восьми месяцев.',
+      en:'Alexey is a teacher truly passionate about his work. Always positive and in a good mood.\n\nHe teaches my son Finnish. We tried trial lessons with several teachers, but my son chose Alexey without hesitation for his energy and enthusiasm.\n\nAlexey very quickly put together an individual programme for us, and my son has been happily attending lessons for eight months now.'
+    }
   }
 ];
