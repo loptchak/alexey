@@ -1,0 +1,15 @@
+<name>
+Alex
+</name>
+
+<country_from>
+Russia
+</country_from>
+
+<lang_learning>
+English
+</lang_learning>
+
+<feedback>
+A good teacher!
+</feedback>
