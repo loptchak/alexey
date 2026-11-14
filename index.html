@@ -14,12 +14,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/sections/hero.css">
+<link rel="stylesheet" href="css/sections/languages.css">
+<link rel="stylesheet" href="css/sections/about.css">
+<link rel="stylesheet" href="css/sections/why.css">
+<link rel="stylesheet" href="css/sections/pricing.css">
+<link rel="stylesheet" href="css/sections/reviews.css">
+<link rel="stylesheet" href="css/sections/contact.css">
 </head>
 <body>
 
 <!-- Icons: Lucide (ISC) + Simple Icons (CC0). Use as <svg class="ic"><use href="#i-NAME"/></svg> -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<svg width="0" height="0" class="icon-sprite" aria-hidden="true" focusable="false">
   <symbol id="i-trophy" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14.66V17a1 1 0 0 1-1 1 2 2 0 0 0-2 2v2" /><path d="M14 14.66V17a1 1 0 0 0 1 1 2 2 0 0 1 2 2v2" /><path d="M17.916 10H19.5A2.5 2.5 0 0 0 22 7.5V5a1 1 0 0 0-1-1h-3" /><path d="M4 22h16" /><path d="M6 9a6 6 0 0 0 12 0V3a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1z" /><path d="M6.084 10H4.5A2.5 2.5 0 0 1 2 7.5V5a1 1 0 0 1 1-1h3" /></g></symbol>
   <symbol id="i-calendar-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 14v2.2l1.6 1" /><path d="M16 2v3" /><path d="M21 7.338V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h2.338" /><path d="M3 9h5.859" /><path d="M8 2v3" /><circle cx="16" cy="16" r="6" /></g></symbol>
   <symbol id="i-user-round" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5" /><path d="M20 21a8 8 0 0 0-16 0" /></g></symbol>
@@ -58,7 +67,7 @@
       <a href="#reviews" data-i18n="nav.reviews">Отзывы</a>
       <a href="#contact" data-i18n="nav.contact">Контакты</a>
     </nav>
-    <div style="display:flex;align-items:center;gap:16px">
+    <div class="nav-actions">
       <div class="lang-switch" role="tablist" aria-label="Language">
         <button data-lang="ru" class="active">RU</button>
         <button data-lang="en">EN</button>
@@ -96,7 +105,7 @@
     <div class="hero-card" aria-hidden="true">
       <div class="hc-top">
         <span class="hc-stamp mono" data-i18n="hero.card.stamp">Online lesson</span>
-        <span class="eyebrow" style="font-size:10px" data-i18n="hero.card.zoom">via Zoom</span>
+        <span class="eyebrow hc-format" data-i18n="hero.card.zoom">via Zoom</span>
       </div>
       <div class="hc-langs">
         <div class="hc-lang-row">
@@ -106,7 +115,7 @@
         </div>
         <div class="hc-lang-row">
           <img class="pip" src="img/flags/fr.svg" alt="France flag">
-          <span class="nm serif"><em style="font-style:italic;color:var(--cyan)">Français</em></span>
+          <span class="nm serif"><em>Français</em></span>
           <span class="meta">A1 — C1</span>
         </div>
         <div class="hc-lang-row">
@@ -121,9 +130,9 @@
           <small data-i18n="hero.card.who">tutor · est. 2020</small>
         </div>
         <div class="hc-ring">
-          <div style="text-align:center">
+          <div class="hc-ring-content">
             <strong>5+</strong>
-            <span style="font-size:9px;letter-spacing:0.1em;display:block;font-family:'JetBrains Mono',monospace;font-style:normal;text-transform:uppercase;margin-top:2px" data-i18n="hero.card.yrs">yrs</span>
+            <span class="hc-ring-caption" data-i18n="hero.card.yrs">yrs</span>
           </div>
         </div>
       </div>
@@ -442,7 +451,7 @@
         <span class="eyebrow" data-i18n="con.eyebrow">Контакты</span>
         <h2><span data-i18n="con.h.1">Напишите.</span> <em data-i18n="con.h.2">Ответим быстро.</em></h2>
         <p class="lead" data-i18n="con.lead">Удобнее всего — Telegram. Если предпочитаете почту или звонок, всё ниже.</p>
-        <span class="eyebrow" style="display:block;margin-top:36px" data-i18n="con.platforms">Платформы · Telegram · Zoom · Яндекс Телемост</span>
+        <span class="eyebrow contact-platforms" data-i18n="con.platforms">Платформы · Telegram · Zoom · Яндекс Телемост</span>
       </div>
 
       <div class="contact-list">
@@ -504,8 +513,6 @@
   </div>
 </footer>
 
-<script src="js/i18n.js" defer></script>
-<script src="js/reviews.js" defer></script>
-<script src="js/main.js" defer></script>
+<script type="module" src="js/main.js"></script>
 </body>
 </html>

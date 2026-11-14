@@ -1,3 +1,3 @@
-# Сайт Alexey Kazyro - https://loptchak.github.io/alexey/
+# Сайт Alexey Kazyro
 
-## добавить отзыв - клик [`СЮДА`](https://github.com/loptchak/alexey/tree/main/feedback)
+[Открыть сайт](https://loptchak.github.io/alexey/) · [Добавить отзыв](feedback/README.md)

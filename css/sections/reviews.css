@@ -1,0 +1,329 @@
+.reviews {
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+.reviews::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(40% 50% at 0% 50%, rgba(78, 182, 185, 0.08), transparent 60%);
+  pointer-events: none;
+}
+/* slider: native horizontal scroll with snap (swipe on touch), arrows + dots driven from reviews-slider.js */
+.rev-track {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 48px) / 3);
+  gap: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 4px 0 8px;
+} /* padding: room for the hover lift */
+.rev-track::-webkit-scrollbar {
+  display: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .rev-track,
+  .rev-track .rev-card {
+    cursor: grab;
+  }
+}
+.rev-track.nosnap {
+  scroll-snap-type: none;
+}
+.rev-track.dragging {
+  user-select: none;
+}
+.rev-track.dragging,
+.rev-track.dragging .rev-card {
+  cursor: grabbing;
+}
+.rev-card {
+  scroll-snap-align: start;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 28px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 260px;
+  backdrop-filter: blur(4px);
+}
+.rev-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-3px);
+  background: var(--surface-2);
+}
+.rev-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.rev-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.rev-avatar {
+  position: relative;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--cyan-deep);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  font-family: 'Instrument Serif', 'Cormorant Garamond', serif;
+  font-size: 16px;
+}
+.rev-name {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text);
+}
+.rev-name small {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text-3);
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  margin-top: 2px;
+}
+.rev-avatar .rev-flag {
+  position: absolute;
+  right: -5px;
+  bottom: -3px;
+  width: 20px;
+  height: 14px;
+  border-radius: 3px;
+  object-fit: cover;
+  box-shadow:
+    0 0 0 2px var(--ring, var(--bg)),
+    0 2px 6px rgba(0, 0, 0, 0.4);
+}
+.rev-stars {
+  display: flex;
+  gap: 3px;
+  color: var(--cyan-bright);
+  font-size: 16px;
+}
+.rev-quote {
+  font-family: 'Instrument Serif', 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.35;
+  color: var(--text);
+  flex: 1;
+}
+.rev-foot {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.rev-foot .more {
+  color: var(--cyan-bright);
+}
+.rev-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 28px;
+}
+.rev-dots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.rev-dots button {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--line);
+  transition: all 0.3s ease;
+}
+.rev-dots button:hover {
+  background: var(--text-3);
+}
+.rev-dots button.active {
+  width: 28px;
+  background: var(--cyan-bright);
+}
+.rev-arrows {
+  display: flex;
+  gap: 12px;
+}
+.rev-arrow {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--text);
+  transition: all 0.2s;
+}
+.rev-arrow .ic {
+  font-size: 18px;
+  stroke-width: 2;
+}
+.rev-arrow.prev .ic {
+  transform: scaleX(-1);
+}
+.rev-arrow:hover:not(:disabled) {
+  background: var(--cyan-bright);
+  color: var(--bg);
+  border-color: var(--cyan-bright);
+}
+.rev-arrow:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 15, 22, 0.7);
+  backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 24px;
+}
+.modal.open {
+  display: flex;
+  animation: fade 0.2s ease;
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.modal-box {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 48px;
+  max-width: 640px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+}
+.modal-box .close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  color: var(--text);
+}
+.modal-box .close .ic {
+  font-size: 18px;
+  stroke-width: 2;
+}
+.modal-box .close:hover {
+  background: var(--cyan-bright);
+  color: var(--bg);
+  border-color: var(--cyan-bright);
+}
+.modal-box .mh {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.modal-box .mh .nm {
+  font-family: 'Instrument Serif', 'Cormorant Garamond', serif;
+  font-size: 32px;
+  line-height: 1;
+  color: var(--text);
+}
+.modal-box .mh .rev-meta {
+  gap: 16px;
+}
+.modal-box .mh .rev-avatar {
+  --ring: var(--bg-2);
+  width: 52px;
+  height: 52px;
+  font-size: 24px;
+}
+.modal-box .mh .rev-stars {
+  font-size: 18px;
+}
+.modal-box .mh .nm small {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text-3);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+.modal-box .mbody {
+  font-size: 16px;
+  color: var(--text-2);
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+@media (max-width: 960px) {
+  .rev-track {
+    grid-auto-columns: calc((100% - 16px) / 2);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .modal-box {
+    padding: 32px 24px;
+  }
+  .modal-box .mh {
+    padding-right: 40px;
+  } /* keep the header clear of the close button */
+  .modal-box .mh .nm {
+    font-size: 24px;
+  }
+  .rev-quote {
+    font-size: 16px;
+  }
+  .rev-track {
+    grid-auto-columns: 86%;
+  } /* the next card peeks in: hints that it swipes */
+  .rev-card {
+    padding: 24px;
+  }
+  .rev-arrow {
+    width: 42px;
+    height: 42px;
+  }
+}

@@ -1,0 +1,77 @@
+.why {
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+.why::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(40% 50% at 50% 0%, rgba(78, 182, 185, 0.08), transparent 60%);
+  pointer-events: none;
+}
+.why-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line-soft);
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.why-item {
+  background: var(--bg);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: background 0.25s;
+}
+.why-item:hover {
+  background: var(--surface);
+}
+.why-item .wi-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(109, 208, 212, 0.35);
+  border-radius: 50%;
+  background: rgba(109, 208, 212, 0.08);
+  color: var(--cyan-bright);
+  transition:
+    background 0.25s,
+    border-color 0.25s;
+}
+.why-item:hover .wi-icon {
+  background: rgba(109, 208, 212, 0.16);
+  border-color: var(--cyan-bright);
+}
+.why-item .wi-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 1.6;
+}
+.why-item h3 {
+  font-family: 'Instrument Serif', 'Cormorant Garamond', serif;
+  font-size: 28px;
+  line-height: 1.1;
+  color: var(--text);
+}
+.why-item p {
+  color: var(--text-2);
+  font-size: 15px;
+}
+
+@media (max-width: 960px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .why-item {
+    padding: 28px 24px;
+  }
+}

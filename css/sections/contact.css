@@ -1,0 +1,138 @@
+.contact {
+  background: var(--bg-2);
+  border-top: 1px solid var(--line-soft);
+  position: relative;
+  overflow: hidden;
+}
+.contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(50% 80% at 0% 50%, rgba(78, 182, 185, 0.12), transparent 60%);
+  pointer-events: none;
+}
+.contact-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 64px;
+  align-items: start;
+}
+.contact-grid h2 {
+  margin-bottom: 24px;
+}
+.contact-grid .lead {
+  color: var(--text-2);
+  font-size: 17px;
+  max-width: 380px;
+  margin-bottom: 36px;
+}
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.contact-row {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 24px;
+  align-items: center;
+  padding: 24px 0;
+  border-top: 1px solid var(--line-soft);
+  transition: padding 0.25s;
+}
+.contact-row:last-child {
+  border-bottom: 1px solid var(--line-soft);
+}
+.contact-row:hover {
+  padding-left: 8px;
+}
+.contact-row .clabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact-row .clabel .ic {
+  font-size: 16px;
+  color: var(--cyan-bright);
+}
+.contact-row .cmain {
+  font-family: 'Instrument Serif', 'Cormorant Garamond', serif;
+  font-size: 30px;
+  line-height: 1.1;
+  color: var(--text);
+}
+/* Telegram row carries the avatar: the preferred channel */
+.contact-row .cmain--tg {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.contact-row .cmain--tg .avatar {
+  width: 48px;
+  height: 48px;
+}
+.contact-row .cmain small {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  color: var(--text-3);
+  margin-top: 4px;
+  font-weight: 400;
+}
+.contact-row .carrow {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: all 0.2s;
+  color: var(--text-2);
+}
+.contact-row .carrow svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2;
+}
+.contact-row:hover .carrow {
+  background: var(--cyan-bright);
+  color: var(--bg);
+  border-color: var(--cyan-bright);
+  transform: rotate(-45deg);
+}
+
+.contact-platforms {
+  display: block;
+  margin-top: 36px;
+}
+
+@media (max-width: 960px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .contact-row {
+    grid-template-columns: 120px 1fr auto;
+    gap: 16px;
+  }
+  .contact-row .cmain {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 20px 0;
+  }
+  .contact-row .carrow {
+    display: none;
+  }
+}
