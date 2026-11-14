@@ -1,0 +1,47 @@
+<name>
+Леонид
+</name>
+
+<country_from>
+Россия
+</country_from>
+
+<lang_learning>
+финский
+</lang_learning>
+
+<feedback>
+Алексей — крайне увлечённый своим делом преподаватель. Всегда на позитиве и в хорошем настроении.
+
+Занимается с ребёнком финским языком. Провели пробные уроки с разными преподавателями, но сын однозначно выбрал Алексея за его живость и энтузиазм.
+
+Алексей очень быстро подобрал для нас индивидуальную программу, и ребёнок с удовольствием посещает занятия на протяжении уже восьми месяцев.
+</feedback>
+
+<name_en>
+Leonid
+</name_en>
+
+<country_from_en>
+Russia
+</country_from_en>
+
+<lang_learning_en>
+Finnish
+</lang_learning_en>
+
+<feedback_en>
+Alexey is a teacher truly passionate about his work. Always positive and in a good mood.
+
+He teaches my son Finnish. We tried trial lessons with several teachers, but my son chose Alexey without hesitation for his energy and enthusiasm.
+
+Alexey very quickly put together an individual programme for us, and my son has been happily attending lessons for eight months now.
+</feedback_en>
+
+<short>
+Алексей — крайне увлечённый своим делом преподаватель. Сын однозначно выбрал его за живость и энтузиазм.
+</short>
+
+<short_en>
+Alexey is a teacher truly passionate about his work. My son chose him without hesitation for his energy and enthusiasm.
+</short_en>

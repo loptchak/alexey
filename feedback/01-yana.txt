@@ -1,0 +1,47 @@
+<name>
+Яна
+</name>
+
+<country_from>
+Канада
+</country_from>
+
+<lang_learning>
+французский
+</lang_learning>
+
+<feedback>
+Занятия по французскому были хорошо структурированы и проходили в спокойной, рабочей атмосфере. Преподаватель понятно объясняет материал, обращает внимание на произношение, грамматику и помогает преодолеть языковой барьер.
+
+Уроки были практичными и адаптированы под мой уровень. Алексей терпеливо отвечал на вопросы и поддерживал меня в процессе обучения. Теперь я говорю гораздо лучше.
+
+Рекомендую этого преподавателя всем.
+</feedback>
+
+<name_en>
+Yana
+</name_en>
+
+<country_from_en>
+Canada
+</country_from_en>
+
+<lang_learning_en>
+French
+</lang_learning_en>
+
+<feedback_en>
+The French lessons were well structured and took place in a calm, focused atmosphere. Alexey explains things clearly, pays attention to pronunciation and grammar, and helps you push past the language barrier.
+
+The lessons were practical and adapted to my level. He answered questions patiently and supported me throughout. I now speak much better.
+
+I recommend him to everyone.
+</feedback_en>
+
+<short>
+Занятия по французскому были хорошо структурированы и проходили в спокойной, рабочей атмосфере.
+</short>
+
+<short_en>
+The French lessons were well structured and took place in a calm, focused atmosphere.
+</short_en>

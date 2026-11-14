@@ -1,0 +1,43 @@
+<name>
+Александр
+</name>
+
+<country_from>
+Россия
+</country_from>
+
+<lang_learning>
+английский
+</lang_learning>
+
+<feedback>
+Отличный преподаватель английского! Обучал двух моих девочек с увлечением, дал массу интересных знаний.
+
+Дети в восторге, прогресс огромный! Рекомендую всем.
+</feedback>
+
+<name_en>
+Alexander
+</name_en>
+
+<country_from_en>
+Russia
+</country_from_en>
+
+<lang_learning_en>
+English
+</lang_learning_en>
+
+<feedback_en>
+A great English teacher! He taught both my girls with real enthusiasm and shared a wealth of interesting knowledge.
+
+The kids love it, huge progress! Highly recommended.
+</feedback_en>
+
+<short>
+Отличный преподаватель английского! Обучал двух моих девочек с увлечением. Дети в восторге, прогресс огромный!
+</short>
+
+<short_en>
+A great English teacher! He taught both my girls with real enthusiasm. The kids love it, huge progress!
+</short_en>

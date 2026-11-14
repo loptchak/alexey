@@ -1,0 +1,47 @@
+<name>
+Виктория
+</name>
+
+<country_from>
+Россия
+</country_from>
+
+<lang_learning>
+английский
+</lang_learning>
+
+<feedback>
+Работа с данным преподавателем проходит на высшем уровне. Объяснения понятны, если вдруг что-то не понял с первого раза, объяснят столько, сколько нужно для понимания.
+
+Задания хорошие, делать домашнюю работу в одно удовольствие. Дополнительные материалы понятны, интересны и легко усваиваются. Уроки проходят на позитиве и даже забываешь о времени, лишь бы только продолжить занятие дальше.
+
+Со своим знанием Английского за пару занятий все начинает становится на свои места. Поддержание связи и вне урочное время подтверждает заинтересованность, педагогический подход и желание заниматься любимым делом. 🫶🏼
+</feedback>
+
+<name_en>
+Victoria
+</name_en>
+
+<country_from_en>
+Russia
+</country_from_en>
+
+<lang_learning_en>
+English
+</lang_learning_en>
+
+<feedback_en>
+Working with this teacher is top-level. Explanations are clear; if you don't get something the first time, he'll explain as many times as needed.
+
+The assignments are great — doing homework is a pleasure. The extra materials are clear, interesting and easy to absorb. Lessons are upbeat and you lose track of time.
+
+With my level of English, things started clicking after just a couple of lessons. Staying in touch between lessons shows real care and a love for the craft. 🫶🏼
+</feedback_en>
+
+<short>
+Работа с преподавателем на высшем уровне. Объяснения понятны, дополнительные материалы интересны и легко усваиваются.
+</short>
+
+<short_en>
+Working with this teacher is top-level. Explanations are clear, materials are interesting and easy to absorb.
+</short_en>

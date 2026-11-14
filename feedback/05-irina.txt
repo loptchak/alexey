@@ -1,0 +1,43 @@
+<name>
+Ирина
+</name>
+
+<country_from>
+Россия
+</country_from>
+
+<lang_learning>
+французский
+</lang_learning>
+
+<feedback>
+Дочка 12 лет занимается с Алексеем Леонидовичем почти год по скайпу французским языком. Это удобно и сильно экономит время.
+
+Алексей Леонидович внимательный, чуткий, очень позитивно настроенный преподаватель. Он крайне ответственно подходит к своему делу. Занятие всегда проходит вовремя, все материалы для повторения мы получаем от преподавателя. Общение с Алексеем Леонидовичем всегда радостное и спокойное.
+</feedback>
+
+<name_en>
+Irina
+</name_en>
+
+<country_from_en>
+Russia
+</country_from_en>
+
+<lang_learning_en>
+French
+</lang_learning_en>
+
+<feedback_en>
+My 12-year-old daughter has been studying French with Alexey via Skype for almost a year. It's convenient and saves a lot of time.
+
+Alexey is attentive, sensitive and a very positive teacher. He approaches his work seriously. Lessons always start on time, we get all review materials from him. Talking to Alexey is always warm and easy-going.
+</feedback_en>
+
+<short>
+Дочка 12 лет занимается с Алексеем Леонидовичем почти год по скайпу французским. Это удобно и сильно экономит время.
+</short>
+
+<short_en>
+My 12-year-old daughter has been studying French with Alexey via Skype for almost a year. It's convenient and saves time.
+</short_en>

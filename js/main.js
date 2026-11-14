@@ -37,8 +37,14 @@ document.querySelectorAll('.lang-switch button').forEach(b=>{
 const flagSrc = {en:'img/flags/uk.svg', fr:'img/flags/fr.svg', fi:'img/flags/fi.svg'};
 const starsHTML = '<svg class="ic"><use href="#i-star"/></svg>'.repeat(5);
 
+function escapeHTML(value){
+  return String(value).replace(/[&<>"']/g, char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+}
+
 function avatarHTML(r){
-  return `${r.init}<img class="rev-flag" src="${flagSrc[r.lang]}" alt="">`;
+  const initial = Array.from(r.name[curLang])[0].toUpperCase();
+  const flag = flagSrc[r.lang];
+  return `${escapeHTML(initial)}${flag ? `<img class="rev-flag" src="${flag}" alt="">` : ''}`;
 }
 
 function renderReviews(){
@@ -53,17 +59,22 @@ function renderReviews(){
       <div class="rev-head">
         <div class="rev-meta">
           <div class="rev-avatar">${avatarHTML(r)}</div>
-          <div class="rev-name">${r.name[curLang]}<small>${r.from[curLang]}</small></div>
+          <div class="rev-name">${escapeHTML(r.name[curLang])}<small>${escapeHTML(r.from[curLang])}</small></div>
         </div>
         <div class="rev-stars" aria-label="5/5">${starsHTML}</div>
       </div>
-      <div class="rev-quote">«${r.short[curLang]}»</div>
+      <div class="rev-quote">«${escapeHTML(r.short[curLang])}»</div>
       <div class="rev-foot">
         <span class="more">${dict[curLang]['rev.more']}</span>
       </div>
     `;
     grid.appendChild(card);
   });
+  if(!reviews.length){
+    const message = document.createElement('p');
+    message.textContent = dict[curLang]['rev.empty'];
+    grid.appendChild(message);
+  }
   grid.scrollLeft = keepScroll;
   buildRevDots();
 }
@@ -81,7 +92,7 @@ function revStep(){
 }
 function revMaxScroll(){ return revTrack.scrollWidth - revTrack.clientWidth; }
 // number of distinct snap positions: the last cards can't each start a slide
-function revPositions(){ return Math.ceil(revMaxScroll() / revStep() - 0.05) + 1; }
+function revPositions(){ return reviews.length ? Math.max(1, Math.ceil(revMaxScroll() / revStep() - 0.05) + 1) : 1; }
 function revIndex(){
   if(revTrack.scrollLeft >= revMaxScroll() - 2) return revPositions() - 1;
   return Math.round(revTrack.scrollLeft / revStep());

@@ -1,0 +1,39 @@
+<name>
+Janne T.
+</name>
+
+<country_from>
+Финляндия
+</country_from>
+
+<lang_learning>
+финский
+</lang_learning>
+
+<feedback>
+Loistavaa opetusta pojalleni, voin suositella suomen kielen kielioppiin ja kielen oppimiseen alusta alkaen! Janne Haahkola
+</feedback>
+
+<name_en>
+Janne T.
+</name_en>
+
+<country_from_en>
+Finland
+</country_from_en>
+
+<lang_learning_en>
+Finnish
+</lang_learning_en>
+
+<feedback_en>
+Excellent teaching for my son — I can recommend Alexey for Finnish grammar and learning from scratch! Janne Haahkola
+</feedback_en>
+
+<short>
+Loistavaa opetusta pojalleni, voin suositella suomen kielen kielioppiin ja kielen oppimiseen alusta alkaen!
+</short>
+
+<short_en>
+Excellent teaching for my son — I can recommend Alexey for Finnish grammar and learning from scratch!
+</short_en>

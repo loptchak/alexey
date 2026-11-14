@@ -1,0 +1,47 @@
+<name>
+Наталья
+</name>
+
+<country_from>
+Россия
+</country_from>
+
+<lang_learning>
+английский
+</lang_learning>
+
+<feedback>
+Занимаюсь с Алексеем длительное время. Результатами очень довольна 💯
+
+Нравится, что преподаватель всегда прислушивается к моему запросу по сложности и скорости подачи материала, а также обладает терпением.
+
+На уроках с Алексеем всегда сохраняется позитивный настрой и хорошее настроение 👍
+</feedback>
+
+<name_en>
+Natalia
+</name_en>
+
+<country_from_en>
+Russia
+</country_from_en>
+
+<lang_learning_en>
+English
+</lang_learning_en>
+
+<feedback_en>
+I've been studying with Alexey for a long time. Very happy with the results 💯
+
+What I love is that he listens to what I need — pacing, difficulty — and is very patient.
+
+Lessons with Alexey always stay positive and uplifting 👍
+</feedback_en>
+
+<short>
+Занимаюсь с Алексеем длительное время. Результатами очень довольна. Нравится, что преподаватель прислушивается к запросу.
+</short>
+
+<short_en>
+I've been studying with Alexey for a long time. Very happy with the results. He really listens to what I need.
+</short_en>

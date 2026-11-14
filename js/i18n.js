@@ -47,7 +47,7 @@ const dict = {
     'foot.h.1':'Готовы','foot.h.2':'начать говорить?','foot.l1':'Языки','foot.l2':'Связь',
     'foot.lang.en':'English','foot.lang.fr':'Français','foot.lang.fi':'Suomi',
     'foot.tagline':'Online · English · Français · Suomi',
-    'rev.more':'Читать полностью','rev.prev':'Предыдущий отзыв','rev.next':'Следующий отзыв'
+    'rev.empty':'Отзывы скоро появятся.','rev.more':'Читать полностью','rev.prev':'Предыдущий отзыв','rev.next':'Следующий отзыв'
   },
   en: {
     'brand.role':'tutor · languages',
@@ -96,6 +96,6 @@ const dict = {
     'foot.h.1':'Ready to','foot.h.2':'start speaking?','foot.l1':'Languages','foot.l2':'Contact',
     'foot.lang.en':'English','foot.lang.fr':'Français','foot.lang.fi':'Suomi',
     'foot.tagline':'Online · English · Français · Suomi',
-    'rev.more':'Read in full','rev.prev':'Previous review','rev.next':'Next review'
+    'rev.empty':'Reviews are coming soon.','rev.more':'Read in full','rev.prev':'Previous review','rev.next':'Next review'
   }
 };
